@@ -29,14 +29,5 @@ Log out & Log back in
 ./install-node-utils.sh
 
 
-# Update the sample code
-cd network/setup
-./update-git-repo.sh
-
-
-# Managing etc/hosts
-Update the etc/hosts
-sudo ./manage_hosts.sh
-cat /etc/hosts              << Shows the IP mapping for various components >>
 
 
