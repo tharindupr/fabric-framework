@@ -1,5 +1,4 @@
 #!/bin/bash
-# Updated : Fabric 2.x : April 2020
 
 if [ -z $SUDO_USER ]; then
     echo "Script MUST be executed with 'sudo -E'"

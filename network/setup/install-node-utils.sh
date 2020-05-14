@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installs node JS and the utilities
-# Updated : Fabric 2.x : April 2020
+
 
 echo "====== Installing the npm build tools ======"
 sudo apt update

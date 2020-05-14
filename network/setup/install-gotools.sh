@@ -1,5 +1,5 @@
 #!/bin/bash
-# Updated : Fabric 2.x : April 2020
+
 
 echo "Installing govendor....please wait"
 
