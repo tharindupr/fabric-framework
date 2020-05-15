@@ -1,6 +1,12 @@
 # Fabric 2.0
 # May 2020
 
+# how to use vagrant (If you are on Windows)
+Make sure to install Virtual Box and Vagrant
+cd into this directory.
+vagrant up
+vagrant ssh
+
 
 # 1 Open a terminal
 cd network/setup
