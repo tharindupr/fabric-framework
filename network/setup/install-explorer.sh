@@ -6,7 +6,7 @@
 docker rmi acloudfan/hlf-explorer  &>  /dev/null
 
 echo "====> Pulling image for explorer ===="
-docker pull acloudfan/hlf-explorer
+docker pull hyperledger/explorer
 
 # Remove older version if there is one
 docker rmi postgres:9.5   &>  /dev/null

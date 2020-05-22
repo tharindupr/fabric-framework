@@ -60,6 +60,5 @@ BIN_PATH=$ABS_PATH
 echo "export PATH=$PATH:$BIN_PATH:$GOPATH/bin" >> ~/.profile
 echo "export PATH=$PATH:$BIN_PATH:$GOPATH/bin" >> ~/.bashrc
 
-chmod u+x $BIN_PATH/*.sh
 
 

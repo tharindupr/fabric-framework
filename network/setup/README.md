@@ -13,17 +13,19 @@ chmod -R 755 ./*
 
 # 2 Install Pre-Requisites & Validate
 ./install-prereqs.sh 
+source ~/.profile
+source ~/.bashrc
 # Logout and Login Again (To reflect the changes to GOPATH)
 sudo ./validate-prereqs.sh
 
 
 # 3 Install the Fabric binaries & images
 sudo -E ./install-fabric.sh
-sudo ./validate-fabric.sh
+sudo ./validate-fabric.sh./
 
-# 4 Install Hyperledger Explorer tool
+<!-- # 4 Install Hyperledger Explorer tool
 ./install-explorer.sh
-sudo ./validate-explorer.sh
+sudo ./validate-explorer.sh -->
 
 # 5 Install the Go Tools
 ./install-gotools.sh

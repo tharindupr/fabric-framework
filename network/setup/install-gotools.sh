@@ -10,8 +10,3 @@ sudo find ~ -user root -exec sudo chown $USER: {} +
 # https://github.com/kardianos/govendor/wiki/Govendor-CheatSheet
 go get -u github.com/kardianos/govendor
 
-
-# echo "export PATH=$PATH:$GOPATH/bin" >> ~/.profile
-./update-git-repo.sh
-
-echo "Done. Logout and Log back in"
