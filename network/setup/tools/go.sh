@@ -19,7 +19,17 @@ rm go1.13.3.linux-amd64.tar.gz
 echo "export GOROOT=/usr/local/go" >> ~/.profile
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
 
-GOPATH=$PWD/../../gocc
+
+DIR="$PWD/../../../gocc"
+if [ -d "$DIR" ]; then
+  # Take action if $DIR exists. #
+  echo "Skipping directory creation"
+else
+    mkdir $DIR
+fi
+
+
+GOPATH=$PWD/../../../gocc
 to-absolute-path $GOPATH
 GOPATH=$ABS_PATH
 
@@ -34,6 +44,4 @@ echo "export GOCACHE=~/.go-cache" >> ~/.bashrc
 mkdir -p $GOCACHE
 chown -R $USER $GOCACHE
 
-
-i
 
