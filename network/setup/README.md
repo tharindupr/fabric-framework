@@ -5,7 +5,6 @@
 Make sure to install Virtual Box and Vagrant
 cd into this directory.
 vagrant up
-vagrant ssh
 
 
 # 1 Open a terminal
@@ -26,9 +25,6 @@ sudo -E ./install-fabric.sh
 # 5 Install the Go Tools
 ./install-gotools.sh
 
-# 6 Install Node JS - used by the utilities 
-# To use some of the utilities Node JS is needed
-./install-node-utils.sh
 
 
 

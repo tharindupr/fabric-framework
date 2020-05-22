@@ -2,7 +2,7 @@
 
 if [ -z $SUDO_USER ]; then
     echo "Script MUST be executed with 'sudo -E'"
-    echo "Abroting!!!"
+    echo "Aboring!!!"
     exit 0
 fi
 
@@ -14,7 +14,7 @@ fi
 
 SETUP_FOLDER=$PWD
 
-source ./to_absolute_path.sh
+source ./tools/to_absolute_path.sh
 
 export PATH=$PATH:$GOROOT/bin
 
@@ -42,7 +42,7 @@ cp ./fabric-samples/bin/*    /usr/local/bin
 
 
 # This downloads the shim package 
-echo "======= Setting up the HLF Shim (Takes time - get a coffee :)===="
+echo "======= Setting up the HLF Shim ===="
 go get github.com/hyperledger/fabric-chaincode-go/shim
 go get github.com/hyperledger/fabric-chaincode-go/shimtest
 
@@ -63,24 +63,3 @@ echo "export PATH=$PATH:$BIN_PATH:$GOPATH/bin" >> ~/.bashrc
 chmod u+x $BIN_PATH/*.sh
 
 
-# Update /etc/hosts
-cd $SETUP_FOLDER
-
-source    ./manage_hosts.sh
-HOSTNAME=acme-peer1.acme.com
-removehost $HOSTNAME            &> /dev/null
-addhost $HOSTNAME
-HOSTNAME=budget-peer1.budget.com
-removehost $HOSTNAME            &> /dev/null
-addhost $HOSTNAME
-HOSTNAME=orderer.acme.com
-removehost $HOSTNAME            &> /dev/null
-addhost $HOSTNAME
-HOSTNAME=postgresql
-removehost $HOSTNAME            &> /dev/null
-addhost $HOSTNAME
-HOSTNAME=explorer
-removehost $HOSTNAME            &> /dev/null
-addhost $HOSTNAME
-
-echo "Done. Logout and Log back in !!"

@@ -14,6 +14,3 @@ function to-absolute-path {
        export ABS_PATH="$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
     fi
 }
-
-# to-absolute-path $1
-# echo $ABS_PATH

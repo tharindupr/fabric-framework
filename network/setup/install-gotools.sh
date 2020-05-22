@@ -10,8 +10,6 @@ sudo find ~ -user root -exec sudo chown $USER: {} +
 # https://github.com/kardianos/govendor/wiki/Govendor-CheatSheet
 go get -u github.com/kardianos/govendor
 
-# Install the package for the protocol
-# ./install-protoc.sh
 
 # echo "export PATH=$PATH:$GOPATH/bin" >> ~/.profile
 ./update-git-repo.sh

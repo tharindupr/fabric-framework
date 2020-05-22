@@ -26,7 +26,6 @@ install_docker() {
 }
 
 
-
 # Install docker
 install_docker
 
@@ -34,6 +33,4 @@ service docker restart
 systemctl daemon-reload
 systemctl restart docker
 
-echo "======= Done. PLEASE LOG OUT & LOG Back In ===="
-echo "Then validate by executing    'docker info'"
 
