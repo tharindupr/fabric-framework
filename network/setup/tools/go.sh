@@ -15,28 +15,25 @@ tar -xf go1.13.3.linux-amd64.tar.gz --checkpoint --checkpoint-action=$act -C /us
 rm go1.13.3.linux-amd64.tar.gz
 
 # If GOROOT already set then DO Not set it again
-if [ -z $GOROOT ]
-then
-    echo "export GOROOT=/usr/local/go" >> ~/.profile
-    echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
 
-    GOPATH=$PWD/../../gocc
-    to-absolute-path $GOPATH
-    GOPATH=$ABS_PATH
+echo "export GOROOT=/usr/local/go" >> ~/.profile
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
 
-    echo "export GOPATH=$GOPATH" >> ~/.profile
-    echo "======== Updated .profile with GOROOT/GOPATH/PATH===="
+GOPATH=$PWD/../../gocc
+to-absolute-path $GOPATH
+GOPATH=$ABS_PATH
 
-    echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-    echo "export GOPATH=$GOPATH" >> ~/.bashrc
-    echo "======== Updated .profile with GOROOT/GOPATH/PATH===="
+echo "export GOPATH=$GOPATH" >> ~/.profile
+echo "======== Updated .profile with GOROOT/GOPATH/PATH===="
 
-    echo "export GOCACHE=~/.go-cache" >> ~/.bashrc
-    mkdir -p $GOCACHE
-    chown -R $USER $GOCACHE
+echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+echo "export GOPATH=$GOPATH" >> ~/.bashrc
+echo "======== Updated .profile with GOROOT/GOPATH/PATH===="
+
+echo "export GOCACHE=~/.go-cache" >> ~/.bashrc
+mkdir -p $GOCACHE
+chown -R $USER $GOCACHE
 
 
-else
-    echo "======== No Change made to .profile ====="
-fi
+i
 
