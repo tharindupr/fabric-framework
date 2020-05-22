@@ -10,9 +10,9 @@ fi
 # Install JQ
 sudo apt-get install -y jq
 
-sudo ./docker.sh    
-sudo ./compose.sh   
-sudo -E ./go.sh     
-sudo ./node.sh
+sudo ./tools/docker.sh    
+sudo ./tools/compose.sh   
+sudo -E ./tools/go.sh     
+sudo ./tools/node.sh
 
 

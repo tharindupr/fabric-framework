@@ -7,8 +7,9 @@ cd into this directory.
 vagrant up
 
 
-# 1 Open a terminal
+# 1 Open a terminal and give execute permissions
 cd network/setup
+chmod -R 755 ./*
 
 # 2 Install Pre-Requisites & Validate
 ./install-prereqs.sh
