@@ -9,7 +9,7 @@ chmod -R 755 ./*       <br/>
 # 2. Starting the network 
 ./init_dev_env.sh       <br/>
 
-# 2 Checking the status of Docker containers
+# 3. Checking the status of Docker containers
 docker ps               <br/>
 
 
