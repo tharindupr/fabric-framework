@@ -7,12 +7,20 @@ DIR="$(dirname $DIR)"
 export FABRIC_LOGGING_SPEC=INFO
 export FABRIC_CFG_PATH=$DIR/../config
 
+
+# Removing previous assets
+echo    '================ Removing previous Assets================'
+rm -r ../config/*.tx
+rm -r ../crypto/*
+
+
+echo    '================Generating the Crypto Assets================'
 cryptogen generate --config=../config/crypto-config.yaml --output=../crypto/crypto-config
 
 
 
 # Create the Genesis Block
-echo    '================ Writing Genesis Block ================'
+echo    '================ Generating the Genesis Block ================'
 GENESIS_BLOCK=$DIR/../config/digiblocks-genesis.block
 ORDERER_CHANNEL_ID=ordererchannel
 CONFIGTX_PATH=$DIR/../config/
@@ -22,7 +30,7 @@ configtxgen -profile DigiBlocksOdererGenesis -configPath $CONFIGTX_PATH -channel
 
 
 
-echo    '================ Writing DigiBlocks Channel ================'
+echo    '================ Generating the DigiBlocks Channel Artifacts ================'
 CHANNEL_ID=digiblockschannel
 CHANNEL_CREATE_TX=$DIR/../config/digiblocks-channel.tx
 configtxgen -profile DigiBlocksChannel -configPath $CONFIGTX_PATH -outputCreateChannelTx $CHANNEL_CREATE_TX -channelID $CHANNEL_ID
