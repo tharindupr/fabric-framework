@@ -1,0 +1,323 @@
+# configtx
+
+#   CAPABILITIES
+Capabilities:
+  Application: &ApplicationCapabilities
+    V2_0: true
+  Orderer: &OrdererCapabilities
+    V2_0: true
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+
+# ORGANIZATIONS
+Organizations:
+  - &Orderer
+    Name: OrdererMSP
+    SkipAsForeign: false
+    ID: OrdererMSP
+    MSPDir: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/msp
+    Policies: &OrdererPolicies
+      Readers:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')"
+      Writers:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')"
+      Admins:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('OrdererMSP.member')" 
+
+  - &Digi-01
+    Name: Digi-01MSP
+    ID: Digi-01
+    MSPDir: ../crypto/crypto-config/peerOrganizations/digi-01.com/msp
+    Policies: &Digi-01Policies
+      Readers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.peer', 'AcmeMSP.client')"
+          Rule: "OR('Digi-01.member')"
+      Writers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.client')"
+          Rule: "OR('Digi-01.member')"
+      Admins:
+          Type: Signature
+          # UPDATE: Dec 15, 2019 - This is a dev env so its OK in Prod ... use AcmeMSP.admin
+          Rule: "OR('Digi-01.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('Digi-01.member')"
+    AnchorPeers:
+      - Host: digi01-peer1.digi-01.com
+        Port: 1051
+
+
+  - &Digi-02
+    Name: Digi-02MSP
+    ID: Digi-02
+    MSPDir: ../crypto/crypto-config/peerOrganizations/digi-02.com/msp
+    Policies: &Digi-02Policies
+      Readers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.peer', 'AcmeMSP.client')"
+          Rule: "OR('Digi-02.member')"
+      Writers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.client')"
+          Rule: "OR('Digi-02.member')"
+      Admins:
+          Type: Signature
+          # UPDATE: Dec 15, 2019 - This is a dev env so its OK in Prod ... use AcmeMSP.admin
+          Rule: "OR('Digi-02.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('Digi-02.member')"
+    AnchorPeers:
+      - Host: digi02-peer1.digi-02.com
+        Port: 2051
+
+
+  - &Digi-03
+    Name: Digi-03MSP
+    ID: Digi-03
+    MSPDir: ../crypto/crypto-config/peerOrganizations/digi-03.com/msp
+    Policies: &Digi-03Policies
+      Readers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.peer', 'AcmeMSP.client')"
+          Rule: "OR('Digi-03.member')"
+      Writers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.client')"
+          Rule: "OR('Digi-03.member')"
+      Admins:
+          Type: Signature
+          # UPDATE: Dec 15, 2019 - This is a dev env so its OK in Prod ... use AcmeMSP.admin
+          Rule: "OR('Digi-03.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('Digi-03.member')"
+    AnchorPeers:
+      - Host: digi03-peer1.digi-03.com
+        Port: 3051
+
+  - &Digi-04
+    Name: Digi-04MSP
+    ID: Digi-04
+    MSPDir: ../crypto/crypto-config/peerOrganizations/digi-04.com/msp
+    Policies: &Digi-04Policies
+      Readers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.peer', 'AcmeMSP.client')"
+          Rule: "OR('Digi-04.member')"
+      Writers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.client')"
+          Rule: "OR('Digi-04.member')"
+      Admins:
+          Type: Signature
+          # UPDATE: Dec 15, 2019 - This is a dev env so its OK in Prod ... use AcmeMSP.admin
+          Rule: "OR('Digi-04.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('Digi-04.member')"
+    AnchorPeers:
+      - Host: digi04-peer1.digi-04.com
+        Port: 4051
+  
+  - &Digi-05
+    Name: Digi-05MSP
+    ID: Digi-05
+    MSPDir: ../crypto/crypto-config/peerOrganizations/digi-05.com/msp
+    Policies: &Digi-05Policies
+      Readers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.peer', 'AcmeMSP.client')"
+          Rule: "OR('Digi-05.member')"
+      Writers:
+          Type: Signature
+        #   Rule: "OR('AcmeMSP.admin', 'AcmeMSP.client')"
+          Rule: "OR('Digi-05.member')"
+      Admins:
+          Type: Signature
+          # UPDATE: Dec 15, 2019 - This is a dev env so its OK in Prod ... use AcmeMSP.admin
+          Rule: "OR('Digi-05.member')"
+      Endorsement:
+          Type: Signature
+          Rule: "OR('Digi-05.member')"
+    AnchorPeers:
+      - Host: digi05-peer1.digi-05.com
+        Port: 5051
+
+
+
+#   ORDERER
+Orderer: &OrdererDefaults
+
+  OrdererType: etcdraft
+
+  Addresses:
+    - orderer0.digiblocks.com:7050
+    - orderer1.digiblocks.com:7050
+    - orderer2.digiblocks.com:7050
+
+  EtcdRaft:
+        Consenters:
+        - Host: orderer0.digiblocks.com
+          Port: 1050
+          ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer0.digiblocks.com/tls/server.crt
+          ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer0.digiblocks.com/tls/server.crt
+        - Host: orderer1.digiblocks.com
+          Port: 2050
+          ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer1.digiblocks.com/tls/server.crt
+          ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer1.digiblocks.com/tls/server.crt
+        - Host: orderer2.digiblocks.com
+          Port: 3050
+          ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls/server.crt
+          ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls/server.crt
+
+  # Policies for Orderer
+  Policies:
+    Readers:
+        Type: ImplicitMeta
+        Rule: "ANY Readers"
+    Writers:
+        Type: ImplicitMeta
+        Rule: "ANY Writers"
+    Admins:
+        Type: ImplicitMeta  
+        # UPDATED December 15, 2019
+        Rule: "ANY Admins"
+        # Rule: "MAJORITY Admins"
+
+    # BlockValidation specifies what signatures must be included in the block
+    # from the orderer for the peer to validate it.
+    BlockValidation:
+        Type: ImplicitMeta
+        Rule: "ANY Writers"
+
+  # Batch Timeout: The amount of time to wait before creating a batch
+  BatchTimeout: 2s
+
+  # Batch Size: Controls the number of messages batched into a block
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 98 MB
+    PreferredMaxBytes: 512 KB
+
+  Capabilities:
+    <<: *OrdererCapabilities
+
+
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Application policies, their canonical path is
+    #   /Channel/Application/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+
+#   CHANNEL
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+        Type: ImplicitMeta
+        Rule: "ANY Readers"
+    Writers:
+        Type: ImplicitMeta
+        Rule: "ANY Writers"
+    Admins:
+        Type: ImplicitMeta
+        # UPDATED December 15, 2019
+        # Rule: "MAJORITY Admins"
+        Rule: "ANY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+
+#   PROFILES
+Profiles:
+
+  DigiBlocksOdererGenesis:
+      <<: *ChannelDefaults
+
+      Orderer:
+        <<: *OrdererDefaults
+        OrdererType: etcdraft
+        Addresses:
+          - orderer0.digiblocks.com:7050
+          - orderer1.digiblocks.com:7050
+          - orderer2.digiblocks.com:7050
+
+        EtcdRaft:
+          Consenters:
+            - Host: orderer0.digiblocks.com
+              Port: 1050
+              ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer0.digiblocks.com/tls/server.crt
+              ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer0.digiblocks.com/tls/server.crt
+            - Host: orderer1.digiblocks.com
+              Port: 2050
+              ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer1.digiblocks.com/tls/server.crt
+              ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer1.digiblocks.com/tls/server.crt
+            - Host: orderer2.digiblocks.com
+              Port: 3050
+              ClientTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls/server.crt
+              ServerTLSCert: ../crypto/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls/server.crt
+
+        Organizations:
+          - *Orderer
+      
+      Application:
+            <<: *ApplicationDefaults
+
+            Organizations:
+              - <<: *Digi-01
+              - <<: *Digi-02
+              - <<: *Digi-03
+              - <<: *Digi-04
+              - <<: *Digi-05
+              
+      Consortiums:
+        DigiBlocksConsortium:
+            Organizations:
+              - <<: *Digi-01
+              - <<: *Digi-02
+              - <<: *Digi-03
+              - <<: *Digi-04
+              - <<: *Digi-05
+  
+  DigiBlocksChannel:
+    <<: *ChannelDefaults
+    Consortium: DigiBlocksConsortium
+
+    Application:
+            <<: *ApplicationDefaults
+
+            Organizations:
+              - *Digi-01
+              - *Digi-02
+              - *Digi-03
+              - *Digi-04
+              - *Digi-05
+
