@@ -8,20 +8,20 @@ vagrant up
 
 
 # 1 Open a terminal and give execute permissions
-cd network/setup
-chmod -R 755 ./*
+cd network/setup  <br/>
+chmod -R 755 ./*  <br/>
 
 # 2 Install Pre-Requisites & Validate
-./install-prereqs.sh 
-source ~/.profile
-source ~/.bashrc
+./install-prereqs.sh  <br/>
+source ~/.profile  <br/>
+source ~/.bashrc   <br/>
 # Logout and Login Again (To reflect the changes to GOPATH)
 sudo ./validate-prereqs.sh
 
 
 # 3 Install the Fabric binaries & images
-sudo -E ./install-fabric.sh
-sudo ./validate-fabric.sh./
+sudo -E ./install-fabric.sh  <br/>
+sudo ./validate-fabric.sh./  <br/>
 
 <!-- # 4 Install Hyperledger Explorer tool
 ./install-explorer.sh
