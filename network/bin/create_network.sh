@@ -7,7 +7,7 @@ DIR="$(dirname $DIR)"
 export FABRIC_LOGGING_SPEC=INFO
 export FABRIC_CFG_PATH=$DIR/../config
 
-cryptogen generate --config=./crypto-config.yaml --output=../crypto/crypto-config
+cryptogen generate --config=../config/crypto-config.yaml --output=../crypto/crypto-config
 
 
 

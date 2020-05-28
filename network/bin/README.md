@@ -2,8 +2,8 @@
 # May 2020
 
 # 1. Creating the Crypto assets
-
-./create_networj.sh
+chmod -R 755 ./*
+./create_network.sh
 
 
 # 2. Starting the network 
