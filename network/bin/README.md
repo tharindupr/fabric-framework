@@ -12,5 +12,12 @@ chmod -R 755 ./*       <br/>
 # 3. Checking the status of Docker containers
 docker ps               <br/>
 
-
 ## Seven containers should be running. 
+
+# 4. Creating the channel and connecting Peers to the Channel
+./create_channel.sh   <br/>
+
+
+
+## check logs of the containers 
+./collect_logs.sh

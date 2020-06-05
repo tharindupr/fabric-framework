@@ -161,9 +161,9 @@ Orderer: &OrdererDefaults
   OrdererType: etcdraft
 
   Addresses:
-    - orderer0.digiblocks.com:7050
-    - orderer1.digiblocks.com:7050
-    - orderer2.digiblocks.com:7050
+    - orderer0.digiblocks.com:1050
+    - orderer1.digiblocks.com:2050
+    - orderer2.digiblocks.com:3050
 
   EtcdRaft:
         Consenters:
@@ -266,9 +266,9 @@ Profiles:
         <<: *OrdererDefaults
         OrdererType: etcdraft
         Addresses:
-          - orderer0.digiblocks.com:7050
-          - orderer1.digiblocks.com:7050
-          - orderer2.digiblocks.com:7050
+          - orderer0.digiblocks.com:1050
+          - orderer1.digiblocks.com:2050
+          - orderer2.digiblocks.com:3050
 
         EtcdRaft:
           Consenters:

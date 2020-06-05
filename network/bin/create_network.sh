@@ -30,7 +30,7 @@ configtxgen -profile DigiBlocksOdererGenesis -configPath $CONFIGTX_PATH -channel
 
 
 
-echo    '================ Generating the DigiBlocks Channel Artifacts ================'
+echo    '================ Generate channel configuration block ================'
 CHANNEL_ID=digiblockschannel
 CHANNEL_CREATE_TX=$DIR/../config/digiblocks-channel.tx
 configtxgen -profile DigiBlocksChannel -configPath $CONFIGTX_PATH -outputCreateChannelTx $CHANNEL_CREATE_TX -channelID $CHANNEL_ID
@@ -38,19 +38,19 @@ configtxgen -profile DigiBlocksChannel -configPath $CONFIGTX_PATH -outputCreateC
 
 echo    '================ Generate the anchor Peer updates ======'
 
-ANCHOR_UPDATE_TX=$DIR/../config/digiblocks-anchor-update-digi-01.tx
+ANCHOR_UPDATE_TX=$DIR/../config/Digi-01MSPanchors.tx
 configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-01MSP
 
-ANCHOR_UPDATE_TX=$DIR/../config/digiblocks-anchor-update-digi-02.tx
+ANCHOR_UPDATE_TX=$DIR/../config/Digi-02MSPanchors.tx
 configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-02MSP
 
-ANCHOR_UPDATE_TX=$DIR/../config/digiblocks-anchor-update-digi-03.tx
+ANCHOR_UPDATE_TX=$DIR/../config/Digi-03MSPanchors.tx
 configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-03MSP
 
-ANCHOR_UPDATE_TX=$DIR/../config/digiblocks-anchor-update-digi-04.tx
+ANCHOR_UPDATE_TX=$DIR/../config/Digi-04MSPanchors.tx
 configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-04MSP
 
-ANCHOR_UPDATE_TX=$DIR/../config/digiblocks-anchor-update-digi-05.tx
+ANCHOR_UPDATE_TX=$DIR/../config/Digi-05MSPanchors.tx
 configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-05MSP
 
 
