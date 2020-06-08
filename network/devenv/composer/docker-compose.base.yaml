@@ -19,7 +19,7 @@ services:
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-tls/tlsca.digi-01.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-tls/priv_sk
     ports:
-      - "1054:1054"
+      - "7054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ./../../crypto/crypto-config/peerOrganizations/digi-01.com/ca/:/etc/hyperledger/fabric-ca-server-config
@@ -39,7 +39,7 @@ services:
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-tls/tlsca.digi-02.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-tls/priv_sk
     ports:
-      - "2054:2054"
+      - "8054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ./../../crypto/crypto-config/peerOrganizations/digi-02.com/ca/:/etc/hyperledger/fabric-ca-server-config
@@ -70,7 +70,7 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=1050
+      - ORDERER_GENERAL_LISTENPORT=7050
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
@@ -80,7 +80,7 @@ services:
       #- ../../config:/var/hyperledger/config
       #- ${HOME}/ledgers/orderer0.digiblocks.com:/var/ledger
     ports:
-      - 1050:1050
+      - 7050:7050
       - 8443:8443
     networks:
       - digiblocks
@@ -105,7 +105,7 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=2050
+      - ORDERER_GENERAL_LISTENPORT=8050
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
@@ -115,7 +115,7 @@ services:
       #- ../../config:/var/hyperledger/config
       #- ${HOME}/ledgers/orderer0.digiblocks.com:/var/ledger
     ports:
-      - 2050:2050
+      - 8050:8050
       - 8444:8443
     networks:
       - digiblocks
@@ -140,7 +140,7 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=3050
+      - ORDERER_GENERAL_LISTENPORT=9050
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     volumes:
@@ -150,7 +150,7 @@ services:
       #- ../../config:/var/hyperledger/config
       #- ${HOME}/ledgers/orderer0.digiblocks.com:/var/ledger
     ports:
-      - 3050:3050
+      - 9050:9050
       - 8445:8443
     networks:
       - digiblocks
@@ -172,7 +172,7 @@ services:
       container_name: couchdb1
       image: hyperledger/fabric-couchdb
       environment:
-        DB_URL: http://localhost:5984/member_db
+        DB_URL: http://localhost:6984/member_db
         # - COUCHDB_USER=
         # - COUCHDB_PASSWORD=
       ports:
@@ -195,13 +195,13 @@ services:
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
 
       - CORE_PEER_ID=peer0.digi-01.com
-      - CORE_PEER_ADDRESS=peer0.digi-01.com:1051
+      - CORE_PEER_ADDRESS=peer0.digi-01.com:7051
       # - CORE_PEER_ADDRESS=localhost:7051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:1051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.digi-01.com:1052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:1052
-      #- CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.example.com:8051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.digi-01.com:1051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.digi-01.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      #- CORE_PEER_GOSSIP_BOOTSTRAP=peer1.digi-01.com:8051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.digi-01.com:7051
 
       # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
 
@@ -231,7 +231,7 @@ services:
       #- couchdb0
       - orderer0.digiblocks.com
     ports:
-      - 1051:1051
+      - 7051:7051
 
     networks:
       - digiblocks
@@ -250,13 +250,13 @@ services:
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
 
       - CORE_PEER_ID=peer0.digi-02.com
-      - CORE_PEER_ADDRESS=peer0.digi-02.com:2051
+      - CORE_PEER_ADDRESS=peer0.digi-02.com:8051
       # - CORE_PEER_ADDRESS=localhost:7051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:2051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.digi-02.com:2052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:2052
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.digi-02.com:8052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
       #- CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.example.com:8051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.digi-02.com:2051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.digi-02.com:8051
 
       # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
 
@@ -286,7 +286,7 @@ services:
       #- couchdb1
       - orderer0.digiblocks.com
     ports:
-      - 2051:2051
+      - 8051:8051
 
     networks:
       - digiblocks
