@@ -10,4 +10,4 @@ docker rm $(docker ps -a -q)
 
 
 echo    '================ Starting the Docker Instances ================'
-docker-compose -f $DIR/../devenv/composer/docker-compose.base.yaml up
+docker-compose -f $DIR/../devenv/docker-compose.base.yaml up
