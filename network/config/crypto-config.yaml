@@ -3,7 +3,7 @@ OrdererOrgs:
   # Orderer
   # ---------------------------------------------------------------------------
   - Name: Orderer
-    Domain: example.com
+    Domain: digiblocks.com
     EnableNodeOUs: true
 
     # ---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ PeerOrgs:
   # Org1
   # ---------------------------------------------------------------------------
   - Name: Org1
-    Domain: org1.example.com
+    Domain: org1.digiblocks.com
     EnableNodeOUs: true
 
     Template:
@@ -45,7 +45,7 @@ PeerOrgs:
       Count: 1
 
   - Name: Org2
-    Domain: org2.example.com
+    Domain: org2.digiblocks.com
     EnableNodeOUs: true
 
     Template:
@@ -57,6 +57,52 @@ PeerOrgs:
 
     Users:
       Count: 1
+
+
+  - Name: Org3
+    Domain: org3.digiblocks.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
+
+  - Name: Org4
+    Domain: org4.digiblocks.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
+
+  - Name: Org5
+    Domain: org5.digiblocks.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+
 
 
   
