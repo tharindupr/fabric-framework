@@ -54,12 +54,7 @@ createChannel(){
     --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 }
 
-removeOldCrypto(){
-    rm -rf ./api-1.4/crypto/*
-    rm -rf ./api-1.4/fabric-client-kv-org1/*
-    rm -rf ./api-2.0/org1-wallet/*
-    rm -rf ./api-2.0/org2-wallet/*
-}
+
 
 
 joinChannel(){
@@ -88,6 +83,6 @@ updateAnchorPeers(){
 
 # removeOldCrypto
 
-#createChannel
-#joinChannel
+createChannel
+joinChannel
 updateAnchorPeers

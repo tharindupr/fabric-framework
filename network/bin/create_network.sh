@@ -4,8 +4,9 @@ export FABRIC_LOGGING_SPEC=INFO
 
 # Removing previous assets
 echo    '================ Removing previous Assets================'
-rm -r ../config/*.tx
-rm -r ../crypto/*
+rm -r ./../config/*.tx
+rm -r ./../config/*.block
+rm -r ./../config/crypto-config/*
 
 
 echo    '================Generating the Crypto Assets================'
