@@ -1,5 +1,4 @@
-# Fabric 2.0
-# May 2020
+#### Fabric 2.0
 
 
 # Setting Up the network
@@ -25,6 +24,9 @@ docker ps               <br/>
 
 ### check logs of the containers 
 ./collect_logs.sh
+
+
+#Deploying the Chaincodes
 
 ## 5. Getting dependecies and packaging the chain code 
 ./package_chaincode.sh
