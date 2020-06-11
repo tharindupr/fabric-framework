@@ -7,7 +7,7 @@ if [ -z $SUDO_USER ]; then
 fi
 
 if [ -z $GOPATH ]; then
-    echo "GOPATH not set!!! You must use 'sudo -E ./install-fabric.sh'"
+    echo "GOPATH not set!!!  Please set the Go Path"
     echo "Aborting!!!"
     exit 0
 fi
