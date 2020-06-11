@@ -26,7 +26,7 @@ docker ps               <br/>
 ./collect_logs.sh
 
 
-#Deploying the Chaincodes
+# Deploying the Chaincodes
 
 ## 5. Getting dependecies and packaging the chain code 
 ./package_chaincode.sh
