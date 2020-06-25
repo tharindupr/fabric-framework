@@ -23,7 +23,8 @@ docker ps               <br/>
 
 
 ## 5. Start HyperLedger Explorer
-./start_explorer.sh
+./start_explorer.sh  <br/>
+Access the HLF Exploerer on port 8090
 
 
 ### check logs of the containers 
