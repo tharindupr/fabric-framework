@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"strconv"
 	"time"
-
 	"github.com/hyperledger/fabric-chaincode-go/shim"
 	sc "github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric/common/flogging"
@@ -46,31 +45,6 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 	logger.Infof("Function name is:  %d", function)
 	logger.Infof("Args length is : %d", len(args))
 
-	// if function == "queryCar" {
-	// 	return s.queryCar(APIstub, args)
-	// } else if function == "initLedger" {
-	// 	return s.initLedger(APIstub)
-	// } else if function == "createCar" {
-	// 	return s.createCar(APIstub, args)
-	// } else if function == "queryAllCars" {
-	// 	return s.queryAllCars(APIstub)
-	// } else if function == "changeCarOwner" {
-	// 	return s.changeCarOwner(APIstub, args)
-	// } else if function == "getHistoryForAsset" {
-	// 	return s.getHistoryForAsset(APIstub, args)
-	// } else if function == "queryCarsByOwner" {
-	// 	return s.queryCarsByOwner(APIstub, args)
-	// } else if function == "restictedMethod" {
-	// 	return s.restictedMethod(APIstub, args)
-	// } else if function == "test" {
-	// 	return s.test(APIstub, args)
-	// } else if function == "createPrivateCar" {
-	// 	return s.createPrivateCar(APIstub, args)
-	// } else if function == "readPrivateCar" {
-	// 	return s.readPrivateCar(APIstub, args)
-	// } else if function == "readCarPrivateDetails" {
-	// 	return s.readCarPrivateDetails(APIstub, args)
-	// }
 
 	switch function {
 	case "queryCar":

@@ -21,7 +21,7 @@ sudo ./validate-prereqs.sh
 
 # 3 Install the Fabric binaries & images
 sudo -E ./install-fabric.sh  <br/>
-sudo ./validate-fabric.sh./  <br/>
+sudo ./validate-fabric.sh  <br/>
 
 <!-- # 4 Install Hyperledger Explorer tool
 ./install-explorer.sh

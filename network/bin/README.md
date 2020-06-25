@@ -11,10 +11,11 @@ chmod -R 755 ./*       <br/>
 ## 2. Starting the network 
 ./init_dev_env.sh       <br/>
 
+
 ## 3. Checking the status of Docker containers
 docker ps               <br/>
 
-#### Nine containers should be running. 
+#### Thirteen containers should be running. 
 
 ## 4. Creating the channel and connecting Peers to the Channel
 #### open another ssh connection or terminal to the host machine. And then execute following command. 
@@ -26,7 +27,7 @@ docker ps               <br/>
 ./collect_logs.sh
 
 
-# Deploying the Chaincodes
+# Deploying the Chaincodes 
 
 ## 5. Getting dependecies and packaging the chain code 
 ./package_chaincode.sh
@@ -39,3 +40,5 @@ docker ps               <br/>
 
 ## 9. Committing the chaincode on two orgs
 ./commit_chaincode.sh
+
+## Learn more on the Chaincode lifecyle : <a href="https://hyperledger-fabric.readthedocs.io/en/release-2.0/chaincode_lifecycle.html#fabric-chaincode-lifecycle"> Here </a>

@@ -19,7 +19,7 @@ install_docker() {
     apt-get update
     apt-get install -y "docker-ce=${DOCKER_VERSION}.*"
     # apt-get install -y "docker-ce"
-    docker info
+        docker info
     # usermod -aG docker vagrant
     echo "======= Adding $SUDO_USER to the docker group ======="
     usermod -aG docker $SUDO_USER
