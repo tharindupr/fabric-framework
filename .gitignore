@@ -3,3 +3,7 @@
 *.pem
 *cert
 *key
+gocc/*
+network/bin/logs/*
+network/config/crypto-config/*
+.vagrant/*

@@ -22,6 +22,9 @@ docker ps               <br/>
 ./create_channel.sh   <br/>
 
 
+## 5. Start HyperLedger Explorer
+./start_explorer.sh
+
 
 ### check logs of the containers 
 ./collect_logs.sh
@@ -29,16 +32,26 @@ docker ps               <br/>
 
 # Deploying the Chaincodes 
 
-## 5. Getting dependecies and packaging the chain code 
+## 6. Getting dependecies and packaging the chain code 
 ./package_chaincode.sh
 
-## 6. Installing chaincode on two orgs
+## 7. Installing chaincode on two orgs
 ./install_chaincode.sh
 
-## 7. Aproving the chaincode on two orgs
+## 8. Aproving the chaincode on two orgs
 ./approve_chaincode.sh
 
 ## 9. Committing the chaincode on two orgs
 ./commit_chaincode.sh
 
-## Learn more on the Chaincode lifecyle : <a href="https://hyperledger-fabric.readthedocs.io/en/release-2.0/chaincode_lifecycle.html#fabric-chaincode-lifecycle"> Here </a>
+### Learn more on the Chaincode lifecyle : <a href="https://hyperledger-fabric.readthedocs.io/en/release-2.0/chaincode_lifecycle.html#fabric-chaincode-lifecycle"> Here </a>
+
+# Invoking the Chaincodes 
+
+## 10. Invoking the init function of the installed chaincode. 
+./invoke_init.sh
+
+
+## 11. Using Invoke function of the installed chaincode. 
+./invoke_chaincode.sh
+
