@@ -1,8 +1,12 @@
 . ./set_env.sh --source-only
 
+# Arguments should be the directory to the chaincode source and chaincode name
+# Eg: 
+# ./package_chaincode.sh "./../../gocc/src/github.com/tharindupr/fabcar" "fabcar"
+
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../gocc/src/github.com/tharindupr/fabcar/
+    pushd $1
     GO111MODULE=on go mod vendor
     popd
     echo Finished vendoring Go dependencies
@@ -12,8 +16,10 @@ presetup() {
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_SRC_PATH="./../../gocc/src/github.com/tharindupr/fabcar"
-CC_NAME="fabcar"
+CC_SRC_PATH=$1
+
+#"./../../gocc/src/github.com/tharindupr/fabcar"
+CC_NAME=$2
 
 packageChaincode() {
     rm -rf ${CC_NAME}.tar.gz
@@ -47,5 +53,5 @@ installChaincode() {
 
 
 
-#presetup
+presetup $1
 packageChaincode

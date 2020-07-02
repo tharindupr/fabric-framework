@@ -1,6 +1,9 @@
 . ./set_env.sh --source-only
 
-
+CHANNEL_NAME="mychannel"
+CC_RUNTIME_LANGUAGE="golang"
+VERSION="1"
+CC_NAME=$1
 
 chaincodeInvokeInit() {
     setGlobalsForPeer0Org1

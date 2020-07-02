@@ -7,3 +7,4 @@ gocc/*
 network/bin/logs/*
 network/config/crypto-config/*
 .vagrant/*
+api/node_modules/*

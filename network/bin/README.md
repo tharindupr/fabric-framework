@@ -50,9 +50,33 @@ Access the HLF Exploerer on port 8090
 # Invoking the Chaincodes 
 
 ## 10. Invoking the init function of the installed chaincode. 
-./invoke_init.sh
+./invoke_init.sh [chaincodename]
 
 
 ## 11. Using Invoke function of the installed chaincode. 
-./invoke_chaincode.sh
+./invoke_chaincode.sh [chaincodename] <br>
+Make sure you set the the necesory arguments required
+
+
+
+# Quick Network Dev Env
+
+## Restart the HLF network
+./restart_dev_env.sh <br>
+
+## Deploy Subject Contract
+./deploy_chaincode_subjectcontract.sh
+
+This will start all the containers + create the channel
+
+
+
+# Start client application
+
+## Change Directory to api (If you are in bin)
+cd ../../api
+
+## Start the node API
+node app.js
+
 

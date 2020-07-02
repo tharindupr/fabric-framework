@@ -4,7 +4,6 @@ export PEER0_ORG1_CA=${PWD}/../config/crypto-config/peerOrganizations/org1.digib
 export PEER0_ORG2_CA=${PWD}/../config/crypto-config/peerOrganizations/org2.digiblocks.com/peers/peer0.org2.digiblocks.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../config/
 
-export PRIVATE_DATA_CONFIG=${PWD}/../../gocc/src/github.com/tharindupr/fabcar/collections_config.json
 
 export CHANNEL_NAME=mychannel
 
@@ -47,8 +46,8 @@ setGlobalsForPeer1Org2(){
 }
 
 
-CHANNEL_NAME="mychannel"
-CC_RUNTIME_LANGUAGE="golang"
-VERSION="1"
-CC_SRC_PATH="./../../gocc/src/github.com/tharindupr/fabcar"
-CC_NAME="fabcar"
+# CHANNEL_NAME="mychannel"
+# CC_RUNTIME_LANGUAGE="golang"
+# VERSION="1"
+# CC_SRC_PATH="./../../gocc/src/github.com/tharindupr/fabcar"
+# CC_NAME="fabcar"

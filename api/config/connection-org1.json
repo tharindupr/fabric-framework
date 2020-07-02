@@ -1,0 +1,63 @@
+{
+    "name": "digiblocks-org1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.org1.digiblocks.com",
+                "peer1.org1.digiblocks.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org1.digiblocks.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.org1.digiblocks.com": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICZDCCAgqgAwIBAgIRANe3aTAgmP7v3s6y3efnwb4wCgYIKoZIzj0EAwIwfDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHDAaBgNVBAoTE29yZzEuZGlnaWJsb2Nrcy5jb20xIjAgBgNVBAMT\nGXRsc2NhLm9yZzEuZGlnaWJsb2Nrcy5jb20wHhcNMjAwNjMwMTYyODAwWhcNMzAw\nNjI4MTYyODAwWjB8MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEW\nMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5kaWdpYmxvY2tz\nLmNvbTEiMCAGA1UEAxMZdGxzY2Eub3JnMS5kaWdpYmxvY2tzLmNvbTBZMBMGByqG\nSM49AgEGCCqGSM49AwEHA0IABFtI41O379n7RQywwu7m+fnqb49dFPD4rtxR4mNF\nPLNjFzJlc2lr++pWHGXGVHPhOl5bgU6AbRB11KvGv53LI+2jbTBrMA4GA1UdDwEB\n/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/\nBAUwAwEB/zApBgNVHQ4EIgQghBOPOtkEPqow9YRZH4jFeT+E8/SrZXJ9sYlt3iJh\nfq8wCgYIKoZIzj0EAwIDSAAwRQIhAMmefdaMj8kGINIPDn86hecGPVB2C1dmG/4X\nP/zDIQ32AiB4ohXLDGDYgN+77HSBjz0cfXLY4ki98Nbad/apkZsMSQ==\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org1.digiblocks.com",
+                "hostnameOverride": "peer0.org1.digiblocks.com"
+            }
+        },
+        "peer1.org1.digiblocks.com": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICZDCCAgqgAwIBAgIRANe3aTAgmP7v3s6y3efnwb4wCgYIKoZIzj0EAwIwfDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHDAaBgNVBAoTE29yZzEuZGlnaWJsb2Nrcy5jb20xIjAgBgNVBAMT\nGXRsc2NhLm9yZzEuZGlnaWJsb2Nrcy5jb20wHhcNMjAwNjMwMTYyODAwWhcNMzAw\nNjI4MTYyODAwWjB8MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEW\nMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5kaWdpYmxvY2tz\nLmNvbTEiMCAGA1UEAxMZdGxzY2Eub3JnMS5kaWdpYmxvY2tzLmNvbTBZMBMGByqG\nSM49AgEGCCqGSM49AwEHA0IABFtI41O379n7RQywwu7m+fnqb49dFPD4rtxR4mNF\nPLNjFzJlc2lr++pWHGXGVHPhOl5bgU6AbRB11KvGv53LI+2jbTBrMA4GA1UdDwEB\n/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/\nBAUwAwEB/zApBgNVHQ4EIgQghBOPOtkEPqow9YRZH4jFeT+E8/SrZXJ9sYlt3iJh\nfq8wCgYIKoZIzj0EAwIDSAAwRQIhAMmefdaMj8kGINIPDn86hecGPVB2C1dmG/4X\nP/zDIQ32AiB4ohXLDGDYgN+77HSBjz0cfXLY4ki98Nbad/apkZsMSQ==\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org1.digiblocks.com",
+                "hostnameOverride": "peer1.org1.digiblocks.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org1.digiblocks.com": {
+            "url": "https://localhost:7054",
+            "caName": "ca.org1.digiblocks.com",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICZDCCAgqgAwIBAgIRANe3aTAgmP7v3s6y3efnwb4wCgYIKoZIzj0EAwIwfDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xHDAaBgNVBAoTE29yZzEuZGlnaWJsb2Nrcy5jb20xIjAgBgNVBAMT\nGXRsc2NhLm9yZzEuZGlnaWJsb2Nrcy5jb20wHhcNMjAwNjMwMTYyODAwWhcNMzAw\nNjI4MTYyODAwWjB8MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEW\nMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEcMBoGA1UEChMTb3JnMS5kaWdpYmxvY2tz\nLmNvbTEiMCAGA1UEAxMZdGxzY2Eub3JnMS5kaWdpYmxvY2tzLmNvbTBZMBMGByqG\nSM49AgEGCCqGSM49AwEHA0IABFtI41O379n7RQywwu7m+fnqb49dFPD4rtxR4mNF\nPLNjFzJlc2lr++pWHGXGVHPhOl5bgU6AbRB11KvGv53LI+2jbTBrMA4GA1UdDwEB\n/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/\nBAUwAwEB/zApBgNVHQ4EIgQghBOPOtkEPqow9YRZH4jFeT+E8/SrZXJ9sYlt3iJh\nfq8wCgYIKoZIzj0EAwIDSAAwRQIhAMmefdaMj8kGINIPDn86hecGPVB2C1dmG/4X\nP/zDIQ32AiB4ohXLDGDYgN+77HSBjz0cfXLY4ki98Nbad/apkZsMSQ==\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
+
+
+
