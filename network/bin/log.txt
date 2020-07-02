@@ -1,2 +1,1 @@
 Installed chaincodes on peer:
-Package ID: subjectcontract_1:63db3d5abc06bd81cfa6c80cf9cb7bf2bf985e8715cc9ce434b95f199711a7b6, Label: subjectcontract_1
