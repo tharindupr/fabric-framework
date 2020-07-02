@@ -34,16 +34,16 @@ Access the HLF Exploerer on port 8090
 # Deploying the Chaincodes 
 
 ## 6. Getting dependecies and packaging the chain code 
-./package_chaincode.sh
+./package_chaincode.sh [path_to_src] [chaincode_name]
 
 ## 7. Installing chaincode on two orgs
-./install_chaincode.sh
+./install_chaincode.sh [path_to_src] [chaincode_name]
 
 ## 8. Aproving the chaincode on two orgs
-./approve_chaincode.sh
+./approve_chaincode.sh [path_to_src] [chaincode_name]
 
 ## 9. Committing the chaincode on two orgs
-./commit_chaincode.sh
+./commit_chaincode.sh [path_to_src] [chaincode_name]
 
 ### Learn more on the Chaincode lifecyle : <a href="https://hyperledger-fabric.readthedocs.io/en/release-2.0/chaincode_lifecycle.html#fabric-chaincode-lifecycle"> Here </a>
 
