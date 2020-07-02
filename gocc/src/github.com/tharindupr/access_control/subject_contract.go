@@ -92,7 +92,7 @@ func (s *SmartContract) createSubject(APIstub shim.ChaincodeStubInterface, args 
 
 
 //query subject
-func (s *SmartContract) queryCar(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *SmartContract) querySubject(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")

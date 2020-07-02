@@ -50,9 +50,10 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
 
         let result
         let message;
-        if (fcn === "createCar") {
+        if (fcn === "createSubject") {
+            console.log("=========createSubject=========")
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4]);
-            message = `Successfully added the car asset with key ${args[0]}`
+            message = `Successfully added the subject asset with the key ${args[0]}`
 
         } else if (fcn === "changeCarOwner") {
             result = await contract.submitTransaction(fcn, args[0], args[1]);
