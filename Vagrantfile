@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     
     # 1. Use this for "Standard setup"
     config.vm.box = "bento/ubuntu-18.04"
-    config.disksize.size = '80GB'
+
     # 2. Use this for "VirtualBox Express Setup"
     # config.vm.box = "acloudfan/hlfdev2.0-0"
 
@@ -29,11 +29,14 @@ Vagrant.configure("2") do |config|
 
 
     # Ports foward
-    # #Explorer
     config.vm.network "forwarded_port", guest: 8080, host: 8080
     config.vm.network "forwarded_port", guest: 8090, host: 8090
-    config.vm.network "forwarded_port", guest: 3000, host: 3000
     config.vm.network "forwarded_port", guest: 4000, host: 4000
+
+
+    # For Orderer Container
+    # config.vm.network "forwarded_port", guest: 7050, host: 7050
+
     # #Explorer
     # config.vm.network "forwarded_port", guest: 8080, host: 8080
     # #CouchDB

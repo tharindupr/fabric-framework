@@ -169,6 +169,7 @@ app.get('/channels/:channelName/chaincodes/:chaincodeName', async function (req,
         var channelName = req.params.channelName;
         var chaincodeName = req.params.chaincodeName;
         console.log(`chaincode name is :${chaincodeName}`)
+        console.log(req.body.fcn);
         let args = req.query.args;
         let fcn = req.query.fcn;
         let peer = req.query.peer;
