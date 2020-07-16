@@ -34,16 +34,16 @@ Access the HLF Exploerer on port 8090
 # Deploying the Chaincodes 
 
 ## 6. Getting dependecies and packaging the chain code 
-./package_chaincode.sh [path_to_src] [chaincode_name]
+./package_chaincode.sh [path_to_src] [chaincode_name] [version]
 
 ## 7. Installing chaincode on two orgs
-./install_chaincode.sh [path_to_src] [chaincode_name]
+./install_chaincode.sh [path_to_src] [chaincode_name] [version]
 
 ## 8. Aproving the chaincode on two orgs
-./approve_chaincode.sh [path_to_src] [chaincode_name]
+./approve_chaincode.sh [path_to_src] [chaincode_name] [version]
 
 ## 9. Committing the chaincode on two orgs
-./commit_chaincode.sh [path_to_src] [chaincode_name]
+./commit_chaincode.sh [path_to_src] [chaincode_name] [version]
 
 ### Learn more on the Chaincode lifecyle : <a href="https://hyperledger-fabric.readthedocs.io/en/release-2.0/chaincode_lifecycle.html#fabric-chaincode-lifecycle"> Here </a>
 
@@ -65,7 +65,7 @@ Make sure you set the the necesory arguments required
 ./restart_dev_env.sh <br>
 
 ## Deploy Subject Contract
-./deploy_chaincode_subjectcontract.sh
+./deploy_chaincode_assetmanagementcontract.sh [version]
 
 This will start all the containers + create the channel
 

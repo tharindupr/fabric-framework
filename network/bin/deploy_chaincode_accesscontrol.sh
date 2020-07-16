@@ -1,10 +1,10 @@
 #!/bin/bash
 
-./package_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract"
-./install_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract"
-./approve_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract"
-./commit_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract"
+./package_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract" $1
+./install_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract" $1
+./approve_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract" $1
+./commit_chaincode.sh "./../../gocc/src/github.com/tharindupr/access_control" "accesscontrolcontract" $1
 
 
 echo "===================== Invoking Init ====================="
-./invoke_init.sh accesscontrolcontract
+./invoke_init.sh accesscontrolcontract $1

@@ -15,7 +15,7 @@ presetup() {
 
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
-VERSION="1"
+VERSION=$3
 CC_SRC_PATH=$1
 
 #"./../../gocc/src/github.com/tharindupr/fabcar"

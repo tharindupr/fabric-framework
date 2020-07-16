@@ -4,7 +4,7 @@ export PRIVATE_DATA_CONFIG=${1}/collections_config.json
 
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
-VERSION="1"
+VERSION=$3
 CC_SRC_PATH=$1
 CC_NAME=$2
 
