@@ -56,8 +56,17 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         else if (fcn == "getSubject") {
             result = await contract.evaluateTransaction(fcn, args[0]);
         }
-        else if (fcn == "accessControl") {
-            result = await contract.evaluateTransaction(fcn, args[0], args[1]);
+        else if (fcn == "accessHistory") {
+            result = await contract.evaluateTransaction(fcn, args[0]);
+        }
+        else if (fcn == "getAccessRecords") {
+            result = await contract.evaluateTransaction(fcn, args[0]);
+        }
+        else if (fcn == "queryAssetHistory") {
+            result = await contract.evaluateTransaction(fcn, args[0]);
+        }
+        else if (fcn == "queryPolicyHistory") {
+            result = await contract.evaluateTransaction(fcn, args[0]);
         }
         console.log(result)
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
