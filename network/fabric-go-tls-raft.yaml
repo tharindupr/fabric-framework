@@ -20,8 +20,8 @@ mutual-tls: false
 caliper:
   blockchain: fabric
   command:
-    start: export FABRIC_VERSION=2.3.0;export FABRIC_CA_VERSION=1.4.7;docker-compose -f networks/devenv/docker-compose.base.yaml up -d;sleep 10s
-    end: docker-compose -f  networks/devenv/docker-compose.base.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+    #start: export FABRIC_VERSION=2.3.0;export FABRIC_CA_VERSION=1.4.7;docker-compose -f networks/devenv/docker-compose.base.yaml up -d;sleep 10s
+    #end: docker-compose -f  networks/devenv/docker-compose.base.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
 
 info:
   Version: 2.1.0
