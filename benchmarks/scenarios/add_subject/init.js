@@ -16,8 +16,8 @@
 
 const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
-// const colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
-// const owners = ['Alice', 'Bob', 'Claire', 'David'];
+const colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
+const owners = ['Alice', 'Bob', 'Claire', 'David'];
 
 /**
  * Workload module for the benchmark round.
@@ -37,8 +37,6 @@ class InitWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         this.txIndex++;
-        let subjectID = 'subject_' + this.txIndex.toString() + '_' + this.workerIndex.toString();
-        let attributes = "{'manufacturer':'samsung', 'organization': 'org1','location':'org1-bulding-02'}"
         // let marbleName = 'marble_' + this.txIndex.toString() + '_' + this.workerIndex.toString();
         // let marbleColor = colors[this.txIndex % colors.length];
         // let marbleSize = (((this.txIndex % 10) + 1) * 10).toString(); // [10, 100]
@@ -47,8 +45,8 @@ class InitWorkload extends WorkloadModuleBase {
         let args;
         if (this.sutAdapter.getType() === 'fabric') {
             args = {
-                chaincodeFunction: 'createSubject',
-                chaincodeArguments: [attributes],
+                chaincodeFunction: 'init',
+                chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
             };
         } else {
             args = {
@@ -60,7 +58,7 @@ class InitWorkload extends WorkloadModuleBase {
             };
         }
 
-        return this.sutAdapter.invokeSmartContract('assetcontract', 'v1', args, 30);
+        return this.sutAdapter.invokeSmartContract('marbles', 'v1', args, 30);
     }
 }
 

@@ -16,7 +16,7 @@
     "express-bearer-token": "^2.4.0",
     "express-jwt": "^5.3.3",
     "fabric-ca-client": "^2.1.0",
-    "fabric-client": "^1.4.8",
+    "fabric-client": "^1.4.6",
     "fabric-network": "^2.1.0",
     "http": "0.0.1-security",
     "js-yaml": "^3.13.1",

@@ -57,6 +57,8 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 		return s.getHistoryForAsset(APIstub, args)
 	case "addAttribute":
 		return s.addAttribute(APIstub, args)
+	case "createCar":
+		return s.createObject(APIstub, args)
 	}
 	
 	return shim.Error("Invoke Function Not Success.")
@@ -225,3 +227,4 @@ func (s *SmartContract) addAttribute(APIstub shim.ChaincodeStubInterface, args [
 
 	return shim.Success(assetAsBytes)
 }
+

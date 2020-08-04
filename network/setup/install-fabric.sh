@@ -34,7 +34,7 @@ cd temp
 echo "====== Starting to Download Fabric ========"
 curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
 chmod 755 ./bootstrap.sh
-bash ./bootstrap.sh -- 2.0.1 1.4.6 0.4.18
+./bootstrap.sh 2.1.0 1.4.6 -s
 
 
 echo "======= Copying the binaries to /usr/local/bin===="
