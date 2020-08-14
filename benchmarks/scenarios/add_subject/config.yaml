@@ -7,7 +7,17 @@ test:
     type: local
     number: 1
   rounds:
-  - label: addSub
+  - label: createSubject
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 50
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/createSubject.js
+  - label: createPolicy
     description: Test description for the opening of an account through the deployed chaincode
     txNumber: 10
     rateControl:
@@ -16,7 +26,17 @@ test:
         tps: 5
     arguments:
       money: 10000
-    callback: scenarios/add_subject/createSubject.js
+    callback: scenarios/add_subject/createPolicy.js
+  - label: accessControl
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 10
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 5
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/access.js
   # - label: query
   #   description: Test description for the query performance of the deployed chaincode
   #   txNumber: 100
