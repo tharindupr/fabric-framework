@@ -83,7 +83,7 @@ func main() {
 
 //creating a subject asset
 func (s *SmartContract) createPolicy(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
-
+	
 	// if len(args) != 5 {
 	// 	return shim.Error("Incorrect number of arguments. Expecting 5")
 	// }
