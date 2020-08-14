@@ -12,6 +12,7 @@ network/bin/logs/*
 network/config/crypto-config/*
 .vagrant/*
 api/node_modules/*
-
+node_modules/*
+node_modules
 BasicNetwork-2.0/*
 ContainerisingCaliperForFabricBenchmark/*
