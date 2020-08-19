@@ -39,14 +39,18 @@ configtxgen -profile BasicChannel -configPath ../config/ -outputAnchorPeersUpdat
 ANCHOR_UPDATE_TX=../config/Org2MSPanchors.tx
 configtxgen -profile BasicChannel -configPath ../config/ -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Org2MSP
 
-# ANCHOR_UPDATE_TX=$DIR/../config/Digi-03MSPanchors.tx
-# configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-03MSP
 
-# ANCHOR_UPDATE_TX=$DIR/../config/Digi-04MSPanchors.tx
-# configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-04MSP
+ANCHOR_UPDATE_TX=../config/Org3MSPanchors.tx
+configtxgen -profile BasicChannel -configPath ../config/ -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Org3MSP
 
-# ANCHOR_UPDATE_TX=$DIR/../config/Digi-05MSPanchors.tx
-# configtxgen -profile DigiBlocksChannel -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Digi-05MSP
+
+ANCHOR_UPDATE_TX=../config/Org4MSPanchors.tx
+configtxgen -profile BasicChannel -configPath ../config/ -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Org4MSP
+
+
+ANCHOR_UPDATE_TX=../config/Org5MSPanchors.tx
+configtxgen -profile BasicChannel -configPath ../config/ -outputAnchorPeersUpdate $ANCHOR_UPDATE_TX -channelID $CHANNEL_ID -asOrg Org5MSP
+
 
 
 # export FABRIC_LOGGING_SPEC=INFO

@@ -1,0 +1,59 @@
+{
+	"name": "first-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminUser": "admin",
+		"adminPassword": "adminpw",
+		"enableAuthentication": false,
+		"organization": "Org1MSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"mychannel": {
+			"peers": {
+				"peer0.org1.digiblocks.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"Org1MSP": {
+			"mspid": "Org1MSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/org1.digiblocks.com/users/Admin@org1.digiblocks.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.org1.example.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/org1.digiblocks.com/users/Admin@org1.digiblocks.com/msp/signcerts/Admin@org1.digiblocks.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.org1.digiblocks.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/Cca.crt"
+			},
+			"url": "grpcs://peer0.org1.digiblocks.com:7051",
+			"eventUrl": "grpcs://peer0.org1.digiblocks.com:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org1.digiblocks.com"
+			}
+		}
+	}
+}

@@ -54,6 +54,53 @@ approveForMyOrg2() {
 }
 
 
+
+approveForMyOrg3() {
+    setGlobalsForPeer0Org3
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --collections-config $PRIVATE_DATA_CONFIG \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${VERSION}
+
+    echo "===================== chaincode approved from org 3 ===================== "
+}
+
+
+
+approveForMyOrg4() {
+    setGlobalsForPeer0Org4
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --collections-config $PRIVATE_DATA_CONFIG \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${VERSION}
+
+    echo "===================== chaincode approved from org 4 ===================== "
+}
+
+
+
+approveForMyOrg5() {
+    setGlobalsForPeer0Org5
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --collections-config $PRIVATE_DATA_CONFIG \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${VERSION}
+
+    echo "===================== chaincode approved from org 5 ===================== "
+}
+
+
+
+
 checkCommitReadyness() {
 
     setGlobalsForPeer0Org1
@@ -67,4 +114,7 @@ checkCommitReadyness() {
 queryInstalled
 approveForMyOrg1
 approveForMyOrg2
+approveForMyOrg3
+approveForMyOrg4
+approveForMyOrg5
 checkCommitReadyness

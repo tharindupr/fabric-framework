@@ -1,0 +1,130 @@
+version: "2"
+
+networks:
+  test:
+
+services:
+  ca-org4:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.org4.digiblocks.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org4.digiblocks.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/priv_sk
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-tls/tlsca.org4.digiblocks.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-tls/priv_sk
+    ports:
+      - "10054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
+    container_name: ca.org4.digiblocks.com
+    hostname: ca.org4.digiblocks.com
+    networks:
+      - test
+
+ 
+
+  couchdb6:
+    container_name: couchdb6
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 12984:5984
+    networks:
+      - test
+
+  couchdb7:
+    container_name: couchdb7
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 13984:5984
+    networks:
+      - test
+
+  peer0.org4.digiblocks.com:
+    container_name: peer0.org4.digiblocks.com
+    extends:
+      file: base.yaml
+      service: peer-base
+    environment:
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - CORE_PEER_LOCALMSPID=Org4MSP
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
+      - CORE_PEER_ID=peer0.org4.digiblocks.com
+      - CORE_PEER_ADDRESS=peer0.org4.digiblocks.com:13051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:13051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org4.digiblocks.com:13052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:13053
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org4.digiblocks.com:13051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org4.digiblocks.com:14051
+
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb6:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_METRICS_PROVIDER=prometheus
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+    ports:
+      - 13051:13051
+    volumes:
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer0.org4.digiblocks.com/msp:/etc/hyperledger/crypto/peer/msp
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer0.org4.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
+      - /var/run/:/host/var/run/
+      - ./../config/:/etc/hyperledger/channel/
+    networks:
+      - test
+
+  peer1.org4.digiblocks.com:
+    container_name: peer1.org4.digiblocks.com
+    extends:
+      file: base.yaml
+      service: peer-base
+    environment:
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - CORE_PEER_LOCALMSPID=Org4MSP
+
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
+
+      - CORE_PEER_ID=peer1.org4.digiblocks.com
+      - CORE_PEER_ADDRESS=peer1.org4.digiblocks.com:14051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:14051
+      - CORE_PEER_CHAINCODEADDRESS=peer1.org4.digiblocks.com:14052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:14052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org4.digiblocks.com:14051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org4.digiblocks.com:13051
+
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb7:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_METRICS_PROVIDER=prometheus
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+    ports:
+      - 14051:14051
+    volumes:
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer1.org4.digiblocks.com/msp:/etc/hyperledger/crypto/peer/msp
+      - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer1.org4.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
+      - /var/run/:/host/var/run/
+      - ./../config/:/etc/hyperledger/channel/
+    networks:
+      - test

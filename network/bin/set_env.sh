@@ -2,8 +2,10 @@ export CORE_PEER_TLS_ENABLED=true
 export ORDERER_CA=${PWD}/../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
 export PEER0_ORG1_CA=${PWD}/../config/crypto-config/peerOrganizations/org1.digiblocks.com/peers/peer0.org1.digiblocks.com/tls/ca.crt
 export PEER0_ORG2_CA=${PWD}/../config/crypto-config/peerOrganizations/org2.digiblocks.com/peers/peer0.org2.digiblocks.com/tls/ca.crt
+export PEER0_ORG3_CA=${PWD}/../config/crypto-config/peerOrganizations/org3.digiblocks.com/peers/peer0.org3.digiblocks.com/tls/ca.crt
+export PEER0_ORG4_CA=${PWD}/../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer0.org4.digiblocks.com/tls/ca.crt
+export PEER0_ORG5_CA=${PWD}/../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer0.org5.digiblocks.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../config/
-
 
 export CHANNEL_NAME=mychannel
 
@@ -42,6 +44,55 @@ setGlobalsForPeer1Org2(){
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org2.digiblocks.com/users/Admin@org2.digiblocks.com/msp
     export CORE_PEER_ADDRESS=localhost:10051
+    
+}
+
+
+
+setGlobalsForPeer0Org3(){
+    export CORE_PEER_LOCALMSPID="Org3MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org3.digiblocks.com/users/Admin@org3.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:11051
+}
+
+setGlobalsForPeer1Org3(){
+    export CORE_PEER_LOCALMSPID="Org3MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org3.digiblocks.com/users/Admin@org3.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:12051
+    
+}
+
+
+setGlobalsForPeer0Org4(){
+    export CORE_PEER_LOCALMSPID="Org4MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG4_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org4.digiblocks.com/users/Admin@org4.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:13051
+}
+
+setGlobalsForPeer1Org4(){
+    export CORE_PEER_LOCALMSPID="Org4MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG4_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org4.digiblocks.com/users/Admin@org4.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:14051
+    
+}
+
+
+setGlobalsForPeer0Org5(){
+    export CORE_PEER_LOCALMSPID="Org5MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG5_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org5.digiblocks.com/users/Admin@org5.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:15051
+}
+
+setGlobalsForPeer1Org5(){
+    export CORE_PEER_LOCALMSPID="Org5MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG5_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org5.digiblocks.com/users/Admin@org5.digiblocks.com/msp
+    export CORE_PEER_ADDRESS=localhost:16051
     
 }
 

@@ -21,6 +21,9 @@ commitChaincodeDefination() {
         --collections-config $PRIVATE_DATA_CONFIG \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA \
+        --peerAddresses localhost:13051 --tlsRootCertFiles $PEER0_ORG4_CA \
+        --peerAddresses localhost:15051 --tlsRootCertFiles $PEER0_ORG5_CA \
         --version ${VERSION} --sequence ${VERSION} --init-required
 
         echo "===================== Commit Successfull ===================== "
