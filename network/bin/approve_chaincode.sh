@@ -43,7 +43,7 @@ approveForMyOrg1() {
 approveForMyOrg2() {
     setGlobalsForPeer0Org2
 
-    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+    peer lifecycle chaincode approveformyorg -o $ORDERER_IP:7050 \
         --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --collections-config $PRIVATE_DATA_CONFIG \
@@ -58,7 +58,7 @@ approveForMyOrg2() {
 approveForMyOrg3() {
     setGlobalsForPeer0Org3
 
-    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+    peer lifecycle chaincode approveformyorg -o $ORDERER_IP:7050 \
         --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --collections-config $PRIVATE_DATA_CONFIG \
@@ -73,7 +73,7 @@ approveForMyOrg3() {
 approveForMyOrg4() {
     setGlobalsForPeer0Org4
 
-    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+    peer lifecycle chaincode approveformyorg -o $ORDERER_IP:7050 \
         --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --collections-config $PRIVATE_DATA_CONFIG \
@@ -88,7 +88,7 @@ approveForMyOrg4() {
 approveForMyOrg5() {
     setGlobalsForPeer0Org5
 
-    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+    peer lifecycle chaincode approveformyorg -o $ORDERER_IP:7050 \
         --ordererTLSHostnameOverride orderer.digiblocks.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --collections-config $PRIVATE_DATA_CONFIG \
@@ -105,7 +105,7 @@ checkCommitReadyness() {
 
     setGlobalsForPeer0Org1
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
+        --peerAddresses $ORDERER_IP:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --collections-config $PRIVATE_DATA_CONFIG \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 1 ===================== "
