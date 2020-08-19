@@ -33,5 +33,5 @@ packageChaincode() {
 
 
 
-#presetup $1
+presetup $1
 packageChaincode
