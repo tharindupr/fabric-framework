@@ -85,6 +85,9 @@ services:
       - ./../config/crypto-config/peerOrganizations/org3.digiblocks.com/peers/peer0.org3.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
+
+    extra_hosts:
+      - "orderer.digiblocks.com:10.128.0.3"
     networks:
       - test
 
@@ -126,5 +129,8 @@ services:
       - ./../config/crypto-config/peerOrganizations/org3.digiblocks.com/peers/peer1.org3.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
+
+    extra_hosts:
+      - "orderer.digiblocks.com:10.128.0.3"
     networks:
       - test
