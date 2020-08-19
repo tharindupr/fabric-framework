@@ -1,3 +1,4 @@
+#!/bin/bash
 . ./set_env.sh --source-only
 
 # Arguments should be the directory to the chaincode source and chaincode name
