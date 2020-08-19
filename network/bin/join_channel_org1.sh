@@ -118,29 +118,29 @@ joinChannel(){
     setGlobalsForPeer1Org1
     peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    setGlobalsForPeer0Org2
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer0Org2
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    setGlobalsForPeer1Org2
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer1Org2
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
 
-    setGlobalsForPeer0Org3
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer0Org3
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    setGlobalsForPeer1Org3
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer1Org3
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
 
-    setGlobalsForPeer0Org4
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer0Org4
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    setGlobalsForPeer1Org4
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer1Org4
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
 
-    setGlobalsForPeer0Org5
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer0Org5
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    setGlobalsForPeer1Org5
-    peer channel join -b ./../config/$CHANNEL_NAME.block
+    # setGlobalsForPeer1Org5
+    # peer channel join -b ./../config/$CHANNEL_NAME.block
     
 }
 
@@ -148,23 +148,23 @@ updateAnchorPeers(){
     setGlobalsForPeer0Org1
     peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     
-    setGlobalsForPeer0Org2
-    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    # setGlobalsForPeer0Org2
+    # peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-    setGlobalsForPeer0Org3
-    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    # setGlobalsForPeer0Org3
+    # peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-    setGlobalsForPeer0Org4
-    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    # setGlobalsForPeer0Org4
+    # peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-    setGlobalsForPeer0Org5
-    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    # setGlobalsForPeer0Org5
+    # peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
     
 }
 
 # removeOldCrypto
 
-createChannel
-#joinChannel
-#updateAnchorPeers
+#createChannel
+joinChannel
+updateAnchorPeers
