@@ -86,7 +86,7 @@ services:
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
     extra_hosts:
-      - "orderer.digiblocks.com:10.128.0.3"
+      - "orderer.digiblocks.com:${ORDERER_IP}"
     networks:
       - test
 
@@ -130,6 +130,6 @@ services:
       - ./../config/:/etc/hyperledger/channel/
 
     extra_hosts:
-      - "orderer.digiblocks.com:10.128.0.3"
+      - "orderer.digiblocks.com:${ORDERER_IP}"
     networks:
       - test
