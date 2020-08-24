@@ -1,2 +1,4 @@
 Installed chaincodes on peer:
 Package ID: assetcontract_1:203ded25dd70a1fba0665cb0ee035d0e26cd2e3052c88e1572cc3686433f4c2c, Label: assetcontract_1
+Package ID: accesscontrolcontract_1:e7343ea0f968fc442a5a1ea72ee8615c4742e49dede525704a89a625a0fbbe7e, Label: accesscontrolcontract_1
+Package ID: policycontract_1:d7338c38a48a761da6df3ac5cefbcc6ac806fee822128d45d86b2bfc9a21bb07, Label: policycontract_1
