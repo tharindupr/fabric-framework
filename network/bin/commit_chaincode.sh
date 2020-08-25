@@ -11,8 +11,6 @@ CC_SRC_PATH=$1
 CC_NAME=$2
 
 
-
-
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
     peer lifecycle chaincode commit -o orderer.digiblocks.com:7050 \
