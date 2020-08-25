@@ -130,17 +130,17 @@ joinChannel(){
     setGlobalsForPeer1Org3
     peer channel join -b ./../config/$CHANNEL_NAME.block
 
-    # setGlobalsForPeer0Org4
-    # peer channel join -b ./../config/$CHANNEL_NAME.block
+    setGlobalsForPeer0Org4
+    peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    # setGlobalsForPeer1Org4
-    # peer channel join -b ./../config/$CHANNEL_NAME.block
+    setGlobalsForPeer1Org4
+    peer channel join -b ./../config/$CHANNEL_NAME.block
 
-    # setGlobalsForPeer0Org5
-    # peer channel join -b ./../config/$CHANNEL_NAME.block
+    setGlobalsForPeer0Org5
+    peer channel join -b ./../config/$CHANNEL_NAME.block
     
-    # setGlobalsForPeer1Org5
-    # peer channel join -b ./../config/$CHANNEL_NAME.block
+    setGlobalsForPeer1Org5
+    peer channel join -b ./../config/$CHANNEL_NAME.block
     
 }
 
