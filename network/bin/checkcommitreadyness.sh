@@ -111,10 +111,19 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
+querycommited(){
+    setGlobalsForPeer0Org1
+    peer lifecycle chaincode querycommitted --channelID $CHANNEL_NAME --name ${CC_NAME}
+}
+
+
+
+
+querycommited
 #queryInstalled
 #approveForMyOrg1
 #approveForMyOrg2
 #approveForMyOrg3
 #approveForMyOrg4
 #approveForMyOrg5
-checkCommitReadyness
+#checkCommitReadyness
