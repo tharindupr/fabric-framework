@@ -149,16 +149,16 @@ updateAnchorPeers(){
     peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     
     setGlobalsForPeer0Org2
-    peer channel update -o $ORDERER_IP:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
     setGlobalsForPeer0Org3
     peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-    #setGlobalsForPeer0Org4
-    #peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    setGlobalsForPeer0Org4
+    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
-    #setGlobalsForPeer0Org5
-    # peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    setGlobalsForPeer0Org5
+    peer channel update -o localhost:7050 --ordererTLSHostnameOverride orderer.digiblocks.com -c $CHANNEL_NAME -f ./../config/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
     
 }
