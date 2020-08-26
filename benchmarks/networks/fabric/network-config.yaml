@@ -307,7 +307,7 @@ certificateAuthorities:
         enrollSecret: adminpw
         
   # ca.org4.digiblocks.com:
-  #   url: https://peer0.org4.digiblocks.com:9054
+  #   url: https://peer0.org4.digiblocks.com:10054
   #   httpOptions:
   #     verify: false
   #   tlsCACerts:
@@ -317,7 +317,7 @@ certificateAuthorities:
   #       enrollSecret: adminpw
 
   ca.org5.digiblocks.com:
-    url: https://peer0.org5.digiblocks.com:9054
+    url: https://peer0.org5.digiblocks.com:11054
     httpOptions:
       verify: false
     tlsCACerts:
