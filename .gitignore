@@ -4,7 +4,6 @@ gocc/src/github.com/tharindupr/access_control/vendor/*
 gocc/src/github.com/tharindupr/policy_contract/vendor/*
 gocc/src/github.com/tharindupr/asset_management/vendor/*
 network/bin/logs/*
-network/config/crypto-config/*
 .vagrant/*
 api/node_modules/*
 node_modules/*
