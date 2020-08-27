@@ -7,13 +7,56 @@ test:
     type: local
     number: 1
   rounds:
-  - label: createSubject
+  - label: createSubject round1
     description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 50
+    txNumber: 500
     rateControl:
       type: fixed-rate
       opts:
-        tps: 6
+        tps: 50
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/createSubject.js
+  - label: createSubject round2
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 100
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/createSubject.js
+
+  - label: createSubject round3
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 150
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/createSubject.js
+
+  - label: createSubject round4
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 200
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/createSubject.js
+
+  - label: createSubject round5
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 250
     arguments:
       money: 10000
     callback: scenarios/add_subject/createSubject.js
