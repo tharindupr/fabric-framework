@@ -6,6 +6,7 @@ services:
     image: hyperledger/caliper:0.3.1
     command: launch master --caliper-fabric-gateway-usegateway --caliper-flow-only-test --caliper-fabric-gateway-discovery
     environment:
+      - CORE_PEER_TLS_ENABLED=true
       - CALIPER_BIND_SUT=fabric:2.1.0
       - CALIPER_BENCHCONFIG=scenarios/add_subject/config.yaml
       - CALIPER_NETWORKCONFIG=networks/fabric/network-config.yaml
