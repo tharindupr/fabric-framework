@@ -59,6 +59,10 @@ services:
       - ./../config/genesis.block:/var/hyperledger/orderer/genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp:/var/hyperledger/orderer/msp
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/tls:/var/hyperledger/orderer/tls
+    
+    extra_hosts:
+      - "orderer2.digiblocks.com:10.128.0.20"
+      - "orderer3.digiblocks.com:10.128.0.21"
 
   # orderer2.digiblocks.com:
   #   container_name: orderer2.digiblocks.com
