@@ -61,6 +61,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls:/var/hyperledger/orderer/tls
     extra_hosts:
       - "orderer.digiblocks.com:${ORDERER_IP}"
+      - "orderer3.digiblocks.com:10.128.0.21"
  
 
   couchdb2:
