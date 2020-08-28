@@ -63,6 +63,8 @@ services:
     extra_hosts:
       - "orderer2.digiblocks.com:10.128.0.20"
       - "orderer3.digiblocks.com:10.128.0.21"
+      - "orderer4.digiblocks.com:10.128.0.24"
+      - "orderer5.digiblocks.com:10.128.0.23"
 
   # orderer2.digiblocks.com:
   #   container_name: orderer2.digiblocks.com

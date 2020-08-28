@@ -437,20 +437,20 @@ Profiles:
                   Port: 9050
                   ClientTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/tls/server.crt
                   ServerTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/tls/server.crt
-                # - Host: orderer4.digiblocks.com
-                #   Port: 10050
-                #   ClientTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/tls/server.crt
-                #   ServerTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/tls/server.crt
-                # - Host: orderer5.digiblocks.com
-                #   Port: 11050
-                #   ClientTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/tls/server.crt
-                #   ServerTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/tls/server.crt
+                - Host: orderer4.digiblocks.com
+                  Port: 10050
+                  ClientTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/tls/server.crt
+                - Host: orderer5.digiblocks.com
+                  Port: 11050
+                  ClientTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/tls/server.crt
             Addresses:
                 - orderer.digiblocks.com:7050
                 - orderer2.digiblocks.com:8050
                 - orderer3.digiblocks.com:9050
-                # - orderer4.digiblocks.com:10050
-                # - orderer5.digiblocks.com:11050
+                - orderer4.digiblocks.com:10050
+                - orderer5.digiblocks.com:11050
 
             Organizations:
             - *OrdererOrg

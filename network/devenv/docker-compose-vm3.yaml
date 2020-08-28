@@ -63,6 +63,8 @@ services:
     extra_hosts:
       - "orderer.digiblocks.com:${ORDERER_IP}"
       - "orderer2.digiblocks.com:10.128.0.20"
+      - "orderer4.digiblocks.com:10.128.0.24"
+      - "orderer5.digiblocks.com:10.128.0.23"
 
 
   couchdb4:
