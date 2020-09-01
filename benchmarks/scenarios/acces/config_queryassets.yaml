@@ -16,7 +16,7 @@ test:
         tps: 50
     arguments:
       money: 10000
-    callback: scenarios/add_subject/querySubject.js
+    callback: scenarios/acces/querySubject.js
   - label: querySubject round2
     description: Test description for the opening of an account through the deployed chaincode
     txNumber: 500
@@ -26,7 +26,7 @@ test:
         tps: 100
     arguments:
       money: 10000
-    callback: scenarios/add_subject/querySubject.js
+    callback: scenarios/acces/querySubject.js
 
   - label: querySubject round3
     description: Test description for the opening of an account through the deployed chaincode
@@ -37,7 +37,7 @@ test:
         tps: 150
     arguments:
       money: 10000
-    callback: scenarios/add_subject/querySubject.js
+    callback: scenarios/acces/querySubject.js
 
   - label: querySubject round4
     description: Test description for the opening of an account through the deployed chaincode
@@ -48,7 +48,7 @@ test:
         tps: 200
     arguments:
       money: 10000
-    callback: scenarios/add_subject/querySubject.js
+    callback: scenarios/acces/querySubject.js
 
   - label: querySubject round5
     description: Test description for the opening of an account through the deployed chaincode
@@ -59,7 +59,7 @@ test:
         tps: 250
     arguments:
       money: 10000
-    callback: scenarios/add_subject/querySubject.js
+    callback: scenarios/acces/querySubject.js
   # - label: createPolicy
   #   description: Test description for the opening of an account through the deployed chaincode
   #   txNumber: 10
@@ -69,7 +69,7 @@ test:
   #       tps: 5
   #   arguments:
   #     money: 10000
-  #   callback: scenarios/add_subject/createPolicy.js
+  #   callback: scenarios/acces/createPolicy.js
   # - label: accessControl
   #   description: Test description for the opening of an account through the deployed chaincode
   #   txNumber: 10
@@ -79,7 +79,7 @@ test:
   #       tps: 5
   #   arguments:
   #     money: 10000
-  #   callback: scenarios/add_subject/access.js
+  #   callback: scenarios/acces/access.js
   # - label: query
   #   description: Test description for the query performance of the deployed chaincode
   #   txNumber: 100
