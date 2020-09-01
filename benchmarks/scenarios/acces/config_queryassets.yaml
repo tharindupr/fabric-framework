@@ -1,0 +1,107 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  workers:
+    type: local
+    number: 10
+  rounds:
+  - label: querySubject round1
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/querySubject.js
+  - label: querySubject round2
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 100
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/querySubject.js
+
+  - label: querySubject round3
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 150
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/querySubject.js
+
+  - label: querySubject round4
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 200
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/querySubject.js
+
+  - label: querySubject round5
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 250
+    arguments:
+      money: 10000
+    callback: scenarios/add_subject/querySubject.js
+  # - label: createPolicy
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 10
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 5
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/add_subject/createPolicy.js
+  # - label: accessControl
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 10
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 5
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/add_subject/access.js
+  # - label: query
+  #   description: Test description for the query performance of the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 100
+  #   callback: benchmarks/scenario/simple/query.js
+  # - label: transfer
+  #   description: Test description for transfering money between accounts
+  #   txNumber: 100
+  #   rateControl:
+  #         type: fixed-rate
+  #         opts:
+  #             tps: 50
+  #   arguments:
+  #       money: 100
+  #   callback: benchmarks/scenario/simple/transfer.js
+monitor:
+  type:
+  - docker
+  docker:
+    name:
+    - all
+  interval: 1
