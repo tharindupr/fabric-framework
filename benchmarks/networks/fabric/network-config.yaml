@@ -52,17 +52,17 @@ clients:
       clientSignedCert:
         path: networks/fabric/crypto-config/peerOrganizations/org3.digiblocks.com/users/User1@org3.digiblocks.com/msp/signcerts/User1@org3.digiblocks.com-cert.pem
 
-  # client0.org4.digiblocks.com:
-  #   client:
-  #     organization: Org4
-  #     credentialStore:
-  #       path: /tmp/hfc-kvs/org4
-  #       cryptoStore:
-  #         path: /tmp/hfc-cvs/org4
-  #     clientPrivateKey:
-  #       path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/keystore/priv_sk
-  #     clientSignedCert:
-  #       path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/signcerts/User1@org4.digiblocks.com-cert.pem
+  client0.org4.digiblocks.com:
+    client:
+      organization: Org4
+      credentialStore:
+        path: /tmp/hfc-kvs/org4
+        cryptoStore:
+          path: /tmp/hfc-cvs/org4
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/signcerts/User1@org4.digiblocks.com-cert.pem
 
   client0.org5.digiblocks.com:
     client:
