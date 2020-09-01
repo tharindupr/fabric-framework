@@ -185,7 +185,7 @@ organizations:
 
 orderers:
   orderer.digiblocks.com:
-    url: grpcs://localhost:7050
+    url: grpcs://10.128.0.27:7050
     grpcOptions:
       ssl-target-name-override: orderer.digiblocks.com
     tlsCACerts:
@@ -219,7 +219,7 @@ orderers:
 
 peers:
   peer0.org1.digiblocks.com:
-    url: grpcs://10.128.0.10:7051
+    url: grpcs://10.128.0.27:7051
     grpcOptions:
       ssl-target-name-override: peer0.org1.digiblocks.com
       grpc.keepalive_time_ms: 600000
@@ -227,7 +227,7 @@ peers:
       path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/peers/peer0.org1.digiblocks.com/msp/tlscacerts/tlsca.org1.digiblocks.com-cert.pem
 
   peer1.org1.digiblocks.com:
-    url: grpcs://10.128.0.10:8051
+    url: grpcs://10.128.0.27:8051
     grpcOptions:
       ssl-target-name-override: peer1.org1.digiblocks.com
       grpc.keepalive_time_ms: 600000
@@ -297,7 +297,7 @@ peers:
 
 certificateAuthorities:
   ca.org1.digiblocks.com:
-    url: https://10.128.0.10:7054
+    url: https://10.128.0.27:7054
     httpOptions:
       verify: false
     tlsCACerts:
