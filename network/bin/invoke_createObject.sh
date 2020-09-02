@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME=policycontract
+CC_NAME=assetcontract
 
 chaincodeInvoke() {
     # setGlobalsForPeer0Org1
@@ -25,7 +25,7 @@ chaincodeInvoke() {
         --peerAddresses peer0.org2.digiblocks.com:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
         --peerAddresses peer0.org3.digiblocks.com:11051 --tlsRootCertFiles $PEER0_ORG3_CA   \
         --peerAddresses peer0.org5.digiblocks.com:15051 --tlsRootCertFiles $PEER0_ORG5_CA   \
-        -c '{"function": "createPolicy","Args":["tharindu", "{\"location\": \"org1-bulding-02\",\"manufacturer\": \"samsung\",\"organization\": \"org1\"}", "{\"location\": \"org1-bulding-01\",\"manufacturer\": \"samsung\",\"organization\": \"org2\"}", "[{\"type\": \"subject\",\"field\": \"organization\",\"comparison\":\"equals\",\"value\":\"org1\", \"Effect\": \"allow\"}]"]}'
+        -c '{"function": "createSubject","Args":["Object-ABCDEEE1", "Object","{\"manufacturer\":\"samsung\", \"organization\": \"org2\",\"location\":\"org1-bulding-01\"}"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \
