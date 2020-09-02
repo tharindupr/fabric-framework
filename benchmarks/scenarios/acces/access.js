@@ -25,7 +25,7 @@ function generateWorkload() {
 
         workload.push({
             chaincodeFunction: 'accessControl',
-            chaincodeArguments: ["Subject-123", "Object-235"],
+            chaincodeArguments: ["Subject-ABCDEEE1", "Object-ABCDEEE1"],
         });
     }
     return workload;
