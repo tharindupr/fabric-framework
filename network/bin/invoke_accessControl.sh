@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME=assetcontract
+CC_NAME=accesscontrolcontract
 
 chaincodeInvoke() {
     # setGlobalsForPeer0Org1
@@ -25,7 +25,7 @@ chaincodeInvoke() {
         --peerAddresses peer0.org2.digiblocks.com:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
         --peerAddresses peer0.org3.digiblocks.com:11051 --tlsRootCertFiles $PEER0_ORG3_CA   \
         --peerAddresses peer0.org5.digiblocks.com:15051 --tlsRootCertFiles $PEER0_ORG5_CA   \
-        -c '{"function": "createObject","Args":["Object-ABCDEEE1", "Object","{\"manufacturer\":\"samsung\", \"organization\": \"org2\",\"location\":\"org1-bulding-01\"}"]}'
+        -c '{"function": "accessControl","Args":["Subject-ABCDEEE1", "Object-ABCDEEE1"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \
