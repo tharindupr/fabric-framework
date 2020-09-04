@@ -23,7 +23,7 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "createSubject","Args":["Subject-ABCDEEE1", "Subject","{\"manufacturer\":\"samsung\", \"organization\": \"org1\",\"location\":\"org1-bulding-02\"}"]}'
+        -c '{"function": "createPolicy","Args":["tharindu", "{\"location\": \"org1-bulding-02\",\"manufacturer\": \"samsung\",\"organization\": \"org1\"}", "{\"location\": \"org1-bulding-01\",\"manufacturer\": \"samsung\",\"organization\": \"org2\"}", "[{\"type\": \"subject\",\"field\": \"organization\",\"comparison\":\"equals\",\"value\":\"org1\", \"Effect\": \"allow\"}]"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \

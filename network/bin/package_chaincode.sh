@@ -2,7 +2,7 @@
 
 # Arguments should be the directory to the chaincode source and chaincode name
 # Eg: 
-# ./package_chaincode.sh "./../../gocc/src/github.com/tharindupr/fabcar" "fabcar"
+
 
 presetup() {
     echo Vendoring Go dependencies ...
@@ -18,7 +18,7 @@ CC_RUNTIME_LANGUAGE="golang"
 VERSION=$3
 CC_SRC_PATH=$1
 
-#"./../../gocc/src/github.com/tharindupr/fabcar"
+
 CC_NAME=$2
 
 packageChaincode() {

@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME=policycontract
+CC_NAME=accesscontrolcontract_v2
 
 
 

@@ -2,7 +2,7 @@
 
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
-VERSION="1"
+VERSION="2"
 CC_NAME=accesscontrolcontract_v2
 
 chaincodeInvoke() {
@@ -23,7 +23,7 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "createSubject","Args":["Subject-ABCDEEE1", "Subject","{\"manufacturer\":\"samsung\", \"organization\": \"org1\",\"location\":\"org1-bulding-02\"}"]}'
+        -c '{"function": "accessControl","Args":["Subject-ABCDEEE1", "Object-ABCDEEE1"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \

@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME="policycontract"
+CC_NAME=accesscontrolcontract_v2
 
 chaincodeInvoke() {
     # setGlobalsForPeer0Org1
@@ -21,10 +21,9 @@ chaincodeInvoke() {
         --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA \
         -C $CHANNEL_NAME -n ${CC_NAME}  \
-        --peerAddresses localhost:7051 \
-        --tlsRootCertFiles $PEER0_ORG1_CA \
+        --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "createPolicy","Args":["tharindu", "test"]}'
+        -c '{"function": "createObject","Args":["Object-ABCDEEE1", "Object","{\"manufacturer\":\"samsung\", \"organization\": \"org2\",\"location\":\"org1-bulding-01\"}"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \
@@ -50,4 +49,10 @@ chaincodeInvoke() {
 }
 
 
+
+
+
+
+#chaincodeInvoke1
+#chaincodeQuery
 chaincodeInvoke
