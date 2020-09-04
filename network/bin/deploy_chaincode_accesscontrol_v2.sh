@@ -7,4 +7,4 @@
 
 
 echo "===================== Invoking Init ====================="
-./invoke_init.sh accesscontrolcontract $1
+./invoke_init.sh accesscontrolcontract_v2 $1
