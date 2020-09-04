@@ -33,7 +33,7 @@ function generateWorkload() {
 
 module.exports.run = function () {
     let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'policycontract', '1', args);
+    return bc.invokeSmartContract(contx, 'accesscontrolcontract_v2', '1', args);
 };
 
 module.exports.end = function () {
