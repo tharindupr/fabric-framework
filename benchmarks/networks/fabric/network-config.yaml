@@ -119,7 +119,11 @@ channels:
       - id: accesscontrolcontract
         version: "1"
         language: golang
-        path: fabric/samples/policy_contract
+        path: fabric/samples/access_control
+      - id: accesscontrolcontract_v2
+        version: "1"
+        language: golang
+        path: fabric/samples/access_control_v2
 
 organizations:
   Org1:
