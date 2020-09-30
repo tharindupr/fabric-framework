@@ -33,7 +33,7 @@ cd temp
 
 echo "====== Starting to Download Fabric ========"
 curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
-chmod 755 ./bootstrap.sh
+chmod 777 ./bootstrap.sh
 ./bootstrap.sh 2.1.0 1.4.6 -s
 
 

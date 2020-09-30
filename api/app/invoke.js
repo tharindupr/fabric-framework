@@ -73,6 +73,15 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
             console.log("=========addingARule=========")
             result = await contract.submitTransaction(fcn, args[0], args[1]);
         }
+        else if (fcn == "createDEC") {
+            console.log("=========creatignDEC=========")
+            result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8]);
+        }
+        else if (fcn == "updateDEC") {
+            console.log("=========updatingDEC=========")
+            result = await contract.submitTransaction(fcn, args[0], args[1]);
+        }
+
         else {
             return `Invocation function not found. Function is ${fcn}`
         }
