@@ -83,8 +83,15 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 	// "args":["DECID", "BuildingID", "BuildingCategory","FloorArea","HoursOfOccupancy", "EnergyConsumption", "MeterStartDate", "MetereEndDate", "Grade"]
 
 	clientID, _ := cid.GetID(APIstub)
-	// decID := "util.GenerateUUID()"
+	decID := args[0]
 	// buildingID := "util.GenerateUUID()"
+
+	//checking whether the key exists
+	decAsBytes, _ := APIstub.GetState(decID)
+	if decAsBytes != nil {
+		return shim.Error("Key Exist Already")
+	}
+
 
 	occupancy, err := strconv.ParseFloat(args[4], 32)
 	energy, err :=  strconv.ParseFloat(args[5], 32)
@@ -92,7 +99,7 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 		return shim.Error("Invalid Data Types")
 	}
 
-	var dec = DEC{DECID: args[0], CID: clientID, BuildingID: args[1], Status: "Pending", 
+	var dec = DEC{DECID: decID, CID: clientID, BuildingID: args[1], Status: "Pending", 
 					BuildingCategory : args[2],
 					FloorArea: args[3], 
 					HoursOfOccupancy: occupancy,
@@ -101,22 +108,28 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 					MetereEndDate: args[7], 
 					Grade: args[8]}
 
-	decAsBytes, _ := json.Marshal(dec)
-	APIstub.PutState(args[0], decAsBytes)
+	decAsBytes, _ = json.Marshal(dec)
+	APIstub.PutState(decID, decAsBytes)
 
 	logger.Infof("Successfully Added")
 	return shim.Success(decAsBytes)
 }
 
 
-//creating a digital energy certificate
+//updating a digital energy certificate
 func (s *SmartContract) updateDEC(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 2 {
 		return shim.Error("Incorrect number of arguments. Expecting 2")
 	}
 
+	//checking whether the key exists
 	decAsBytes, _ := APIstub.GetState(args[0])
+	if decAsBytes == nil {
+		return shim.Error("Key Doesn't Exist")
+	}
+
+
 	dec := DEC{}
 
 	json.Unmarshal(decAsBytes, &dec)
