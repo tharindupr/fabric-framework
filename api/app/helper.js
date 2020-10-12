@@ -55,7 +55,7 @@ const getAffiliation = async (org) => {
     return org == "Org1" ? 'org1.department1' : 'org2.department1'
 }
 
-const getRegisteredUser = async (username, userOrg, isJson) => {
+const getRegisteredUser = async (username, userOrg, role,  isJson) => {
     let ccp = await getCCP(userOrg)
 
     const caURL = await getCaUrl(userOrg, ccp)
@@ -90,15 +90,15 @@ const getRegisteredUser = async (username, userOrg, isJson) => {
     let secret;
     try {
         // Register the user, enroll the user, and import the new identity into the wallet.
-     secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client' }, adminUser);
-    // const secret = await ca.register({ affiliation: 'org1.department1', enrollmentID: username, role: 'client', attrs: [{ name: 'role', value: 'approver', ecert: true }] }, adminUser);
+     //secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client' }, adminUser);
+     secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client', attrs: [{ name: 'role', value: role , ecert: true }] }, adminUser);
 
     } catch (error) {
         return error.message
     }
     
-    const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret });
-    // const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret, attr_reqs: [{ name: 'role', optional: false }] });
+    //const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret });
+    const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret, attr_reqs: [{ name: 'role', optional: false }] });
 
     let x509Identity;
     if (userOrg == "Org1") {

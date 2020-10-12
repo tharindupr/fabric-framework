@@ -44,32 +44,10 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         const contract = network.getContract(chaincodeName);
         let result;
 
-        if (fcn == "querySubject") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-
-        }else if (fcn == "queryObject") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-
-        }else if (fcn == "queryPolicy") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-        }
-        else if (fcn == "getSubject") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-        }
-        else if (fcn == "accessHistory") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-        }
-        else if (fcn == "getAccessRecords") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-        }
-        else if (fcn == "queryAssetHistory") {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-        }
-        else if (fcn == "queryPolicyHistory") {
+        if (fcn == "getAsset") {
             result = await contract.evaluateTransaction(fcn, args[0]);
         }
         else if (fcn == "getDEC") {
-            console.log(fcn)
             result = await contract.evaluateTransaction(fcn, args[0]);
         }
         else if (fcn == "traceDEC") {

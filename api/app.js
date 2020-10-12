@@ -77,10 +77,12 @@ function getErrorMessage(field) {
 app.post('/users', async function (req, res) {
     var username = req.body.username;
     var orgName = req.body.orgName;
+    var role = req.body.role;
     console.log('End point : /users');
     console.log('End point : /users');
     console.log('User name : ' + username);
     console.log('Org name  : ' + orgName);
+    console.log('Role : ' + role);
     if (!username) {
         res.json(getErrorMessage('\'username\''));
         return;
@@ -89,22 +91,27 @@ app.post('/users', async function (req, res) {
         res.json(getErrorMessage('\'orgName\''));
         return;
     }
+    if (!role) {
+        res.json(getErrorMessage('\'role\''));
+        return;
+    }
 
     var token = jwt.sign({
         exp: Math.floor(Date.now() / 1000) + parseInt(constants.jwt_expiretime),
         username: username,
-        orgName: orgName
+        orgName: orgName,
+        role: role
     }, app.get('secret'));
 
-    let response = await helper.getRegisteredUser(username, orgName, true);
+    let response = await helper.getRegisteredUser(username, orgName, role, true);
 
-    console.log('-- returned from registering the username %s for organization %s', username, orgName);
+    console.log('-- returned from registering the username %s for organization %s', username, orgName, role);
     if (response && typeof response !== 'string') {
-        console.log('Successfully registered the username %s for organization %s', username, orgName);
+        console.log('Successfully registered the username %s for organization %s', username, orgName, role);
         response.token = token;
         res.json(response);
     } else {
-        console.log('Failed to register the username %s for organization %s with::%s', username, orgName, response);
+        console.log('Failed to register the username %s for organization %s with::%s', username, orgName, role, response);
         res.json({ success: false, message: response });
     }
 

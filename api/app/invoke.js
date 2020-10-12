@@ -50,29 +50,12 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
 
         let result
         let message;
-        if (fcn === "createSubject") {
-            console.log("=========createSubject=========")
-            result = await contract.submitTransaction(fcn, args[0], "Subject", args[1]);
-            message = `Successfully added the subject asset with the key ${args[0]}`
-        } else if (fcn === "createObject") {
-            console.log("=========createObject=========")
-            result = await contract.submitTransaction(fcn, args[0], "Object", args[1]);
-            message = `Successfully added the subject asset with the key ${args[0]}` 
-        } else if (fcn === "createPolicy") {
-            console.log("=========createPolicy=========")
-            result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3]);
-            message = `Successfully added the subject asset with the key ${args[0]}`
-        } else if (fcn == "accessControl") {
-            console.log("=========creatingAnAccessTrace=========")
-            result = await contract.submitTransaction(fcn, args[0], args[1]);
-        }else if (fcn == "addAttribute") {
-            console.log("=========addingNewAttribute=========")
+        if (fcn == "createAsset") {
+            console.log("=========createAsset=========")
+            console.log(fcn)
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2]);
-        }
-        else if (fcn == "addRule") {
-            console.log("=========addingARule=========")
-            result = await contract.submitTransaction(fcn, args[0], args[1]);
-        }
+            message = `Successfully added the subject asset with the key ${args[0]}`
+        } 
         else if (fcn == "createDEC") {
             console.log("=========creatignDEC=========")
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8]);

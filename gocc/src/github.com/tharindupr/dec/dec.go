@@ -82,6 +82,24 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 
 	// "args":["DECID", "BuildingID", "BuildingCategory","FloorArea","HoursOfOccupancy", "EnergyConsumption", "MeterStartDate", "MetereEndDate", "Grade"]
 
+
+	// ABAC
+	val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	if err !=nil {
+		return shim.Error("Error retriving user attributes")
+	}
+	
+	if !ok {
+		//The client identity does not possess the attributes
+		return shim.Error("The client identity does not possess the attributes")
+	}
+
+	if val != "buildingowner"{
+		fmt.Println("Attribute role : " + val)
+		return shim.Error("Only building owners can create a DEC")
+	}
+
+
 	clientID, _ := cid.GetID(APIstub)
 	decID := args[0]
 	// buildingID := "util.GenerateUUID()"
@@ -92,7 +110,29 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 		return shim.Error("Key Exist Already")
 	}
 
+	// getting the object
+	arguments := make([][]byte, 2)
+	arguments[0] = []byte("getAsset")
+	arguments[1] = []byte(args[1])
 
+	logger.Infof("Getting the identity of the asset")
+	response := APIstub.InvokeChaincode("identitycontract", arguments, "mychannel")
+
+	logger.Infof("Received a response from Identity Contract ")
+	logger.Infof(fmt.Sprint(response.Status))
+	logger.Infof(fmt.Sprint(response.Payload))
+	if response.Status != shim.OK || len(response.Payload)==0{
+		return shim.Error("Invalid Building ID")
+	}
+
+	// logger.Infof(fmt.Sprint(response.Payload))
+	// object := Asset{}
+	// json.Unmarshal(response.Payload, &object)
+	// logger.Infof(object.ID)
+
+	
+
+	//creating the ledger entry
 	occupancy, err := strconv.ParseFloat(args[4], 32)
 	energy, err :=  strconv.ParseFloat(args[5], 32)
 	if err != nil {
@@ -121,6 +161,23 @@ func (s *SmartContract) updateDEC(APIstub shim.ChaincodeStubInterface, args []st
 
 	if len(args) != 2 {
 		return shim.Error("Incorrect number of arguments. Expecting 2")
+	}
+
+
+	// ABAC
+	val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	if err !=nil {
+		return shim.Error("Error retriving user attributes")
+	}
+	
+	if !ok {
+		//The client identity does not possess the attributes
+		return shim.Error("The client identity does not possess the attributes")
+	}
+
+	if val != "communityverifier" && val != "externalverifier" {
+		fmt.Println("Attribute role : " + val)
+		return shim.Error("Insufficient permisions to update the DEC")
 	}
 
 	//checking whether the key exists
