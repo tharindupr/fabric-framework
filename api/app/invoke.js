@@ -53,16 +53,33 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
         if (fcn == "createAsset") {
             console.log("=========createAsset=========")
             console.log(fcn)
-            result = await contract.submitTransaction(fcn, args[0], args[1], args[2]);
-            message = `Successfully added the subject asset with the key ${args[0]}`
+            result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3]);
+            message = `Successfully added the asset with the key ${args[0]}`
         } 
         else if (fcn == "createDEC") {
             console.log("=========creatignDEC=========")
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8]);
+            message = `Successfully added the DEC with the key ${args[0]}`
         }
         else if (fcn == "updateDEC") {
             console.log("=========updatingDEC=========")
             result = await contract.submitTransaction(fcn, args[0], args[1]);
+        }   
+        else if (fcn == "updateAssetStatus") {
+            console.log("=========updatingAsset=========")
+            result = await contract.submitTransaction(fcn, args[0], args[1]);
+        }
+        else if (fcn == "createPrivateAsset") {
+            console.log(`Transient data is : ${transientData}`)
+            let assetData = JSON.parse(transientData)
+            console.log(`asset data is : ${JSON.stringify(assetData)}`)
+            let key = Object.keys(assetData)[0]
+            const transientDataBuffer = {}
+            transientDataBuffer[key] = Buffer.from(JSON.stringify(assetData.asset))
+            result = await contract.createTransaction(fcn)
+                .setTransient(transientDataBuffer)
+                .submit()
+            message = `Successfully submitted transient data`
         }
 
         else {

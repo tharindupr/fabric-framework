@@ -94,7 +94,7 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 		return shim.Error("The client identity does not possess the attributes")
 	}
 
-	if val != "buildingowner"{
+	if val != "buildingowner" && val != "admin" {
 		fmt.Println("Attribute role : " + val)
 		return shim.Error("Only building owners can create a DEC")
 	}
@@ -175,7 +175,7 @@ func (s *SmartContract) updateDEC(APIstub shim.ChaincodeStubInterface, args []st
 		return shim.Error("The client identity does not possess the attributes")
 	}
 
-	if val != "communityverifier" && val != "externalverifier" {
+	if val != "communityverifier" && val != "externalverifier" && val != "admin" {
 		fmt.Println("Attribute role : " + val)
 		return shim.Error("Insufficient permisions to update the DEC")
 	}

@@ -53,6 +53,12 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         else if (fcn == "traceDEC") {
             result = await contract.evaluateTransaction(fcn, args[0]);
         }
+        else if (fcn == "getPrivateAsset") {
+            result = await contract.evaluateTransaction(fcn, args[0], args[1]);
+        }
+        else if (fcn == "queryPrivateDataHash") {
+            result = await contract.evaluateTransaction(fcn, args[0], args[1]);
+        }
         console.log(result)
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 

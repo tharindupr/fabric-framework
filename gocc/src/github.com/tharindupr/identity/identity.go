@@ -11,7 +11,7 @@ import (
 	sc "github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric/common/flogging"
 
-	//"github.com/hyperledger/fabric-chaincode-go/pkg/cid"
+	"github.com/hyperledger/fabric-chaincode-go/pkg/cid"
 )
 
 // SmartContract Define the Smart Contract structure
@@ -24,8 +24,24 @@ type Asset struct {
 	Type  string `json:"type"`
 	Attributes map[string]string `json:"attributes"`
 	CID  string `json:"cid"`
+	Status string `json:"status"`
 }
 
+
+// Private Assets Structure
+type PrivateAsset struct {
+	AssetID   string `json:"assetid"`
+	Type  string `json:"type"`
+	CID  string `json:"cid"`
+}
+
+
+// Private Assets Structure
+type assetPrivateDetails struct {
+	AssetID   string `json:"assetid"`
+	Attributes map[string]string `json:"attributes"`
+	//FixedAttribute1 string `json:"fixedattribute1"`
+}
 
 var logger = flogging.MustGetLogger("subject_cc")
 
@@ -54,6 +70,15 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 			return s.getHistoryForAsset(APIstub, args)
 		case "addAttribute":
 			return s.addAttribute(APIstub, args)
+		case "createPrivateAsset":
+			return s.createPrivateAsset(APIstub, args)
+		case "getPrivateAsset":
+			return s.getPrivateAsset(APIstub, args)
+		case "queryPrivateDataHash":
+			return s.queryPrivateDataHash(APIstub, args)
+		case "updateAssetStatus":
+			return s.updateAssetStatus(APIstub, args)
+			
 	}
 
 	return shim.Error("Invoke Function Not Success.")
@@ -76,7 +101,7 @@ func main() {
 func (s *SmartContract) createAsset(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	logger.Infof("In fucction createAsset")
-	if len(args) != 3 {
+	if len(args) != 4 {
 		return shim.Error("Incorrect number of arguments. Expecting 3")
 	}
 
@@ -87,15 +112,57 @@ func (s *SmartContract) createAsset(APIstub shim.ChaincodeStubInterface, args []
 	}
 
 
-	logger.Infof(args[2])
+	logger.Infof(args[3])
 	//creating an object from the attribute array
 	var attributes = map[string]string{};
-	json.Unmarshal([]byte(args[2]), &attributes)
+	json.Unmarshal([]byte(args[3]), &attributes)
 
-	var asset = Asset{AssetID: args[0], Type: args[1], Attributes: attributes, CID: "NULL"}
+	var asset = Asset{AssetID: args[0], Type: args[1], Status: args[2], Attributes: attributes, CID: "NULL"}
 
 	logger.Infof("Saving")
 	//logger.Infof(subject.Attributes)
+	assetAsBytes, _ = json.Marshal(asset)
+	APIstub.PutState(args[0], assetAsBytes)
+
+	return shim.Success(assetAsBytes)
+}
+
+//updating a digital energy certificate
+func (s *SmartContract) updateAssetStatus(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+	if len(args) != 2 {
+		return shim.Error("Incorrect number of arguments. Expecting 2")
+	}
+
+
+	// ABAC
+	val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	if err !=nil {
+		return shim.Error("Error retriving user attributes")
+	}
+	
+	if !ok {
+		//The client identity does not possess the attributes
+		return shim.Error("The client identity does not possess the attributes")
+	}
+
+	if val != "admin" {
+		fmt.Println("Attribute role : " + val)
+		return shim.Error("Insufficient permisions to update the status of the Asset. Only Admins can change status")
+	}
+
+	//checking whether the key exists
+	assetAsBytes, _ := APIstub.GetState(args[0])
+	if assetAsBytes == nil {
+		return shim.Error("Key Doesn't Exist")
+	}
+
+
+	asset := Asset{}
+
+	json.Unmarshal(assetAsBytes, &asset)
+	asset.Status = args[1]
+
 	assetAsBytes, _ = json.Marshal(asset)
 	APIstub.PutState(args[0], assetAsBytes)
 
@@ -199,3 +266,129 @@ func (s *SmartContract) addAttribute(APIstub shim.ChaincodeStubInterface, args [
 	return shim.Success(assetAsBytes)
 }
 
+func (s *SmartContract) createPrivateAsset(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+	type assetTransientInput struct {
+		AssetID  string `json:"assetid"` //the fieldtags are needed to keep case from bouncing around
+		Type string `json:"type"`
+		Attributes  map[string]string `json:"attributes"`
+	}
+
+	if len(args) != 0 {
+		return shim.Error("Incorrect number of arguments. Private asset data must be passed in transient map.")
+	}
+
+	logger.Infof("11111111111111111111111111")
+
+	transMap, err := APIstub.GetTransient()
+	if err != nil {
+		return shim.Error("Error getting transient: " + err.Error())
+	}
+
+	assetDataAsBytes, ok := transMap["asset"]
+	if !ok {
+		return shim.Error("asset must be a key in the transient map")
+	}
+	logger.Infof("********************8   " + string(assetDataAsBytes))
+
+	if len(assetDataAsBytes) == 0 {
+		return shim.Error("333333 -asset value in the transient map must be a non-empty JSON string")
+	}
+
+	logger.Infof("2222222")
+
+	var assetInput assetTransientInput
+	err = json.Unmarshal(assetDataAsBytes, &assetInput)
+	if err != nil {
+		return shim.Error("44444 -Failed to decode JSON of: " + string(assetDataAsBytes) + "Error is : " + err.Error())
+	}
+
+	logger.Infof("3333")
+
+	// if len(carInput.Key) == 0 {
+	// 	return shim.Error("name field must be a non-empty string")
+	// }
+	// if len(carInput.Make) == 0 {
+	// 	return shim.Error("color field must be a non-empty string")
+	// }
+	// if len(carInput.Model) == 0 {
+	// 	return shim.Error("model field must be a non-empty string")
+	// }
+	// if len(carInput.Color) == 0 {
+	// 	return shim.Error("color field must be a non-empty string")
+	// }
+	// if len(carInput.Owner) == 0 {
+	// 	return shim.Error("owner field must be a non-empty string")
+	// }
+	// if len(carInput.Price) == 0 {
+	// 	return shim.Error("price field must be a non-empty string")
+	// }
+
+	logger.Infof("444444")
+
+	// ==== Check if the asset already exists ====
+	assetAsBytes, err := APIstub.GetPrivateData("collectionAssets", assetInput.AssetID)
+	if err != nil {
+		return shim.Error("Failed to get asset: " + err.Error())
+	} else if assetAsBytes != nil {
+		fmt.Println("This asset already exists: " + assetInput.AssetID)
+		return shim.Error("This asset already exists: " + assetInput.AssetID)
+	}
+
+	logger.Infof("55555")
+
+	var asset = PrivateAsset{AssetID: assetInput.AssetID, Type: assetInput.Type, CID: "NULL"}
+
+	assetAsBytes, err = json.Marshal(asset)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	err = APIstub.PutPrivateData("collectionAssets", assetInput.AssetID, assetAsBytes)
+	if err != nil {
+		logger.Infof("6666666")
+		return shim.Error(err.Error())
+	}
+
+	assetPrivateDetails := &assetPrivateDetails{AssetID: assetInput.AssetID, Attributes: assetInput.Attributes}
+
+	assetPrivateDetailsAsBytes, err := json.Marshal(assetPrivateDetails)
+	if err != nil {
+		logger.Infof("77777")
+		return shim.Error(err.Error())
+	}
+
+	err = APIstub.PutPrivateData("collectionAssetPrivateDetails", assetInput.AssetID, assetPrivateDetailsAsBytes)
+	if err != nil {
+		logger.Infof("888888")
+		return shim.Error(err.Error())
+	}
+
+	return shim.Success(assetAsBytes)
+}
+
+
+func (s *SmartContract) getPrivateAsset(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+	if len(args) != 2 {
+		return shim.Error("Incorrect number of arguments. Expecting 2")
+	}
+	// collectionCars, collectionCarPrivateDetails, _implicit_org_Org1MSP, _implicit_org_Org2MSP
+	assetAsBytes, err := APIstub.GetPrivateData(args[0], args[1])
+	if err != nil {
+		jsonResp := "{\"Error\":\"Failed to get private details for " + args[1] + ": " + err.Error() + "\"}"
+		return shim.Error(jsonResp)
+	} else if assetAsBytes == nil {
+		jsonResp := "{\"Error\":\"Asset private details does not exist: " + args[1] + "\"}"
+		return shim.Error(jsonResp)
+	}
+	return shim.Success(assetAsBytes)
+}
+
+func (s *SmartContract) queryPrivateDataHash(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+	if len(args) != 2 {
+		return shim.Error("Incorrect number of arguments. Expecting 2")
+	}
+	assetAsBytes, _ := APIstub.GetPrivateDataHash(args[0], args[1])
+
+	return shim.Success(assetAsBytes)
+}
