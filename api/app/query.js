@@ -53,6 +53,9 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         else if (fcn == "traceDEC") {
             result = await contract.evaluateTransaction(fcn, args[0]);
         }
+        else if (fcn == "traceAsset") {
+            result = await contract.evaluateTransaction(fcn, args[0]);
+        }
         else if (fcn == "getPrivateAsset") {
             result = await contract.evaluateTransaction(fcn, args[0], args[1]);
         }

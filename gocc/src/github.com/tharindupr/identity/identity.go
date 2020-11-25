@@ -66,8 +66,8 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 			return s.createAsset(APIstub, args)
 		case "getAsset":
 			return s.getAsset(APIstub, args)
-		case "queryAssetHistory":
-			return s.getHistoryForAsset(APIstub, args)
+		case "traceAsset":
+			return s.traceAsset(APIstub, args)
 		case "addAttribute":
 			return s.addAttribute(APIstub, args)
 		case "createPrivateAsset":
@@ -182,7 +182,7 @@ func (s *SmartContract) getAsset(APIstub shim.ChaincodeStubInterface, args []str
 }
 
 
-func (t *SmartContract) getHistoryForAsset(stub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (t *SmartContract) traceAsset(stub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) < 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
