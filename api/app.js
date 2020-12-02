@@ -203,6 +203,8 @@ app.get('/channels/:channelName/chaincodes/:chaincodeName', async function (req,
             return;
         }
         console.log('args==========', args);
+        args  = decodeURI(args);
+        console.log(args)
         args = args.replace(/'/g, '"');
         args = JSON.parse(args);
         console.log(args);
