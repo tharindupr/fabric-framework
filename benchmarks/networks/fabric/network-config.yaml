@@ -76,6 +76,10 @@ channels:
         version: "1"
         language: golang
         path: fabric/samples/policy_contract
+      - id: smartmeter
+        version: "1"
+        language: golang
+        path: fabric/samples/policy_contract
 
 organizations:
   Org1:

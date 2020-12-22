@@ -7,7 +7,7 @@ services:
     command: launch master --caliper-fabric-gateway-usegateway --caliper-flow-only-test --caliper-fabric-gateway-discovery
     environment:
       - CALIPER_BIND_SUT=fabric:2.1.0
-      - CALIPER_BENCHCONFIG=scenarios/add_subject/config.yaml
+      - CALIPER_BENCHCONFIG=scenarios/smartmeter/config.yaml
       - CALIPER_NETWORKCONFIG=networks/fabric/network-config.yaml
     volumes:
       - ./:/hyperledger/caliper/workspace
