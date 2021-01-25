@@ -38,7 +38,7 @@ chmod 755 ./bootstrap.sh
 
 
 echo "======= Copying the binaries to /usr/local/bin===="
-cp ./fabric-samples/bin/*    /usr/local/bin
+cp ./bin/*    /usr/local/bin
 
 
 # This downloads the shim package 
