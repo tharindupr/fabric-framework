@@ -29,7 +29,7 @@ packageChaincode() {
         --label ${CC_NAME}_${VERSION}
     echo "===================== Chaincode is packaged on peer0.org1 ===================== "
 }
-#packageChaincode
+packageChaincode
 
 
 
