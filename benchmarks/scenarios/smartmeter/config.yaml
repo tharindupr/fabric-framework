@@ -1,0 +1,167 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  workers:
+    type: local
+    number: 1
+  rounds:
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 50
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 150
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 250
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 300
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+  
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 350
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 400
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+  
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 450
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 500
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 550
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 600
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 6
+    arguments:
+      money: 10000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+
+  - label: query
+    description: Test description for the query performance of the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 100
+    callback: benchmarks/scenario/simple/query.js
+  - label: transfer
+    description: Test description for transfering money between accounts
+    txNumber: 100
+    rateControl:
+          type: fixed-rate
+          opts:
+              tps: 50
+    arguments:
+        money: 100
+    callback: benchmarks/scenario/simple/transfer.js
+monitor:
+  type:
+  - docker
+  docker:
+    name:
+    - all
+  interval: 1
