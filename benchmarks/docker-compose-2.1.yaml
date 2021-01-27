@@ -4,7 +4,7 @@ services:
   caliper_2.1:
     container_name: caliper_2.1
     image: hyperledger/caliper:0.3.1
-    command: launch master --caliper-fabric-gateway-usegateway --caliper-flow-only-test --caliper-fabric-gateway-discovery
+    command: launch master --caliper-fabric-gateway-usegateway --caliper-flow-only-test
     environment:
       - CALIPER_BIND_SUT=fabric:2.1.0
       - CALIPER_BENCHCONFIG=scenarios/smartmeter/config.yaml
