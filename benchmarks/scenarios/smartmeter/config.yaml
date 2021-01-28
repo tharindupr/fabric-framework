@@ -20,6 +20,130 @@ test:
 
   - label: addTelemtry
     description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 25
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 25
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 25
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 25
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 100
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 25
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 200
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 5000
+    callback: scenarios/smartmeter/addTelemetry.js
+
+  - label: addTelemtry
+    description: Test description for the opening of an account through the deployed chaincode
     txNumber: 200
     rateControl:
       type: fixed-rate
