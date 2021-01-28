@@ -24,7 +24,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
+        tps: 50
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
