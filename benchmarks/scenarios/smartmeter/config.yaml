@@ -5,7 +5,7 @@ test:
     performance with simple account opening & querying transactions
   workers:
     type: local
-    number: 5
+    number: 2
   rounds:
   - label: addTelemtry
     description: Test description for the opening of an account through the deployed chaincode
@@ -13,7 +13,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -24,7 +24,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -35,63 +35,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -103,7 +47,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -114,7 +58,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -125,58 +69,13 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
+        tps: 10
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
 
 
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
 
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 100
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 25
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-
- 
 
 
   # - label: addTelemtry
