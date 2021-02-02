@@ -13,7 +13,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -24,7 +24,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -35,7 +35,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -47,7 +47,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -58,7 +58,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
@@ -69,7 +69,7 @@ test:
     rateControl:
       type: fixed-rate
       opts:
-        tps: 10
+        tps: 20
     arguments:
       money: 5000
     callback: scenarios/smartmeter/addTelemetry.js
