@@ -1,43 +1,38 @@
 'use strict';
 
-module.exports.info = 'opening accounts';
-//const { v1: uuidv4 } = require('uuid')
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
-let account_array = [];
-
-let bc, contx;
-var txnPerBatch = 1
-module.exports.init = function (blockchain, context, args) {
-    if (!args.hasOwnProperty('txnPerBatch')) {
-        args.txnPerBatch = 1;
+class MyWorkload extends WorkloadModuleBase {
+    constructor() {
+        super();
     }
-    txnPerBatch = args.txnPerBatch;
-    bc = blockchain;
-    contx = context;
-
-    return Promise.resolve();
-};
-
-
-function generateWorkload() {
-    let workload = [];
-    for (let i = 0; i < txnPerBatch; i++) {
-
-        workload.push({
-            chaincodeFunction: 'addTelemetry',
-            chaincodeArguments: ["meter"+i, "0091232111", Date.now(), "23kwh"],
-        });
+    
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+        
     }
-    return workload;
+    
+    async submitTransaction() {
+        const randomId = Math.floor(Math.random()*this.roundArguments.assets);
+        const myArgs = {
+            contractId: this.roundArguments.contractId,
+            contractFunction: 'addTelemetry',
+            invokerIdentity: 'client0.org1.digiblocks.com',
+            contractArguments: [randomId, '0091232111', Date.now(), '23kwh'],
+            readOnly: false
+        };
+
+        await this.sutAdapter.sendRequests(myArgs);
+    
+    }
+    
+    async cleanupWorkloadModule() {
+        // NOOP
+    }
 }
 
-module.exports.run = function () {
-    let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'smartmeter', '1', args);
-};
+function createWorkloadModule() {
+    return new MyWorkload();
+}
 
-module.exports.end = function () {
-    return Promise.resolve();
-};
-
-module.exports.account_array = account_array;
+module.exports.createWorkloadModule = createWorkloadModule;

@@ -1,180 +1,53 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 name: Fabric
-version: "1.0"
-mutual-tls: false
+version: "2.0.0"
 
 caliper:
-  blockchain: fabric
-  # command:
-  #   start: export FABRIC_VERSION=1.4.4;export FABRIC_CA_VERSION=1.4.4;docker-compose -f networks/fabric/docker-compose/2org1peercouchdb_solo_raft/docker-compose-tls.yaml up -d;sleep 10s
-  #   end: docker-compose -f networks/fabric/docker-compose/2org1peercouchdb_solo_raft/docker-compose-tls.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
-
-info:
-  Version: 2.0.0
-  Size: 2 Orgs with 1 Peer
-  Orderer: Raft
-  Distribution: Single Host
-  StateDB: CouchDB
-
-clients:
-  client0.org1.digiblocks.com:
-    client:
-      organization: Org1
-      credentialStore:
-        path: /tmp/hfc-kvs/org1
-        cryptoStore:
-          path: /tmp/hfc-cvs/org1
-      clientPrivateKey:
-        path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/keystore/priv_sk
-      clientSignedCert:
-        path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/signcerts/User1@org1.digiblocks.com-cert.pem
-
-  client0.org2.digiblocks.com:
-    client:
-      organization: Org2
-      credentialStore:
-        path: /tmp/hfc-kvs/org2
-        cryptoStore:
-          path: /tmp/hfc-cvs/org2
-      clientPrivateKey:
-        path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/keystore/priv_sk
-      clientSignedCert:
-        path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/signcerts/User1@org2.digiblocks.com-cert.pem
+    blockchain: fabric
+    sutOptions :
+       mutualTls: true
 
 channels:
-  mychannel:
-    # configBinary: networks/fabric/pavan-v2.1/mychannel.tx
-    created: true
-    definition:
-      capabilities: []
-      consortium: "SampleConsortium"
-      msps: ["Org1MSP", "Org2MSP"]
-      version: 0
-    orderers:
-      - orderer.digiblocks.com
-      - orderer2.digiblocks.com
-      - orderer3.digiblocks.com
-    peers:
-      peer0.org1.digiblocks.com:
-        eventSource: true
-      peer0.org2.digiblocks.com:
-        eventSource: true
+  - channelName: mychannel
+    contracts:
+    - id: smartmeter
+      contractID: smartmeter
 
-    chaincodes:
-      - id: fabcar
-        version: "1"
-        language: golang
-        path: fabric/samples/fabcar/go
-      - id: assetcontract
-        version: "1"
-        language: golang
-        path: fabric/samples/asset_management
-      - id: policycontract
-        version: "1"
-        language: golang
-        path: fabric/samples/policy_contract
-      - id: accesscontrolcontract
-        version: "1"
-        language: golang
-        path: fabric/samples/policy_contract
-      - id: smartmeter
-        version: "1"
-        language: golang
-        path: fabric/samples/policy_contract
 
 organizations:
-  Org1:
-    mspid: Org1MSP
-    peers:
-      - peer0.org1.digiblocks.com
-      - peer1.org1.digiblocks.com
-    certificateAuthorities:
-      - ca.org1.digiblocks.com
-    adminPrivateKey:
-      path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/Admin@org1.digiblocks.com/msp/keystore/priv_sk
-    signedCert:
-      path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/Admin@org1.digiblocks.com/msp/signcerts/Admin@org1.digiblocks.com-cert.pem
+  - mspid: Org1MSP
+    identities:
+      certificates:
+      - name: 'client0.org1.digiblocks.com'
+        clientPrivateKey:
+          path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/keystore/priv_sk
+        clientSignedCert:
+          path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/signcerts/User1@org1.digiblocks.com-cert.pem
+    connectionProfile:
+      path: 'networks/fabric/crypto-config/org1.yaml'
+      discover: false
 
-  Org2:
-    mspid: Org2MSP
-    peers:
-      - peer0.org2.digiblocks.com
-      - peer1.org2.digiblocks.com
-    certificateAuthorities:
-      - ca.org2.digiblocks.com
-    adminPrivateKey:
-      path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/Admin@org2.digiblocks.com/msp/keystore/priv_sk
-    signedCert:
-      path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/Admin@org2.digiblocks.com/msp/signcerts/Admin@org2.digiblocks.com-cert.pem
-
-orderers:
-  orderer.digiblocks.com:
-    url: grpcs://157.190.53.16:7050
-    grpcOptions:
-      ssl-target-name-override: orderer.digiblocks.com
-    tlsCACerts:
-      path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
-  orderer2.digiblocks.com:
-    url: grpcs://157.190.53.16:8050
-    grpcOptions:
-      ssl-target-name-override: orderer2.digiblocks.com
-    tlsCACerts:
-      path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
-  orderer3.digiblocks.com:
-    url: grpcs://157.190.53.16:9050
-    grpcOptions:
-      ssl-target-name-override: orderer3.digiblocks.com
-    tlsCACerts:
-      path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
-
-peers:
-  peer0.org1.digiblocks.com:
-    url: grpcs://157.190.53.16:7051
-    grpcOptions:
-      ssl-target-name-override: peer0.org1.digiblocks.com
-      grpc.keepalive_time_ms: 600000
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/peers/peer0.org1.digiblocks.com/msp/tlscacerts/tlsca.org1.digiblocks.com-cert.pem
-
-  peer1.org1.digiblocks.com:
-    url: grpcs://157.190.53.16:8051
-    grpcOptions:
-      ssl-target-name-override: peer1.org1.digiblocks.com
-      grpc.keepalive_time_ms: 600000
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/peers/peer1.org1.digiblocks.com/msp/tlscacerts/tlsca.org1.digiblocks.com-cert.pem
-
-  peer0.org2.digiblocks.com:
-    url: grpcs://157.190.53.16:9051
-    grpcOptions:
-      ssl-target-name-override: peer0.org2.digiblocks.com
-      grpc.keepalive_time_ms: 600000
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/peers/peer0.org2.digiblocks.com/msp/tlscacerts/tlsca.org2.digiblocks.com-cert.pem
-  peer1.org2.digiblocks.com:
-    url: grpcs://157.190.53.16:10051
-    grpcOptions:
-      ssl-target-name-override: peer1.org2.digiblocks.com
-      grpc.keepalive_time_ms: 600000
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/peers/peer1.org2.digiblocks.com/msp/tlscacerts/tlsca.org2.digiblocks.com-cert.pem
-
-certificateAuthorities:
-  ca.org1.digiblocks.com:
-    url: https://157.190.53.16:7054
-    httpOptions:
-      verify: false
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/tlsca/tlsca.org1.digiblocks.com-cert.pem
-    registrar:
-      - enrollId: admin
-        enrollSecret: adminpw
-
-  ca.org2.digiblocks.com:
-    url: https://157.190.53.16:8054
-    httpOptions:
-      verify: false
-    tlsCACerts:
-      path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/tlsca/tlsca.org2.digiblocks.com-cert.pem
-    registrar:
-      - enrollId: admin
-        enrollSecret: adminpw
+  - mspid: Org2MSP
+    identities:
+      certificates:
+      - name: 'client0.org2.digiblocks.com'
+        clientPrivateKey:
+          path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/keystore/priv_sk
+        clientSignedCert:
+          path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/signcerts/User1@org2.digiblocks.com-cert.pem
+    connectionProfile:
+      path: 'networks/fabric/crypto-config/org2.yaml'
+      discover: false

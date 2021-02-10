@@ -6,28 +6,21 @@ test:
   workers:
     type: local
     number: 5
+    
   rounds:
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 50
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 10
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
-
-  - label: addTelemtry
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 50
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 10
-    arguments:
-      money: 5000
-    callback: scenarios/smartmeter/addTelemetry.js
+      - label: readAsset
+        description: Read asset benchmark
+        txDuration: 30
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 10
+        workload:
+          module: scenarios/smartmeter/addTelemetry.js
+          arguments:
+            assets: 10
+            contractId: smartmeter
+	
 
   # - label: addTelemtry
   #   description: Test description for the opening of an account through the deployed chaincode
