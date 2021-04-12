@@ -1,0 +1,181 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  workers:
+    type: local
+    number: 5
+    
+  rounds:
+      - label: readAsset
+        description: Read asset benchmark
+        txDuration: 30
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 10
+        workload:
+          module: scenarios/smartmeter/addTelemetry.js
+          arguments:
+            assets: 10
+            contractId: smartmeter
+	
+  # npx caliper launch manager --caliper-workspace . --caliper-benchconfig ./config.yaml --caliper-networkconfig networkconfig.yaml --caliper-fabric-gateway-enabled --caliper-flow-only-test
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 15
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 15
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 15
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 15
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate.
+  #     opts:
+  #       tps: 30
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 30
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 8
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 30
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 100
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 30
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+
+
+
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 450
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 500
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 550
+  #   arguments:
+  #     money: 5000
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+  # - label: addTelemtry
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 600
+  #   arguments:
+  #     money: 500
+  #   callback: scenarios/smartmeter/addTelemetry.js
+
+monitor:
+  type:
+  - docker
+  docker:
+    name:
+    - all
+  interval: 1
