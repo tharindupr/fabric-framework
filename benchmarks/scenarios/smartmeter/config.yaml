@@ -12,7 +12,7 @@ test:
         description: Read asset benchmark
         txDuration: 30
         rateControl: 
-          type: fixed-load
+          type: fixed-rate
           opts:
             transactionLoad: 10
         workload:
