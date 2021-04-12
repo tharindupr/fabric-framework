@@ -17,49 +17,49 @@ test:
     arguments:
       money: 10000
     callback: scenarios/acces/createPolicy.js
-  - label: createPolicy round2
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 500
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 100
-    arguments:
-      money: 10000
-    callback: scenarios/acces/createPolicy.js
+  # - label: createPolicy round2
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 100
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/acces/createPolicy.js
 
-  - label: createPolicy round3
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 500
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 150
-    arguments:
-      money: 10000
-    callback: scenarios/acces/createPolicy.js
+  # - label: createPolicy round3
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 150
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/acces/createPolicy.js
 
-  - label: createPolicy round4
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 500
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 200
-    arguments:
-      money: 10000
-    callback: scenarios/acces/createPolicy.js
+  # - label: createPolicy round4
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 200
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/acces/createPolicy.js
 
-  - label: createPolicy round5
-    description: Test description for the opening of an account through the deployed chaincode
-    txNumber: 500
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 250
-    arguments:
-      money: 10000
-    callback: scenarios/acces/createPolicy.js
+  # - label: createPolicy round5
+  #   description: Test description for the opening of an account through the deployed chaincode
+  #   txNumber: 500
+  #   rateControl:
+  #     type: fixed-rate
+  #     opts:
+  #       tps: 250
+  #   arguments:
+  #     money: 10000
+  #   callback: scenarios/acces/createPolicy.js
   # - label: createPolicy
   #   description: Test description for the opening of an account through the deployed chaincode
   #   txNumber: 10
