@@ -129,45 +129,45 @@ services:
     networks:
       - test
 
-  peer1.org5.digiblocks.com:
-    container_name: peer1.org5.digiblocks.com
-    extends:
-      file: base.yaml
-      service: peer-base
-    environment:
-      - FABRIC_LOGGING_SPEC=DEBUG
-      - ORDERER_GENERAL_LOGLEVEL=debug
-      - CORE_PEER_LOCALMSPID=Org5MSP
+  # peer1.org5.digiblocks.com:
+  #   container_name: peer1.org5.digiblocks.com
+  #   extends:
+  #     file: base.yaml
+  #     service: peer-base
+  #   environment:
+  #     - FABRIC_LOGGING_SPEC=DEBUG
+  #     - ORDERER_GENERAL_LOGLEVEL=debug
+  #     - CORE_PEER_LOCALMSPID=Org5MSP
 
-      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
+  #     - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
 
-      - CORE_PEER_ID=peer1.org5.digiblocks.com
-      - CORE_PEER_ADDRESS=peer1.org5.digiblocks.com:16051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:16051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org5.digiblocks.com:16052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:16052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org5.digiblocks.com:16051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org5.digiblocks.com:15051
+  #     - CORE_PEER_ID=peer1.org5.digiblocks.com
+  #     - CORE_PEER_ADDRESS=peer1.org5.digiblocks.com:16051
+  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:16051
+  #     - CORE_PEER_CHAINCODEADDRESS=peer1.org5.digiblocks.com:16052
+  #     - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:16052
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org5.digiblocks.com:16051
+  #     - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org5.digiblocks.com:15051
 
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb9:5984
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-      - CORE_METRICS_PROVIDER=prometheus
-      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
-      - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
-    ports:
-      - 16051:16051
-    volumes:
-      - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer1.org5.digiblocks.com/msp:/etc/hyperledger/crypto/peer/msp
-      - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer1.org5.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
-      - /var/run/:/host/var/run/
-      - ./../config/:/etc/hyperledger/channel/
-    extra_hosts:
-      - "orderer.digiblocks.com:${ORDERER_IP}"
-    networks:
-      - test
+  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb9:5984
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+  #     - CORE_METRICS_PROVIDER=prometheus
+  #     # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
+  #     - CORE_PEER_TLS_ENABLED=true
+  #     - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+  #     - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+  #     - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+  #     - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+  #   ports:
+  #     - 16051:16051
+  #   volumes:
+  #     - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer1.org5.digiblocks.com/msp:/etc/hyperledger/crypto/peer/msp
+  #     - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer1.org5.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
+  #     - /var/run/:/host/var/run/
+  #     - ./../config/:/etc/hyperledger/channel/
+  #   extra_hosts:
+  #     - "orderer.digiblocks.com:${ORDERER_IP}"
+  #   networks:
+  #     - test
