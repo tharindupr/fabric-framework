@@ -1,11 +1,17 @@
 version: "3"
 
 networks:
-  test:
+  caliper-overlay:
+    external:
+      name: caliper-overlay
 
 services:
   ca-org1:
     image: hyperledger/fabric-ca
+    networks:
+      caliper-overlay:
+        aliases:
+                - ca.org1.digiblocks.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org1.digiblocks.com
@@ -20,16 +26,16 @@ services:
     volumes:
       - ./../config/crypto-config/peerOrganizations/org1.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./../config/crypto-config/peerOrganizations/org1.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org1.digiblocks.com
-    hostname: ca.org1.digiblocks.com
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-6]
 
   ca-org2:
     image: hyperledger/fabric-ca
+    networks:
+      caliper-overlay:
+        aliases:
+                - ca.org2.digiblocks.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org2.digiblocks.com
@@ -44,10 +50,6 @@ services:
     volumes:
       - ./../config/crypto-config/peerOrganizations/org2.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./../config/crypto-config/peerOrganizations/org2.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org2.digiblocks.com
-    hostname: ca.org2.digiblocks.com
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-2]
@@ -56,6 +58,10 @@ services:
 
   ca-org3:
     image: hyperledger/fabric-ca
+    networks:
+      caliper-overlay:
+        aliases:
+                - ca.org3.digiblocks.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org3.digiblocks.com
@@ -70,16 +76,16 @@ services:
     volumes:
       - ./../config/crypto-config/peerOrganizations/org3.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./../config/crypto-config/peerOrganizations/org3.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org3.digiblocks.com
-    hostname: ca.org3.digiblocks.com
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-3]
 
   ca-org4:
     image: hyperledger/fabric-ca
+    networks:
+      caliper-overlay:
+        aliases:
+                - ca.org4.digiblocks.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org4.digiblocks.com
@@ -94,16 +100,16 @@ services:
     volumes:
       - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org4.digiblocks.com
-    hostname: ca.org4.digiblocks.com
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-4]
   
   ca-org5:
     image: hyperledger/fabric-ca
+    networks:
+      caliper-overlay:
+        aliases:
+                - ca.org5.digiblocks.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org5.digiblocks.com
@@ -118,10 +124,6 @@ services:
     volumes:
       - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org5.digiblocks.com
-    hostname: ca.org5.digiblocks.com
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-5]
@@ -130,8 +132,11 @@ services:
 ###########################################################################
 
   orderer.digiblocks.com:
-    container_name: orderer.digiblocks.com
     image: hyperledger/fabric-orderer:2.1
+    networks:
+      caliper-overlay:
+        aliases:
+                - orderer.digiblocks.com
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=info
@@ -157,8 +162,6 @@ services:
     ports:
       - 7050:7050
       - 8443:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -168,8 +171,11 @@ services:
                 constraints: [node.hostname == instance-6]
 
   orderer2.digiblocks.com:
-    container_name: orderer2.digiblocks.com
     image: hyperledger/fabric-orderer:2.1
+    networks:
+      caliper-overlay:
+        aliases:
+                - orderer2.digiblocks.com
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -195,8 +201,6 @@ services:
     ports:
       - 8050:8050
       - 8444:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -206,8 +210,11 @@ services:
                 constraints: [node.hostname == instance-2]
 
   orderer3.digiblocks.com:
-    container_name: orderer3.digiblocks.com
     image: hyperledger/fabric-orderer:2.1
+    networks:
+      caliper-overlay:
+        aliases:
+                - orderer3.digiblocks.com
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -233,8 +240,6 @@ services:
     ports:
       - 9050:9050
       - 8445:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -244,8 +249,11 @@ services:
                 constraints: [node.hostname == instance-3]
   
   orderer4.digiblocks.com:
-    container_name: orderer4.digiblocks.com
     image: hyperledger/fabric-orderer:2.1
+    networks:
+      caliper-overlay:
+        aliases:
+                - orderer4.digiblocks.com
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -271,8 +279,6 @@ services:
     ports:
       - 10050:10050
       - 8445:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -282,8 +288,11 @@ services:
                 constraints: [node.hostname == instance-4]
 
   orderer5.digiblocks.com:
-    container_name: orderer5.digiblocks.com
     image: hyperledger/fabric-orderer:2.1
+    networks:
+      caliper-overlay:
+        aliases:
+                - orderer5.digiblocks.com
     dns_search: .
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -309,8 +318,6 @@ services:
     ports:
       - 11050:11050
       - 8445:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -321,71 +328,76 @@ services:
 
   #############################################################################        
   couchdb0:
-    container_name: couchdb0
     image: hyperledger/fabric-couchdb
+    networks:
+      caliper-overlay:
+        aliases:
+                - couchdb0
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
       - 5984:5984
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-6]
 
   couchdb2:
-    container_name: couchdb2
     image: hyperledger/fabric-couchdb
+    networks:
+      caliper-overlay:
+        aliases:
+                - couchdb2
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
       - 7984:5984
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-2]
 
   couchdb4:
-    container_name: couchdb4
     image: hyperledger/fabric-couchdb
+    networks:
+      caliper-overlay:
+        aliases:
+                - couchdb4
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
       - 10984:5984
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-3]
 
   couchdb6:
-    container_name: couchdb6
     image: hyperledger/fabric-couchdb
+    networks:
+      caliper-overlay:
+        aliases:
+                - couchdb6
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
       - 12984:5984
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-4]
 
   couchdb8:
-    container_name: couchdb8
     image: hyperledger/fabric-couchdb
+    networks:
+      caliper-overlay:
+        aliases:
+                - couchdb8
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
       - 14984:5984
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-5]
@@ -393,8 +405,12 @@ services:
      
 
   peer0.org1.digiblocks.com:
-    container_name: peer0.org1.digiblocks.com
+    #container_name: peer0.org1.digiblocks.com
     image: hyperledger/fabric-peer:2.1
+    networks:
+            caliper-overlay:
+                aliases:
+                - peer0.org1.digiblocks.com
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_default
@@ -435,8 +451,6 @@ services:
       - ./../config/crypto-config/peerOrganizations/org1.digiblocks.com/peers/peer0.org1.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-6]
@@ -444,8 +458,12 @@ services:
              
 
   peer0.org2.digiblocks.com:
-    container_name: peer0.org2.digiblocks.com
+    #container_name: peer0.org2.digiblocks.com
     image: hyperledger/fabric-peer:2.1
+    networks:
+            caliper-overlay:
+                aliases:
+                - peer0.org2.digiblocks.com
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_default
@@ -483,18 +501,18 @@ services:
       - ./../config/crypto-config/peerOrganizations/org2.digiblocks.com/peers/peer0.org2.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-2]
 
   
-
-
   peer0.org3.digiblocks.com:
-    container_name: peer0.org3.digiblocks.com
+    #container_name: peer0.org3.digiblocks.com
     image: hyperledger/fabric-peer:2.1
+    networks:
+            caliper-overlay:
+                aliases:
+                - peer0.org3.digiblocks.com
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_default
@@ -532,16 +550,18 @@ services:
       - ./../config/crypto-config/peerOrganizations/org3.digiblocks.com/peers/peer0.org3.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-3]
 
 
   peer0.org4.digiblocks.com:
-    container_name: peer0.org4.digiblocks.com
+    #container_name: peer0.org4.digiblocks.com
     image: hyperledger/fabric-peer:2.1
+    networks:
+            caliper-overlay:
+                aliases:
+                - peer0.org4.digiblocks.com
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_default
@@ -580,8 +600,6 @@ services:
       - ./../config/crypto-config/peerOrganizations/org4.digiblocks.com/peers/peer0.org4.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-4]
@@ -589,8 +607,11 @@ services:
 
 
   peer0.org5.digiblocks.com:
-    container_name: peer0.org5.digiblocks.com
     image: hyperledger/fabric-peer:2.1
+    networks:
+            caliper-overlay:
+                aliases:
+                - peer0.org5.digiblocks.com
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_default
@@ -628,8 +649,6 @@ services:
       - ./../config/crypto-config/peerOrganizations/org5.digiblocks.com/peers/peer0.org5.digiblocks.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./../config/:/etc/hyperledger/channel/
-    networks:
-      - test
     deploy:
             placement:
                 constraints: [node.hostname == instance-5]
