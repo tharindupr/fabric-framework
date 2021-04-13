@@ -106,6 +106,7 @@ channels:
     contracts:
       - id: identitycontract
         contractID: identitycontract
+        version: "1.0"
 
 organizations:
   Org1:
