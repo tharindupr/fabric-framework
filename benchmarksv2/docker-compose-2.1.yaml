@@ -8,7 +8,10 @@ services:
     environment:
       - CALIPER_BIND_SUT=fabric:2.1.0
       - CALIPER_BENCHCONFIG=scenarios/config.yaml 
-      - CALIPER_NETWORKCONFIG=networks/fabric/network-config2.yaml
+      - CALIPER_NETWORKCONFIG=networks/fabric/network-config3.yaml
     volumes:
       - ./:/hyperledger/caliper/workspace
-    network_mode: host
+    networks:
+      caliper-overlay:
+        aliases:
+                - caliper
