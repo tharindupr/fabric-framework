@@ -90,7 +90,9 @@ channels:
     orderers:
       - orderer.digiblocks.com
       - orderer2.digiblocks.com
-      - orderer3.digiblocks.com
+      - orderer3.digiblocks.
+      - orderer4.digiblocks.com
+      - orderer5.digiblocks.com
     peers:
       peer0.org1.digiblocks.com:
         eventSource: true
