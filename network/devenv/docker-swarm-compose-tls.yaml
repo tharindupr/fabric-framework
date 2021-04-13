@@ -131,7 +131,7 @@ services:
 
 ###########################################################################
 
-  orderer.digiblocks.com:
+  orderer_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
     networks:
       caliper-overlay:
@@ -170,7 +170,7 @@ services:
             placement:
                 constraints: [node.hostname == instance-6]
 
-  orderer2.digiblocks.com:
+  orderer2_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
     networks:
       caliper-overlay:
@@ -209,7 +209,7 @@ services:
             placement:
                 constraints: [node.hostname == instance-2]
 
-  orderer3.digiblocks.com:
+  orderer3_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
     networks:
       caliper-overlay:
@@ -248,7 +248,7 @@ services:
             placement:
                 constraints: [node.hostname == instance-3]
   
-  orderer4.digiblocks.com:
+  orderer4_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
     networks:
       caliper-overlay:
@@ -287,7 +287,7 @@ services:
             placement:
                 constraints: [node.hostname == instance-4]
 
-  orderer5.digiblocks.com:
+  orderer5_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
     networks:
       caliper-overlay:
@@ -404,7 +404,7 @@ services:
 
      
 
-  peer0.org1.digiblocks.com:
+  peer0_org1_digiblocks_com:
     #container_name: peer0.org1.digiblocks.com
     image: hyperledger/fabric-peer:2.1
     networks:
@@ -457,7 +457,7 @@ services:
 
              
 
-  peer0.org2.digiblocks.com:
+  peer0_org2_digiblocks_com:
     #container_name: peer0.org2.digiblocks.com
     image: hyperledger/fabric-peer:2.1
     networks:
@@ -506,7 +506,7 @@ services:
                 constraints: [node.hostname == instance-2]
 
   
-  peer0.org3.digiblocks.com:
+  peer0_org3_digiblocks_com:
     #container_name: peer0.org3.digiblocks.com
     image: hyperledger/fabric-peer:2.1
     networks:
@@ -555,7 +555,7 @@ services:
                 constraints: [node.hostname == instance-3]
 
 
-  peer0.org4.digiblocks.com:
+  peer0_org4_digiblocks_com:
     #container_name: peer0.org4.digiblocks.com
     image: hyperledger/fabric-peer:2.1
     networks:
@@ -606,7 +606,7 @@ services:
 
 
 
-  peer0.org5.digiblocks.com:
+  peer0_org5_digiblocks_com:
     image: hyperledger/fabric-peer:2.1
     networks:
             caliper-overlay:
