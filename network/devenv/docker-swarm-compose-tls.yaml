@@ -26,7 +26,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-6]
 
   ca-org2:
     image: hyperledger/fabric-ca
@@ -50,7 +50,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-2]
     
     
 
@@ -76,7 +76,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-3]
 
   ca-org4:
     image: hyperledger/fabric-ca
@@ -100,7 +100,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-4]
   
   ca-org5:
     image: hyperledger/fabric-ca
@@ -124,7 +124,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-5]
 
 
 ###########################################################################
@@ -165,7 +165,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-6]
 
   orderer2.digiblocks.com:
     container_name: orderer2.digiblocks.com
@@ -203,7 +203,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-2]
 
   orderer3.digiblocks.com:
     container_name: orderer3.digiblocks.com
@@ -241,7 +241,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-3]
   
   orderer4.digiblocks.com:
     container_name: orderer4.digiblocks.com
@@ -279,7 +279,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-4]
 
   orderer5.digiblocks.com:
     container_name: orderer5.digiblocks.com
@@ -317,7 +317,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-5]
 
   #############################################################################        
   couchdb0:
@@ -332,7 +332,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-6]
 
   couchdb2:
     container_name: couchdb2
@@ -346,7 +346,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-2]
 
   couchdb4:
     container_name: couchdb4
@@ -360,7 +360,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-3]
 
   couchdb6:
     container_name: couchdb6
@@ -374,7 +374,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-4]
 
   couchdb8:
     container_name: couchdb8
@@ -388,7 +388,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-5]
 
   peer0.org1.digiblocks.com:
     container_name: peer0.org1.digiblocks.com
@@ -435,7 +435,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-6]
 
   peer0.org2.digiblocks.com:
     container_name: peer0.org2.digiblocks.com
@@ -477,7 +477,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-2]
 
   peer0.org3.digiblocks.com:
     container_name: peer0.org3.digiblocks.com
@@ -519,7 +519,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-3]
 
   peer0.org4.digiblocks.com:
     container_name: peer0.org4.digiblocks.com
@@ -561,7 +561,7 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-4]
 
   peer0.org5.digiblocks.com:
     container_name: peer0.org5.digiblocks.com
@@ -603,4 +603,4 @@ services:
       - test
     deploy:
             placement:
-                constraints: [node.hostname == YOUR-HOSTNAME]
+                constraints: [node.hostname == instance-5]
