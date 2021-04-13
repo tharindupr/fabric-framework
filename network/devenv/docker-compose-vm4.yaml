@@ -77,16 +77,16 @@ services:
     networks:
       - test
 
-  couchdb7:
-    container_name: couchdb7
-    image: hyperledger/fabric-couchdb
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    ports:
-      - 13984:5984
-    networks:
-      - test
+  # couchdb7:
+  #   container_name: couchdb7
+  #   image: hyperledger/fabric-couchdb
+  #   environment:
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
+  #   ports:
+  #     - 13984:5984
+  #   networks:
+      # - test
 
   peer0.org4.digiblocks.com:
     container_name: peer0.org4.digiblocks.com

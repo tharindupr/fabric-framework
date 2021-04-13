@@ -149,16 +149,16 @@ services:
     networks:
       - test
 
-  couchdb1:
-    container_name: couchdb1
-    image: hyperledger/fabric-couchdb
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    ports:
-      - 6984:5984
-    networks:
-      - test
+  # couchdb1:
+  #   container_name: couchdb1
+  #   image: hyperledger/fabric-couchdb
+  #   environment:
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
+  #   ports:
+  #     - 6984:5984
+  #   networks:
+  #     - test
 
 
   peer0.org1.digiblocks.com:
