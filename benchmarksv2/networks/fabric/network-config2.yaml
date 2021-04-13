@@ -103,27 +103,9 @@ channels:
       peer0.org5.digiblocks.com:
         eventSource: true
 
-    chaincodes:
-      - id: fabcar
-        version: "1"
-        language: golang
-        path: fabric/samples/fabcar/go
-      - id: assetcontract
-        version: "1"
-        language: golang
-        path: fabric/samples/asset_management
-      - id: policycontract
-        version: "1"
-        language: golang
-        path: fabric/samples/policy_contract
-      - id: accesscontrolcontract
-        version: "1"
-        language: golang
-        path: fabric/samples/access_control
-      - id: accesscontrolcontract_v2
-        version: "1"
-        language: golang
-        path: fabric/samples/access_control_v2
+    contracts:
+      - id: identitycontract
+        contractID: identitycontract
 
 organizations:
   Org1:
