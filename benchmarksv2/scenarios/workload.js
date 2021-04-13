@@ -11,12 +11,12 @@ class MyWorkload extends WorkloadModuleBase {
     }
     
     async submitTransaction() {
-        const randomId = Math.floor(Math.random());
+        const randomId = Math.floor(Math.random()*1000);
         const myArgs = {
             contractId: this.roundArguments.contractId,
             contractFunction: 'createAsset',
             invokerIdentity: 'client0.org1.digiblocks.com',
-            contractArguments: [randomId, "Building","Pending", "{\"attribute1_name\":\"value1\", \"attribute2_name\":\"value2\",\"attribute3_name\":\"value3\"}"],
+            contractArguments: [`${this.workerIndex}_${randomId}`, "Building","Pending", "{\"attribute1_name\":\"value1\", \"attribute2_name\":\"value2\",\"attribute3_name\":\"value3\"}"],
             readOnly: false
         };
         await this.sutAdapter.sendRequests(myArgs);
