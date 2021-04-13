@@ -11,7 +11,7 @@ class MyWorkload extends WorkloadModuleBase {
     }
     
     async submitTransaction() {
-        const randomId = Math.floor(Math.random()*this.roundArguments.assets);
+        const randomId = Math.floor(Math.random());
         const myArgs = {
             contractId: this.roundArguments.contractId,
             contractFunction: 'createAsset',
