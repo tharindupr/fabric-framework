@@ -11,7 +11,4 @@ services:
       - CALIPER_NETWORKCONFIG=networks/fabric/network-config3.yaml
     volumes:
       - ./:/hyperledger/caliper/workspace
-    networks:
-      caliper-overlay:
-        aliases:
-                - caliper
+    network_mode: host
