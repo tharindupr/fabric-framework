@@ -7,11 +7,11 @@ test:
   rounds:
       - label: createAsset
         description: Read asset benchmark
-        txDuration: 30
+        txNumber: 1000
         rateControl: 
           type: fixed-load
           opts:
-            transactionLoad: 10
+            transactionLoad: 40
         workload:
           module: scenarios/workload.js
           arguments:
@@ -23,10 +23,7 @@ monitors:
     options:
       interval: 5
       containers:
-      - http://10.128.0.27:7050/orderer.digiblocks.com
-      - http://10.128.0.27:7051/peer0.org1.digiblocks.com
-      - http://10.128.0.27:7054/ca.org1.digiblocks.com
-      - http://10.128.0.27:5984/couchdb0
+      - https://10.128.0.27:7051/peer0.org1.digiblocks.com
     charting:
       bar:
         metrics: [Memory(avg), CPU%(avg)]

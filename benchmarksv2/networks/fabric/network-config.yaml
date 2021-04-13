@@ -26,6 +26,67 @@ channels:
     - id: identitycontract
       contractID: identitycontract
 
+clients:
+  client0.org1.digiblocks.com:
+    client:
+      organization: Org1
+      credentialStore:
+        path: /tmp/hfc-kvs/org1
+        cryptoStore:
+          path: /tmp/hfc-cvs/org1
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org1.digiblocks.com/users/User1@org1.digiblocks.com/msp/signcerts/User1@org1.digiblocks.com-cert.pem
+
+  client0.org2.digiblocks.com:
+    client:
+      organization: Org2
+      credentialStore:
+        path: /tmp/hfc-kvs/org2
+        cryptoStore:
+          path: /tmp/hfc-cvs/org2
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org2.digiblocks.com/users/User1@org2.digiblocks.com/msp/signcerts/User1@org2.digiblocks.com-cert.pem
+
+  client0.org3.digiblocks.com:
+    client:
+      organization: Org3
+      credentialStore:
+        path: /tmp/hfc-kvs/org3
+        cryptoStore:
+          path: /tmp/hfc-cvs/org3
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org3.digiblocks.com/users/User1@org3.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org3.digiblocks.com/users/User1@org3.digiblocks.com/msp/signcerts/User1@org3.digiblocks.com-cert.pem
+
+  client0.org4.digiblocks.com:
+    client:
+      organization: Org4
+      credentialStore:
+        path: /tmp/hfc-kvs/org4
+        cryptoStore:
+          path: /tmp/hfc-cvs/org4
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org4.digiblocks.com/users/User1@org4.digiblocks.com/msp/signcerts/User1@org4.digiblocks.com-cert.pem
+
+  client0.org5.digiblocks.com:
+    client:
+      organization: Org5
+      credentialStore:
+        path: /tmp/hfc-kvs/org5
+        cryptoStore:
+          path: /tmp/hfc-cvs/org5
+      clientPrivateKey:
+        path: networks/fabric/crypto-config/peerOrganizations/org5.digiblocks.com/users/User1@org5.digiblocks.com/msp/keystore/priv_sk
+      clientSignedCert:
+        path: networks/fabric/crypto-config/peerOrganizations/org5.digiblocks.com/users/User1@org5.digiblocks.com/msp/signcerts/User1@org5.digiblocks.com-cert.pem
+
 
 organizations:
   - mspid: Org1MSP
