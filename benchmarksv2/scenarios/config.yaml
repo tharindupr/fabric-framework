@@ -27,3 +27,10 @@ test:
         - http://10.128.0.27:7051/peer0.org1.digiblocks.com
         - http://10.128.0.27:7054/ca.org1.digiblocks.com
         - http://10.128.0.27:5984/couchdb0
+      charting:
+        bar:
+          metrics: [Memory(avg), CPU%(avg)]
+        polar:
+          metrics: [all]
+
+      
