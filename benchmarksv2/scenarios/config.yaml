@@ -17,13 +17,13 @@ test:
           arguments:
             contractId: identitycontract
 
-  # monitors:
-  #   resource:
-  #   - module: docker
-  #     options:
-  #       interval: 5
-  #       containers:
-  #       - http://10.128.0.27:7050/orderer.digiblocks.com
-  #       - http://10.128.0.27:7051/peer0.org1.digiblocks.com
-  #       - http://10.128.0.27:8051/peer0.org1.digiblocks.com
-  #       - http://10.128.0.27:7051/peer0.org1.digiblocks.com
+  monitors:
+    resource:
+    - module: docker
+      options:
+        interval: 5
+        containers:
+        - http://10.128.0.27:7050/orderer.digiblocks.com
+        - http://10.128.0.27:7051/peer0.org1.digiblocks.com
+        - http://10.128.0.27:7054/ca.org1.digiblocks.com
+        - http://10.128.0.27:5984/couchdb0
