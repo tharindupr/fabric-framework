@@ -161,7 +161,6 @@ services:
     command: orderer
     ports:
       - 7050:7050
-      - 8443:8443
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -199,8 +198,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 8050:8050
-      - 8444:8443
+      - 8050:7050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -238,8 +236,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 9050:9050
-      - 8445:8443
+      - 9050:7050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -277,8 +274,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 10050:10050
-      - 8445:8443
+      - 10050:7050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -316,8 +312,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 11050:11050
-      - 8445:8443
+      - 11050:7050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/msp:/var/hyperledger/orderer/msp
