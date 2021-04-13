@@ -13,12 +13,12 @@
 #
 
 name: Fabric
-version: "2.1.0"
+version: "1.0"
 
 caliper:
     blockchain: fabric
     sutOptions :
-       mutualTls: false
+       mutualTls: true
 
 channels:
   - channelName: mychannel
