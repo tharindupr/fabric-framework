@@ -90,7 +90,7 @@ channels:
     orderers:
       - orderer.digiblocks.com
       - orderer2.digiblocks.com
-      - orderer3.digiblocks.
+      - orderer3.digiblocks.com
       - orderer4.digiblocks.com
       - orderer5.digiblocks.com
     peers:
