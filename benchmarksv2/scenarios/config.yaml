@@ -23,7 +23,7 @@ monitors:
     options:
       interval: 5
       containers:
-      - https://10.128.0.27:7051/peer0.org1.digiblocks.com
+      - all
     charting:
       bar:
         metrics: [Memory(avg), CPU%(avg)]
