@@ -180,7 +180,7 @@ orderers:
     tlsCACerts:
       path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
   orderer2.digiblocks.com:
-    url: grpcs://localhost:8050
+    url: grpcs://orderer2.digiblocks.com:8050
     grpcOptions:
       ssl-target-name-override: orderer2.digiblocks.com
     tlsCACerts:
