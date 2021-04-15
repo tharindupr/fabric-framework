@@ -174,33 +174,33 @@ organizations:
 
 orderers:
   orderer.digiblocks.com:
-    url: grpcs://orderer.digiblocks.com
+    url: grpcs://localhost:7050
     grpcOptions:
       ssl-target-name-override: orderer.digiblocks.com
     tlsCACerts:
       path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
   orderer2.digiblocks.com:
-    url: grpcs://orderer2.digiblocks.com
+    url: grpcs://localhost:8050
     grpcOptions:
       ssl-target-name-override: orderer2.digiblocks.com
     tlsCACerts:
       path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
   orderer3.digiblocks.com:
-    url: grpcs://orderer3.digiblocks.com
+    url: grpcs://localhost:9050
     grpcOptions:
       ssl-target-name-override: orderer3.digiblocks.com
     tlsCACerts:
       path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
 
   orderer4.digiblocks.com:
-    url: grpcs://orderer4.digiblocks.com
+    url: grpcs://localhost:10050
     grpcOptions:
       ssl-target-name-override: orderer4.digiblocks.com
     tlsCACerts:
       path: networks/fabric/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/msp/tlscacerts/tlsca.digiblocks.com-cert.pem
 
   orderer5.digiblocks.com:
-    url: grpcs://orderer5.digiblocks.com
+    url: grpcs://localhost:11050
     grpcOptions:
       ssl-target-name-override: orderer5.digiblocks.com
     tlsCACerts:
