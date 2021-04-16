@@ -286,7 +286,7 @@ peers:
 
 certificateAuthorities:
   ca.org1.digiblocks.com:
-    url: https://10.0.0.55:7054
+    url: https://localhost:7054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -296,7 +296,7 @@ certificateAuthorities:
         enrollSecret: adminpw
 
   ca.org2.digiblocks.com:
-    url: https://10.0.0.55:8054
+    url: https://localhost:8054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -306,7 +306,7 @@ certificateAuthorities:
         enrollSecret: adminpw
   
   ca.org3.digiblocks.com:
-    url: https://10.0.0.55:9054
+    url: https://localhost:9054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -316,7 +316,7 @@ certificateAuthorities:
         enrollSecret: adminpw
         
   ca.org4.digiblocks.com:
-    url: https://10.0.0.55:10054
+    url: https://localhost:10054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -326,7 +326,7 @@ certificateAuthorities:
         enrollSecret: adminpw
 
   ca.org5.digiblocks.com:
-    url: https://10.0.0.55:11054
+    url: https://localhost:11054
     httpOptions:
       verify: false
     tlsCACerts:
