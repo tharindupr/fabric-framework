@@ -23,9 +23,9 @@ monitor:
   - docker
   docker:  
     containers:
-    - http://localhost:7050/orderer.digiblocks.com
-    - http://localhost:8050/orderer2.digiblocks.com
-    - http://localhost:9050/orderer3.digiblocks.com
-    - http://localhost:10050/orderer4.digiblocks.com
-    - http://localhost:11050/orderer5.digiblocks.com
+    - http://localhost:7050
+    - http://localhost:8050
+    - http://localhost:9050
+    - http://localhost:10050
+    - http://localhost:11050
       
