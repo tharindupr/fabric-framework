@@ -295,7 +295,7 @@ certificateAuthorities:
         enrollSecret: adminpw
 
   ca.org2.digiblocks.com:
-    url: https://ca.org2.digiblocks.com:7054
+    url: https://ca.org2.digiblocks.com:8054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -305,7 +305,7 @@ certificateAuthorities:
         enrollSecret: adminpw
   
   ca.org3.digiblocks.com:
-    url: https://ca.org3.digiblocks.com:7054
+    url: https://ca.org3.digiblocks.com:9054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -315,7 +315,7 @@ certificateAuthorities:
         enrollSecret: adminpw
         
   ca.org4.digiblocks.com:
-    url: https://ca.org4.digiblocks.com:7054
+    url: https://ca.org4.digiblocks.com:10054
     httpOptions:
       verify: false
     tlsCACerts:
@@ -325,7 +325,7 @@ certificateAuthorities:
         enrollSecret: adminpw
 
   ca.org5.digiblocks.com:
-    url: https://ca.org5.digiblocks.com:7054
+    url: https://ca.org5.digiblocks.com:11054
     httpOptions:
       verify: false
     tlsCACerts:
