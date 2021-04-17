@@ -13,7 +13,7 @@ test:
           opts:
             transactionLoad: 5
         workload:
-          module: scenarios/createAsset.js
+          module: scenarios/createDEC.js
           arguments:
             contractId: deccontract
 
