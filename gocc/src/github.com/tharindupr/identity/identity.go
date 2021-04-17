@@ -136,20 +136,21 @@ func (s *SmartContract) updateAssetStatus(APIstub shim.ChaincodeStubInterface, a
 
 
 	// ABAC
-	val, ok, err := cid.GetAttributeValue(APIstub, "role")
-	if err !=nil {
-		return shim.Error("Error retriving user attributes")
-	}
 	
-	if !ok {
-		//The client identity does not possess the attributes
-		return shim.Error("The client identity does not possess the attributes")
-	}
+	// val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	// if err !=nil {
+	// 	return shim.Error("Error retriving user attributes")
+	// }
+	
+	// if !ok {
+	// 	//The client identity does not possess the attributes
+	// 	return shim.Error("The client identity does not possess the attributes")
+	// }
 
-	if val != "admin" {
-		fmt.Println("Attribute role : " + val)
-		return shim.Error("Insufficient permisions to update the status of the Asset. Only Admins can change status")
-	}
+	// if val != "admin" {
+	// 	fmt.Println("Attribute role : " + val)
+	// 	return shim.Error("Insufficient permisions to update the status of the Asset. Only Admins can change status")
+	// }
 
 	//checking whether the key exists
 	assetAsBytes, _ := APIstub.GetState(args[0])
