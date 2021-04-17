@@ -7,51 +7,99 @@ test:
   rounds:
       - label: createAsset
         description: Read asset benchmark
-        txNumber: 10
+        txNumber: 500
         rateControl: 
-          type: fixed-load
+          type: fixed-rate
           opts:
-            transactionLoad: 5
+            transactionLoad: 50
         workload:
           module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
 
-      - label: getAsset
+      - label: createAsset
         description: Read asset benchmark
-        txNumber: 100
+        txNumber: 500
         rateControl: 
-          type: fixed-load
+          type: fixed-rate
           opts:
-            transactionLoad: 50
+            transactionLoad: 100
         workload:
-          module: scenarios/readAsset.js
+          module: scenarios/createAsset.js
+          arguments:
+            contractId: identitycontract
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 500
+        rateControl: 
+          type: fixed-rate
+          opts:
+            transactionLoad: 150
+        workload:
+          module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
 
-      - label: updateAsset
+      - label: createAsset
         description: Read asset benchmark
-        txNumber: 100
+        txNumber: 500
         rateControl: 
-          type: fixed-load
+          type: fixed-rate
           opts:
-            transactionLoad: 50
+            transactionLoad: 200
         workload:
-          module: scenarios/updateAsset.js
+          module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
 
-      - label: traceAsset
+      - label: createAsset
         description: Read asset benchmark
-        txNumber: 100
+        txNumber: 500
         rateControl: 
-          type: fixed-load
+          type: fixed-rate
           opts:
-            transactionLoad: 50
+            transactionLoad: 250
         workload:
-          module: scenarios/traceAsset.js
+          module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
+
+      # - label: getAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/readAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: updateAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/updateAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: traceAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/traceAsset.js
+      #     arguments:
+      #       contractId: identitycontract
 
 
 monitor:

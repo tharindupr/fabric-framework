@@ -15,7 +15,7 @@ class MyWorkload extends WorkloadModuleBase {
         // const randomId2 = Math.floor(Math.random()*20000000);
         const myArgs = {
             contractId: this.roundArguments.contractId,
-            contractFunction: 'traceAsset',
+            contractFunction: 'traceDEC',
             invokerIdentity: 'client0.org1.digiblocks.com',
             contractArguments: ["DEC0000X"],
             readOnly: false
