@@ -80,7 +80,7 @@ channels:
   mychannel:
     # configBinary: networks/fabric/pavan-v2.1/mychannel.tx
     created: true
-    contracts: [{ "id": "identitycontract", "version": "1.0" }]
+    contracts: [{ "id": "identitycontract", "version": "1.0" }, { "id": "deccontract", "version": "1.0" }]
     definition:
       capabilities: []
       consortium: "SampleConsortium"
