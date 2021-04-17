@@ -3,7 +3,7 @@ test:
   description: This is an example benchmark for caliper, to test the backend DLT's
   workers:
     type: local
-    number: 1      #number of clients you need to spawn
+    number: 5      #number of clients you need to spawn
   rounds:
       - label: createAsset
         description: Read asset benchmark
@@ -19,17 +19,17 @@ test:
 
       - label: getAsset
         description: Read asset benchmark
-        txNumber: 10
+        txNumber: 100
         rateControl: 
           type: fixed-load
           opts:
-            transactionLoad: 5
+            transactionLoad: 50
         workload:
           module: scenarios/readAsset.js
           arguments:
             contractId: identitycontract
 
-      - label: getAsset
+      - label: updateAsset
         description: Read asset benchmark
         txNumber: 100
         rateControl: 
@@ -38,6 +38,18 @@ test:
             transactionLoad: 50
         workload:
           module: scenarios/updateAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: traceAsset
+        description: Read asset benchmark
+        txNumber: 100
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 50
+        workload:
+          module: scenarios/traceAsset.js
           arguments:
             contractId: identitycontract
 
