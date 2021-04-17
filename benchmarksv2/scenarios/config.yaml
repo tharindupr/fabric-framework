@@ -29,6 +29,18 @@ test:
           arguments:
             contractId: identitycontract
 
+      - label: getAsset
+        description: Read asset benchmark
+        txNumber: 100
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 50
+        workload:
+          module: scenarios/updateAsset.js
+          arguments:
+            contractId: identitycontract
+
 
 monitor:
   type:
