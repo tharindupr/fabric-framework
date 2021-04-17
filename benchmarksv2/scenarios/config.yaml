@@ -13,7 +13,19 @@ test:
           opts:
             transactionLoad: 5
         workload:
-          module: scenarios/workload.js
+          module: scenarios/createAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: getAsset
+        description: Read asset benchmark
+        txNumber: 10
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 5
+        workload:
+          module: scenarios/readAsset.js
           arguments:
             contractId: identitycontract
 
