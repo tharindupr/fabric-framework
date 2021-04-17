@@ -11,7 +11,7 @@ import (
 	sc "github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric/common/flogging"
 
-	"github.com/hyperledger/fabric-chaincode-go/pkg/cid"
+	// "github.com/hyperledger/fabric-chaincode-go/pkg/cid"
 )
 
 // SmartContract Define the Smart Contract structure
