@@ -3,7 +3,7 @@ test:
   description: This is an example benchmark for caliper, to test the backend DLT's
   workers:
     type: local
-    number: 5      #number of clients you need to spawn
+    number: 1      #number of clients you need to spawn
   rounds:
       - label: createAsset
         description: Read asset benchmark
