@@ -25,7 +25,7 @@ test:
           opts:
             transactionLoad: 50
         workload:
-          module: scenarios/getDEC.js
+          module: scenarios/readDEC.js
           arguments:
             contractId: deccontract
 
