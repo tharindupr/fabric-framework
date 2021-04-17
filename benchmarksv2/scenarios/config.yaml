@@ -17,17 +17,23 @@ test:
           arguments:
             contractId: identitycontract
 
-monitors:
-  resource:
-  - module: docker
-    options:
-      interval: 5
-      containers:
-      - all
-    charting:
-      bar:
-        metrics: [Memory(avg), CPU%(avg)]
-      polar:
-        metrics: [all]
+      - label: Create Car
+        txNumber: 50
+        rateControl:
+          type: fixed-rate
+          opts:
+            tps: 10
+        workload:
+          module: benchmarks/scenario/simple/pavan-v2.2/createCar.js
 
+monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - http://localhost:7050/orderer.digiblocks.com
+    - http://localhost:8050/orderer2.digiblocks.com
+    - http://localhost:9050/orderer3.digiblocks.com
+    - http://localhost:10050/orderer4.digiblocks.com
+    - http://localhost:11050/orderer5.digiblocks.com
       
