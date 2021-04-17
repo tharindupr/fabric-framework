@@ -198,7 +198,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 8050:7050
+      - 8050:8050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -236,7 +236,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 9050:7050
+      - 9050:9050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -274,7 +274,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 10050:7050
+      - 10050:10050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer4.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -312,7 +312,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 11050:7050
+      - 11050:11050
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer5.digiblocks.com/msp:/var/hyperledger/orderer/msp
@@ -347,7 +347,7 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 7984:5984
+      - 7984:7984
     deploy:
             placement:
                 constraints: [node.hostname == instance-2]
@@ -362,7 +362,7 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 10984:5984
+      - 10984:10984
     deploy:
             placement:
                 constraints: [node.hostname == instance-3]
@@ -377,7 +377,7 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 12984:5984
+      - 12984:12984
     deploy:
             placement:
                 constraints: [node.hostname == instance-4]
@@ -392,7 +392,7 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 14984:5984
+      - 14984:14984
     deploy:
             placement:
                 constraints: [node.hostname == instance-5]

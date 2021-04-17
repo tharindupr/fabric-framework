@@ -7,11 +7,11 @@ networks:
 services:
   caliper_2_2:
     container_name: caliper_2.2
-    image: hyperledger/caliper:0.4.1
-    command: launch manager --caliper-fabric-gateway-enabled
+    image: hyperledger/caliper:0.4.2
+    command: launch manager --caliper-fabric-gateway-enabled --caliper-fabric-gateway-localhost=false
     environment:
       - CALIPER_BIND_SUT=fabric:2.1.0
-      - CALIPER_BENCHCONFIG=scenarios/config.yaml 
+      - CALIPER_BENCHCONFIG=scenarios/config.yaml
       - CALIPER_NETWORKCONFIG=networks/fabric/network-config3.yaml
     volumes:
       - ./:/hyperledger/caliper/workspace
@@ -22,5 +22,3 @@ services:
     # deploy:
     #         placement:
     #             constraints: [node.hostname == instance-7]
-
-
