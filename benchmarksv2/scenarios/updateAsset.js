@@ -17,7 +17,7 @@ class MyWorkload extends WorkloadModuleBase {
             contractId: this.roundArguments.contractId,
             contractFunction: 'updateAssetStatus',
             invokerIdentity: 'client0.org1.digiblocks.com',
-            contractArguments: ["Nimbus00001", "Approved"],
+            contractArguments: ["Nimbus001", "Approved"],
             readOnly: false
         };
         await this.sutAdapter.sendRequests(myArgs);
