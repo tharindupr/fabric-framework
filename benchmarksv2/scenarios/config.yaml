@@ -17,14 +17,6 @@ test:
           arguments:
             contractId: identitycontract
 
-      - label: Create Car
-        txNumber: 50
-        rateControl:
-          type: fixed-rate
-          opts:
-            tps: 10
-        workload:
-          module: benchmarks/scenario/simple/pavan-v2.2/createCar.js
 
 monitor:
   type:
