@@ -17,7 +17,7 @@ class MyWorkload extends WorkloadModuleBase {
             contractId: this.roundArguments.contractId,
             contractFunction: 'createDEC',
             invokerIdentity: 'client0.org1.digiblocks.com',
-            contractArguments: [`${this.workerIndex}_${randomId1}__${randomId2}`, "Nimbus00001", "School","123.5","8", "245.8", "02/07/2020", "02/08/2020", "C"],
+            contractArguments: [`${this.workerIndex}_${randomId1}__${randomId2}`, "Nimbus001", "School","123.5","8", "245.8", "02/07/2020", "02/08/2020", "C"],
             readOnly: false
         };
         await this.sutAdapter.sendRequests(myArgs);
