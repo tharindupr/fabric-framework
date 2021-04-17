@@ -15,9 +15,9 @@ class MyWorkload extends WorkloadModuleBase {
         const randomId2 = Math.floor(Math.random()*20000000);
         const myArgs = {
             contractId: this.roundArguments.contractId,
-            contractFunction: 'createAsset',
+            contractFunction: 'createDEC',
             invokerIdentity: 'client0.org1.digiblocks.com',
-            contractArguments: [`${this.workerIndex}_${randomId1}__${randomId2}`, "Building","Pending", "{\"attribute1_name\":\"value1\", \"attribute2_name\":\"value2\",\"attribute3_name\":\"value3\"}"],
+            contractArguments: ["DEC0000X", "Nimbus00001", "School","123.5","8", "245.8", "02/07/2020", "02/08/2020", "C"],
             readOnly: false
         };
         await this.sutAdapter.sendRequests(myArgs);
