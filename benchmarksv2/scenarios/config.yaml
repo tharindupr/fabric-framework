@@ -7,11 +7,11 @@ test:
   rounds:
       - label: createAsset
         description: Read asset benchmark
-        txNumber: 1000
+        txNumber: 10
         rateControl: 
           type: fixed-load
           opts:
-            transactionLoad: 40
+            transactionLoad: 5
         workload:
           module: scenarios/workload.js
           arguments:
