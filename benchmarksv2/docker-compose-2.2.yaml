@@ -1,11 +1,11 @@
-version: "2"
+version: "3"
 networks:
   caliper-overlay:
     external:
       name: caliper-overlay
 
 services:
-  caliper_2.2:
+  caliper_2_2:
     container_name: caliper_2.2
     image: hyperledger/caliper:0.4.1
     command: launch manager --caliper-fabric-gateway-enabled
