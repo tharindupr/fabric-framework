@@ -5,41 +5,41 @@ test:
     type: local
     number: 5      #number of clients you need to spawn
   rounds:
-      - label: traceDEC
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 20
-        workload:
-          module: scenarios/traceDEC.js
-          arguments:
-            contractId: deccontract
+      # - label: traceDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 20
+      #   workload:
+      #     module: scenarios/traceDEC.js
+      #     arguments:
+      #       contractId: deccontract
 
-      - label: traceDEC
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 40
-        workload:
-          module: scenarios/traceDEC.js
-          arguments:
-            contractId: deccontract
+      # - label: traceDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 40
+      #   workload:
+      #     module: scenarios/traceDEC.js
+      #     arguments:
+      #       contractId: deccontract
       
-      - label: traceDEC
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 60
-        workload:
-          module: scenarios/traceDEC.js
-          arguments:
-            contractId: deccontract
+      # - label: traceDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 60
+      #   workload:
+      #     module: scenarios/traceDEC.js
+      #     arguments:
+      #       contractId: deccontract
 
       # - label: traceDEC
       #   description: Read asset benchmark
@@ -153,17 +153,17 @@ test:
       #     arguments:
       #       contractId: deccontract
 
-      # - label: traceDEC
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 260
-      #   workload:
-      #     module: scenarios/traceDEC.js
-      #     arguments:
-      #       contractId: deccontract
+      - label: traceDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 260
+        workload:
+          module: scenarios/traceDEC.js
+          arguments:
+            contractId: deccontract
     
       # - label: traceDEC
       #   description: Read asset benchmark
