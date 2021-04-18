@@ -129,6 +129,55 @@ test:
           arguments:
             contractId: identitycontract
 
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 220
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 240
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 260
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+      
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 280
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
       # - label: getAsset
       #   description: Read asset benchmark
       #   txNumber: 100
