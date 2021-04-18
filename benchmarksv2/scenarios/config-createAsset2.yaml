@@ -85,7 +85,7 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 180
+            tps: 140
         workload:
           module: scenarios/createAsset.js
           arguments:
@@ -97,7 +97,7 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 200
+            tps: 160
         workload:
           module: scenarios/createAsset.js
           arguments:
