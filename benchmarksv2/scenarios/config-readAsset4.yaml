@@ -91,43 +91,43 @@ test:
           arguments:
             contractId: identitycontract
 
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 160
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 160
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
       
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 180
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 180
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
 
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 200
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 200
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
       # - label: readAsset
       #   description: Read asset benchmark
