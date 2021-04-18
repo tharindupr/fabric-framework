@@ -5,53 +5,17 @@ test:
     type: local
     number: 5      #number of clients you need to spawn
   rounds:
-      - label: readAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 20
-        workload:
-          module: scenarios/readAsset.js
-          arguments:
-            contractId: identitycontract
-
-      - label: readAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 40
-        workload:
-          module: scenarios/readAsset.js
-          arguments:
-            contractId: identitycontract
-      
-      - label: readAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 60
-        workload:
-          module: scenarios/readAsset.js
-          arguments:
-            contractId: identitycontract
-
-      - label: readAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 80
-        workload:
-          module: scenarios/readAsset.js
-          arguments:
-            contractId: identitycontract
+      # - label: readAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 20
+      #   workload:
+      #     module: scenarios/readAsset.js
+      #     arguments:
+      #       contractId: identitycontract
 
       # - label: readAsset
       #   description: Read asset benchmark
@@ -59,25 +23,11 @@ test:
       #   rateControl: 
       #     type: fixed-rate
       #     opts:
-      #       tps: 100
+      #       tps: 40
       #   workload:
       #     module: scenarios/readAsset.js
       #     arguments:
       #       contractId: identitycontract
-
-
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 120
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
-
       
       # - label: readAsset
       #   description: Read asset benchmark
@@ -85,7 +35,7 @@ test:
       #   rateControl: 
       #     type: fixed-rate
       #     opts:
-      #       tps: 140
+      #       tps: 60
       #   workload:
       #     module: scenarios/readAsset.js
       #     arguments:
@@ -97,37 +47,87 @@ test:
       #   rateControl: 
       #     type: fixed-rate
       #     opts:
-      #       tps: 160
+      #       tps: 80
       #   workload:
       #     module: scenarios/readAsset.js
       #     arguments:
       #       contractId: identitycontract
+
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 100
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 120
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
       
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 180
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 140
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 160
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
+
+      
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 180
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
 
-      # - label: readAsset
-      #   description: Read asset benchmark
-      #   txNumber: 600
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 200
-      #   workload:
-      #     module: scenarios/readAsset.js
-      #     arguments:
-      #       contractId: identitycontract
+      - label: readAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 200
+        workload:
+          module: scenarios/readAsset.js
+          arguments:
+            contractId: identitycontract
 
       # - label: readAsset
       #   description: Read asset benchmark
