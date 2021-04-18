@@ -7,7 +7,7 @@ test:
   rounds:
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 100
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -19,7 +19,7 @@ test:
 
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 200
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -31,7 +31,7 @@ test:
       
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 300
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -43,7 +43,7 @@ test:
 
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 400
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -55,7 +55,7 @@ test:
 
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 500
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -81,7 +81,7 @@ test:
       
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 700
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -93,7 +93,7 @@ test:
 
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 800
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -106,7 +106,7 @@ test:
       
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 900
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -119,7 +119,7 @@ test:
 
       - label: traceDEC
         description: Read asset benchmark
-        txNumber: 1000
+        txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
@@ -128,6 +128,43 @@ test:
           module: scenarios/traceDEC.js
           arguments:
             contractId: deccontract
+
+      - label: traceDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 220
+        workload:
+          module: scenarios/traceDEC.js
+          arguments:
+            contractId: deccontract
+      
+      - label: traceDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 240
+        workload:
+          module: scenarios/traceDEC.js
+          arguments:
+            contractId: deccontract
+
+      - label: traceDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 260
+        workload:
+          module: scenarios/traceDEC.js
+          arguments:
+            contractId: deccontract
+    
       # - label: traceDEC
       #   description: Read asset benchmark
       #   txNumber: 10
