@@ -85,49 +85,49 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 140
-        workload:
-          module: scenarios/createAsset.js
-          arguments:
-            contractId: identitycontract
-
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 160
-        workload:
-          module: scenarios/createAsset.js
-          arguments:
-            contractId: identitycontract
-
-      
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
             tps: 180
         workload:
           module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
 
-
       - label: createAsset
         description: Read asset benchmark
         txNumber: 600
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 200
+            tps: 250
         workload:
           module: scenarios/createAsset.js
           arguments:
             contractId: identitycontract
+
+      
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 180
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 200
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
 
       # - label: getAsset
       #   description: Read asset benchmark
@@ -166,14 +166,14 @@ test:
       #       contractId: identitycontract
 
 
-monitor:
-  type:
-  - docker
-  docker:  
-    containers:
-    - http://localhost:7050
-    - http://localhost:8050
-    - http://localhost:9050
-    - http://localhost:10050
-    - http://localhost:11050
+# monitor:
+#   type:
+#   - docker
+#   docker:  
+#     containers:
+#     - http://localhost:7050
+#     - http://localhost:8050
+#     - http://localhost:9050
+#     - http://localhost:10050
+#     - http://localhost:11050
       
