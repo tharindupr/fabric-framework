@@ -128,6 +128,42 @@ test:
           module: scenarios/createDEC.js
           arguments:
             contractId: deccontract
+
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 180
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
+
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 180
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
+
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 180
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
       # - label: createDEC
       #   description: Read asset benchmark
       #   txNumber: 10

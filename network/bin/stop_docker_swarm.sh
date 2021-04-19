@@ -39,3 +39,6 @@ Creating service mon_prometheus
 Creating service mon_caddy
 Creating service mon_dockerd-exporter
 Creating service mon_cadvisor
+
+
+sudo npx caliper launch manager --caliper-fabric-gateway-enabled --caliper-fabric-gateway-localhost=false --caliper-workspace . --caliper-benchconfig scenarios/config-createDEC_stress.yaml --caliper-networkconfig networks/fabric/network-config4.yaml
