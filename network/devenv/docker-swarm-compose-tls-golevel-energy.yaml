@@ -52,7 +52,7 @@ services:
       - ./../config/crypto-config/peerOrganizations/org2.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
     deploy:
             placement:
-                constraints: [node.hostname == digiblocks-sv-01]
+                constraints: [node.hostname == Susan-Nimbus-01]
     
     
 
@@ -205,7 +205,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer2.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == digiblocks-sv-01]
+                constraints: [node.hostname == Susan-Nimbus-01]
 
   orderer3_digiblocks_com:
     image: hyperledger/fabric-orderer:2.1
@@ -243,7 +243,7 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/tls:/var/hyperledger/orderer/tls
     deploy:
             placement:
-                constraints: [node.hostname == digiblocks-sv-01]
+                constraints: [node.hostname == Susan-Nimbus-01]
   
   # orderer4_digiblocks_com:
   #   image: hyperledger/fabric-orderer:2.1
@@ -496,7 +496,7 @@ services:
       - ./../config/:/etc/hyperledger/channel/
     deploy:
             placement:
-                constraints: [node.hostname == digiblocks-sv-01]
+                constraints: [node.hostname == Susan-Nimbus-01]
 
   
   # peer0_org3_digiblocks_com:
