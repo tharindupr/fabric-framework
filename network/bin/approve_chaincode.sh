@@ -114,7 +114,4 @@ checkCommitReadyness() {
 queryInstalled
 approveForMyOrg1
 approveForMyOrg2
-approveForMyOrg3
-approveForMyOrg4
-approveForMyOrg5
 checkCommitReadyness
