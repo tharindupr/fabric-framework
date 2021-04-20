@@ -28,7 +28,7 @@ services:
       - ./../config/crypto-config/peerOrganizations/org1.digiblocks.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
     deploy:
             placement:
-                constraints: [node.hostname == digiblocks-vm-dt]
+                constraints: [node.hostname == Susan-Nimbus-01]
 
   ca-org2:
     image: hyperledger/fabric-ca
