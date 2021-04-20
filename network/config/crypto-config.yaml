@@ -23,15 +23,15 @@ OrdererOrgs:
         #     - "localhost"
         #     - "127.0.0.1"
       
-      - Hostname: orderer4
-        # SANS:
-        #     - "localhost"
-        #     - "127.0.0.1"
+      # - Hostname: orderer4
+      #   # SANS:
+      #   #     - "localhost"
+      #   #     - "127.0.0.1"
 
-      - Hostname: orderer5
-        # SANS:
-        #     - "localhost"
-        #     - "127.0.0.1"
+      # - Hostname: orderer5
+      #   # SANS:
+      #   #     - "localhost"
+      #   #     - "127.0.0.1"
 
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
@@ -69,49 +69,49 @@ PeerOrgs:
       Count: 1
 
 
-  - Name: Org3
-    Domain: org3.digiblocks.com
-    EnableNodeOUs: true
+  # - Name: Org3
+  #   Domain: org3.digiblocks.com
+  #   EnableNodeOUs: true
 
-    Template:
-      Count: 2
-      # Start: 5
-      # Hostname: {{.Prefix}}{{.Index}} # default
-      # SANS:
-      #   - "localhost"
+  #   Template:
+  #     Count: 2
+  #     # Start: 5
+  #     # Hostname: {{.Prefix}}{{.Index}} # default
+  #     # SANS:
+  #     #   - "localhost"
 
-    Users:
-      Count: 2
-
-
-  - Name: Org4
-    Domain: org4.digiblocks.com
-    EnableNodeOUs: true
-
-    Template:
-      Count: 2
-      # Start: 5
-      # Hostname: {{.Prefix}}{{.Index}} # default
-      # SANS:
-      #   - "localhost"
-
-    Users:
-      Count: 1
+  #   Users:
+  #     Count: 2
 
 
-  - Name: Org5
-    Domain: org5.digiblocks.com
-    EnableNodeOUs: true
+  # - Name: Org4
+  #   Domain: org4.digiblocks.com
+  #   EnableNodeOUs: true
 
-    Template:
-      Count: 2
-      # Start: 5
-      # Hostname: {{.Prefix}}{{.Index}} # default
-      # SANS:
-      #   - "localhost"
+  #   Template:
+  #     Count: 2
+  #     # Start: 5
+  #     # Hostname: {{.Prefix}}{{.Index}} # default
+  #     # SANS:
+  #     #   - "localhost"
 
-    Users:
-      Count: 1
+  #   Users:
+  #     Count: 1
+
+
+  # - Name: Org5
+  #   Domain: org5.digiblocks.com
+  #   EnableNodeOUs: true
+
+  #   Template:
+  #     Count: 2
+  #     # Start: 5
+  #     # Hostname: {{.Prefix}}{{.Index}} # default
+  #     # SANS:
+  #     #   - "localhost"
+
+  #   Users:
+  #     Count: 1
 
 
 
