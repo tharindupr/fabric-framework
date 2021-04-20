@@ -189,10 +189,10 @@ Application: &ApplicationDefaults
             Rule: "MAJORITY Admins"
         LifecycleEndorsement:
             Type: ImplicitMeta
-            Rule: "OR('Org1MSP.admin','Org2MSP.admin')"
+            Rule: "OR('Org1MSP.peer','Org2MSP.peer')"
         Endorsement:
             Type: ImplicitMeta
-            Rule: "OR('Org1MSP.admin','Org2MSP.admin')"
+            Rule: "OR('Org1MSP.peer','Org2MSP.peer')"
 
     Capabilities:
         <<: *ApplicationCapabilities
