@@ -186,13 +186,13 @@ Application: &ApplicationDefaults
             Rule: "ANY Writers"
         Admins:
             Type: ImplicitMeta
-            Rule: "ANY Admins"
+            Rule: "MAJORITY Admins"
         LifecycleEndorsement:
             Type: ImplicitMeta
             Rule: "ANY Endorsement"
         Endorsement:
             Type: ImplicitMeta
-            Rule: "ANY Endorsement"
+            Rule: "MAJORITY Endorsement"
 
     Capabilities:
         <<: *ApplicationCapabilities
