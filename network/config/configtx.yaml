@@ -189,7 +189,7 @@ Application: &ApplicationDefaults
             Rule: "MAJORITY Admins"
         LifecycleEndorsement:
             Type: ImplicitMeta
-            Rule: "MAJORITY Endorsement"
+            Rule: "OR('Org1MSP.peer','Org1MSP.peer')"
         Endorsement:
             Type: ImplicitMeta
             Rule: "MAJORITY Endorsement"
