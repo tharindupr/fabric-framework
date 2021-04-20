@@ -82,8 +82,8 @@ services:
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer.digiblocks.com/tls:/var/hyperledger/orderer/tls
 
     extra_hosts:
-      - "orderer2.digiblocks.com:157.190.53.14"
-      - "orderer3.digiblocks.com:157.190.53.14"
+      - "orderer2.digiblocks.com:157.190.53.35"
+      - "orderer3.digiblocks.com:157.190.53.35"
 
   # orderer2.digiblocks.com:
   #   container_name: orderer2.digiblocks.com
