@@ -108,7 +108,7 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
-#queryInstalled
-#approveForMyOrg1
-#approveForMyOrg2
+queryInstalled
+approveForMyOrg1
+approveForMyOrg2
 checkCommitReadyness
