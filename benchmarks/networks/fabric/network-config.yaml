@@ -25,6 +25,10 @@ channels:
     contracts:
     - id: smartmeter
       contractID: smartmeter
+    - id: deccontract
+      contractID: deccontract
+    - id: identitycontract
+      contractID: identitycontract
 
 
 organizations:
