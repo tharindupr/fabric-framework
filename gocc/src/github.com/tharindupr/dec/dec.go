@@ -84,20 +84,20 @@ func (s *SmartContract) createDEC(APIstub shim.ChaincodeStubInterface, args []st
 
 
 	// ABAC
-	val, ok, err := cid.GetAttributeValue(APIstub, "role")
-	if err !=nil {
-		return shim.Error("Error retriving user attributes")
-	}
+	// val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	// if err !=nil {
+	// 	return shim.Error("Error retriving user attributes")
+	// }
 	
-	if !ok {
-		//The client identity does not possess the attributes
-		return shim.Error("The client identity does not possess the attributes")
-	}
+	// if !ok {
+	// 	//The client identity does not possess the attributes
+	// 	return shim.Error("The client identity does not possess the attributes")
+	// }
 
-	if val != "buildingowner" && val != "admin" {
-		fmt.Println("Attribute role : " + val)
-		return shim.Error("Only building owners can create a DEC")
-	}
+	// if val != "buildingowner" && val != "admin" {
+	// 	fmt.Println("Attribute role : " + val)
+	// 	return shim.Error("Only building owners can create a DEC")
+	// }
 
 
 	clientID, _ := cid.GetID(APIstub)
@@ -165,20 +165,20 @@ func (s *SmartContract) updateDEC(APIstub shim.ChaincodeStubInterface, args []st
 
 
 	// ABAC
-	val, ok, err := cid.GetAttributeValue(APIstub, "role")
-	if err !=nil {
-		return shim.Error("Error retriving user attributes")
-	}
+	// val, ok, err := cid.GetAttributeValue(APIstub, "role")
+	// if err !=nil {
+	// 	return shim.Error("Error retriving user attributes")
+	// }
 	
-	if !ok {
-		//The client identity does not possess the attributes
-		return shim.Error("The client identity does not possess the attributes")
-	}
+	// if !ok {
+	// 	//The client identity does not possess the attributes
+	// 	return shim.Error("The client identity does not possess the attributes")
+	// }
 
-	if val != "communityverifier" && val != "externalverifier" && val != "admin" {
-		fmt.Println("Attribute role : " + val)
-		return shim.Error("Insufficient permisions to update the DEC")
-	}
+	// if val != "communityverifier" && val != "externalverifier" && val != "admin" {
+	// 	fmt.Println("Attribute role : " + val)
+	// 	return shim.Error("Insufficient permisions to update the DEC")
+	// }
 
 	//checking whether the key exists
 	decAsBytes, _ := APIstub.GetState(args[0])
