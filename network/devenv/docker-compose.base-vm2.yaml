@@ -178,7 +178,7 @@ services:
   #   ports:
   #     - 6984:5984
   #   networks:
-      - test
+      # - test
 
   couchdb2:
     container_name: couchdb2
