@@ -23,8 +23,6 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses peer0.org1.digiblocks.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses peer0.org2.digiblocks.com:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        --peerAddresses peer0.org3.digiblocks.com:11051 --tlsRootCertFiles $PEER0_ORG3_CA   \
-        --peerAddresses peer0.org5.digiblocks.com:15051 --tlsRootCertFiles $PEER0_ORG5_CA   \
         -c '{"function": "createAsset","Args":["Nimbus001", "Building","Pending", "{\"attribute1_name\":\"value1\", \"attribute2_name\":\"value2\",\"attribute3_name\":\"value3\"}"]}'
 
     ## Init ledger
