@@ -146,11 +146,11 @@ services:
       - ORDERER_GENERAL_LISTENPORT=9050
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
+    networks:
+      - test
     ports:
       - 9050:9050
       - 8445:8443
-    networks:
-      - test
     volumes:
       - ./../config/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
       - ./../config/crypto-config/ordererOrganizations/digiblocks.com/orderers/orderer3.digiblocks.com/msp:/var/hyperledger/orderer/msp
