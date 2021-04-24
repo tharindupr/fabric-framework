@@ -1,0 +1,179 @@
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+  workers:
+    type: local
+    number: 10      #number of clients you need to spawn
+  rounds:
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 20
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 40
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+      
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 60
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 80
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 100
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 120
+        workload:
+          module: scenarios/createAsset.js
+          arguments:
+            contractId: identitycontract
+
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 140
+        workload:
+          module: scenarios/createAsset.js
+          arguments:
+            contractId: identitycontract
+
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 160
+        workload:
+          module: scenarios/createAsset.js
+          arguments:
+            contractId: identitycontract
+
+      
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 180
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 200
+      #   workload:
+      #     module: scenarios/createAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: getAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/readAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: updateAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/updateAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+      # - label: traceAsset
+      #   description: Read asset benchmark
+      #   txNumber: 100
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/traceAsset.js
+      #     arguments:
+      #       contractId: identitycontract
+
+
+# monitor:
+#   type:
+#   - docker
+#   docker:  
+#     containers:
+#     - http://localhost:7050
+#     - http://localhost:8050
+#     - http://localhost:9050
+#     - http://localhost:10050
+#     - http://localhost:11050
+      

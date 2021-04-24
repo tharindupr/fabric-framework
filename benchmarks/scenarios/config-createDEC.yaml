@@ -1,0 +1,178 @@
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+  workers:
+    type: local
+    number: 5      #number of clients you need to spawn
+  rounds:
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 20
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
+
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 40
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
+      
+      - label: createDEC
+        description: Read asset benchmark
+        txNumber: 600
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 60
+        workload:
+          module: scenarios/createDEC.js
+          arguments:
+            contractId: deccontract
+
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 400
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 80
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 500
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 600
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 120
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 700
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 140
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 800
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 160
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 900
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 180
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 1000
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 200
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+      # - label: createDEC
+      #   description: Read asset benchmark
+      #   txNumber: 10
+      #   rateControl: 
+      #     type: fixed-load
+      #     opts:
+      #       transactionLoad: 5
+      #   workload:
+      #     module: scenarios/createDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      # - label: getDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-load
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/readDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+      # - label: traceDEC
+      #   description: Read asset benchmark
+      #   txNumber: 600
+      #   rateControl: 
+      #     type: fixed-load
+      #     opts:
+      #       transactionLoad: 50
+      #   workload:
+      #     module: scenarios/traceDEC.js
+      #     arguments:
+      #       contractId: deccontract
+
+
+monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - http://localhost:7050
+    - http://localhost:8050
+    - http://localhost:9050
+    - http://localhost:10050
+    - http://localhost:11050
+      
