@@ -89,8 +89,8 @@ services:
     image: hyperledger/fabric-orderer:2.1
     dns_search: .
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=error
-      - FABRIC_LOGGING_SPEC=ERROR
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - FABRIC_LOGGING_SPEC=DEBUG
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -126,8 +126,8 @@ services:
     image: hyperledger/fabric-orderer:2.1
     dns_search: .
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=error
-      - FABRIC_LOGGING_SPEC=ERROR
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - FABRIC_LOGGING_SPEC=DEBUG
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
@@ -293,8 +293,8 @@ services:
       file: base.yaml
       service: peer-base
     environment:
-      - FABRIC_LOGGING_SPEC=ERROR
-      - ORDERER_GENERAL_LOGLEVEL=error
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
       - CORE_PEER_LOCALMSPID=Org2MSP
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
       - CORE_PEER_ID=peer0.org2.digiblocks.com
@@ -334,8 +334,8 @@ services:
       file: base.yaml
       service: peer-base
     environment:
-      - FABRIC_LOGGING_SPEC=ERROR
-      - ORDERER_GENERAL_LOGLEVEL=error
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - ORDERER_GENERAL_LOGLEVEL=debug
       - CORE_PEER_LOCALMSPID=Org2MSP
 
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=digiblocks_test
