@@ -11,7 +11,7 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 50
+            tps: 70
         workload:
           module: scenarios/createDEC.js
           arguments:
@@ -23,7 +23,7 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 50
+            tps: 70
         workload:
           module: scenarios/createDEC.js
           arguments:
@@ -35,7 +35,7 @@ test:
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 50
+            tps: 70
         workload:
           module: scenarios/createDEC.js
           arguments:
