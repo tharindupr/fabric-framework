@@ -24,7 +24,7 @@ setGlobalsForPeer1Org1(){
     export CORE_PEER_LOCALMSPID="Org1MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org1.digiblocks.com/users/Admin@org1.digiblocks.com/msp
-    export CORE_PEER_ADDRESS=peer0.org1.digiblocks.com:8051
+    export CORE_PEER_ADDRESS=peer1.org1.digiblocks.com:8051
     
 }
 
@@ -40,7 +40,7 @@ setGlobalsForPeer1Org2(){
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/../config/crypto-config/peerOrganizations/org2.digiblocks.com/users/Admin@org2.digiblocks.com/msp
-    export CORE_PEER_ADDRESS=peer0.org2.digiblocks.com:10051
+    export CORE_PEER_ADDRESS=peer1.org2.digiblocks.com:10051
     
 }
 
