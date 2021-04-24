@@ -207,7 +207,7 @@ services:
       - FABRIC_LOGGING_SPEC=DEBUG
       - ORDERER_GENERAL_LOGLEVEL=debug
       - CORE_PEER_LOCALMSPID=Org1MSP
-      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=test
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=devenv_test
       - CORE_PEER_ID=peer0.org1.digiblocks.com
       - CORE_PEER_ADDRESS=peer0.org1.digiblocks.com:7051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
