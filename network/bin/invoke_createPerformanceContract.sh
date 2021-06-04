@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME=accesscontrolcontract_v2
+CC_NAME=kpicontract
 
 chaincodeInvoke() {
     # setGlobalsForPeer0Org1
@@ -23,7 +23,7 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "createObject","Args":["Object-ABCDEEE1", "Object","{\"manufacturer\":\"samsung\", \"organization\": \"org2\",\"location\":\"org1-bulding-01\"}"]}'
+        -c '{"function": "createPerformanceContract","Args":["{\"ContractID\":\"digiblocksc001\", \"BuildingID\":\"Nimbus001\",\"TotalTargetUsage\":234.2, \"IndividualTargetUsage\":[{\"Gas\":50}, {\"Electrcity\":100}], \"BaseLine\": 300, \"IndividualBaseline\": [{\"Gas\":100}, {\"Electrcity\":200}]}"]}'
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \

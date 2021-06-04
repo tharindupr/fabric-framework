@@ -81,7 +81,24 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
                 .submit()
             message = `Successfully submitted transient data`
         }
-
+        else if (fcn == "createEnergyRecord") {
+            console.log("=========createEnergyRecord=========")
+            console.log(fcn)
+            result = await contract.submitTransaction(fcn, args[0]);
+            message = `Successfully added the Energy Record`
+        } 
+        else if (fcn == "addWeeklyEnergyData") {
+            console.log("=========addWeeklyEnergyData=========")
+            console.log(fcn)
+            result = await contract.submitTransaction(fcn, args[0], args[1], args[2]);
+            message = `Successfully added the weekly data`
+        } 
+        else if (fcn == "createPerformanceContract") {
+            console.log("=========createPerformanceContract=========")
+            console.log(fcn)
+            result = await contract.submitTransaction(fcn, args[0]);
+            message = `Successfully added the performance contract`
+        } 
         else {
             return `Invocation function not found. Function is ${fcn}`
         }

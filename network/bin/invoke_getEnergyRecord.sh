@@ -3,7 +3,7 @@
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
 VERSION="1"
-CC_NAME=accesscontrolcontract_v2
+CC_NAME=kpicontract
 
 
 
@@ -14,7 +14,7 @@ chaincodeQuery() {
     # peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"Args":["queryAllCars"]}'
 
     # Query Car by Id
-    peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"function": "queryPolicy","Args":["tharindu"]}'
+    peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"function": "getEnergyRecord","Args":["Nimb00120215"]}'
     #'{"Args":["GetSampleData","Key1"]}'
 
     # Query Private Car by Id

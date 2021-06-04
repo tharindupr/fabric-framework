@@ -2,8 +2,8 @@
 
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="golang"
-VERSION="2"
-CC_NAME=accesscontrolcontract_v2
+VERSION="1"
+CC_NAME=kpicontract
 
 chaincodeInvoke() {
     # setGlobalsForPeer0Org1
@@ -23,7 +23,10 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "accessControl","Args":["Subject-ABCDEEE1", "Object-ABCDEEE1"]}'
+        -c '{"function": "createEnergyRecord","Args":["{\"TimeStamp\" : 30213,\"Year\": 2021,\"Month\": 5,\"BuildingID\": \"Nimb001\",\"Readings\" : {\"Unit\":\"kwh\", \"Week1\" : {\"electricity\": 400, \"gas\": 234}, \"Week2\" : {\"electricity\": 400, \"gas\": 234}, \"Week3\" : {\"electricity\": 400, \"gas\": 234}, \"Week4\" : {\"electricity\": 400, \"gas\": 234}, \"Week5\" : {\"electricity\": 400, \"gas\": 234}}, \"Status\": \"completed\"}"]}'
+
+
+
 
     ## Init ledger
     # peer chaincode invoke -o localhost:7050 \
