@@ -37,18 +37,18 @@ installChaincode() {
     # echo "===================== Chaincode is installed on peer1.org2 ===================== "
 
 
-    setGlobalsForPeer0Org4
-    peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    echo "===================== Chaincode is installed on peer0.org4 ===================== "
+    # setGlobalsForPeer0Org4
+    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    # echo "===================== Chaincode is installed on peer0.org4 ===================== "
 
     # setGlobalsForPeer1Org2
     # peer lifecycle chaincode install ${CC_NAME}.tar.gz
     # echo "===================== Chaincode is installed on peer1.org2 ===================== "
 
 
-    setGlobalsForPeer0Org5
-    peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    echo "===================== Chaincode is installed on peer0.org5 ===================== "
+    # setGlobalsForPeer0Org5
+    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    # echo "===================== Chaincode is installed on peer0.org5 ===================== "
 
     # setGlobalsForPeer1Org2
     # peer lifecycle chaincode install ${CC_NAME}.tar.gz
