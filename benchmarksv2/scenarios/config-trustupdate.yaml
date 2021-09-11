@@ -16,6 +16,43 @@ test:
           module: scenarios/trustUpdate.js
           arguments:
             contractId: modelcontract
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 50
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 10
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+
+         
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 50
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 20
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 50
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 30
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
 
 
 
