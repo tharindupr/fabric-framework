@@ -5,54 +5,54 @@ test:
     type: local
     number: 5      #number of clients you need to spawn
   rounds:
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 120
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 120
-        workload:
-          module: scenarios/trustUpdate.js
-          arguments:
-            contractId: modelcontract
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 120
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 120
+      #   workload:
+      #     module: scenarios/trustUpdate.js
+      #     arguments:
+      #       contractId: modelcontract
       
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 130
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 130
-        workload:
-          module: scenarios/trustUpdate.js
-          arguments:
-            contractId: modelcontract
+      # - label: createAsset
+      #   description: Read asset benchmark
+      #   txNumber: 130
+      #   rateControl: 
+      #     type: fixed-rate
+      #     opts:
+      #       tps: 130
+      #   workload:
+      #     module: scenarios/trustUpdate.js
+      #     arguments:
+      #       contractId: modelcontract
 
          
-      # - label: createAsset
-      #   description: Read asset benchmark
-      #   txNumber: 140
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 140
-      #   workload:
-      #     module: scenarios/trustUpdate.js
-      #     arguments:
-      #       contractId: modelcontract
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 140
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 140
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
       
-      # - label: createAsset
-      #   description: Read asset benchmark
-      #   txNumber: 150
-      #   rateControl: 
-      #     type: fixed-rate
-      #     opts:
-      #       tps: 150
-      #   workload:
-      #     module: scenarios/trustUpdate.js
-      #     arguments:
-      #       contractId: modelcontract
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 150
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 150
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
 
 
 
