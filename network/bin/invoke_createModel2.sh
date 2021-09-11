@@ -24,7 +24,7 @@ chaincodeInvoke() {
         --peerAddresses peer0.org1.digiblocks.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses peer0.org2.digiblocks.com:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
         --peerAddresses peer0.org3.digiblocks.com:11051 --tlsRootCertFiles $PEER0_ORG3_CA   \
-        --peerAddresses peer0.org5.digiblocks.com:15051 --tlsRootCertFiles $PEER0_ORG5_CA   \
+        # --peerAddresses peer0.org5.digiblocks.com:15051 --tlsRootCertFiles $PEER0_ORG5_CA   \
         -c '{"function": "createModel","Args":["{\"ModelID\":\"model_svm_attack_2\",\"NodeID\":\"value1\", \"ModelDescription\":\"SVM Model for version number attacks\",\"MalciousPrecision\": 0.66, \"MalciousRecall\": 0.94, \"BenignPrecision\": 0.89, \"BenignRecall\": 0.51, \"Hash\":\"eyJleHAiOjE2MjcwMTc5NDUsInVzZXJuYW1lIjoiVGVzdCIsIm9yZ05hbWUiOiJPcmcxIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjI2OTgxOTQ1fQ\", \"TrustComposition\": \"QoS\"}"]}'
 
 
