@@ -68,36 +68,11 @@ test:
 
       - label: createAsset
         description: Read asset benchmark
-        txNumber: 600
+        txNumber: 100
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 120
-        workload:
-          module: scenarios/createAsset.js
-          arguments:
-            contractId: identitycontract
-
-      
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 140
-        workload:
-          module: scenarios/createAsset.js
-          arguments:
-            contractId: identitycontract
-
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 600
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 160
+            tps: 20
         workload:
           module: scenarios/createAsset.js
           arguments:

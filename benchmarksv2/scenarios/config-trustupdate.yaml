@@ -7,28 +7,16 @@ test:
   rounds:
       - label: createAsset
         description: Read asset benchmark
-        txNumber: 500
+        txNumber: 50
         rateControl: 
           type: fixed-rate
           opts:
-            tps: 20
+            tps: 5
         workload:
           module: scenarios/trustUpdate.js
           arguments:
             contractId: modelcontract
 
-      - label: createAsset
-        description: Read asset benchmark
-        txNumber: 500
-        rateControl: 
-          type: fixed-rate
-          opts:
-            tps: 40
-        workload:
-          module: scenarios/trustUpdate.js
-          arguments:
-            contractId: modelcontract
-      
 
 
 monitor:
