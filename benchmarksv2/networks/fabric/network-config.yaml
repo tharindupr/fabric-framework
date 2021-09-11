@@ -25,6 +25,8 @@ channels:
     contracts:
     - id: identitycontract
       contractID: identitycontract
+    - id: modelcontract
+      contractID: modelcontract
 
 clients:
   client0.org1.digiblocks.com:
