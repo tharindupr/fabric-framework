@@ -11,11 +11,13 @@ class MyWorkload extends WorkloadModuleBase {
     }
     
     async submitTransaction() {
+        const randomId1 = Math.floor(Math.random()*1000);
+        const randomId2 = Math.floor(Math.random()*20000000);
         const myArgs = {
             contractId: this.roundArguments.contractId,
             contractFunction: 'trustUpdate',
             invokerIdentity: 'client0.org1.digiblocks.com',
-            contractArguments: ["{\"NodeID\":\"nwx1fe91::723:749a:a:20a\", \"Timestamp\":\"value2\", \"OutPut\": {\"model_svm_attack_1\": false, \"model_svm_attack_2\": true}}"],
+            contractArguments: [`{\"NodeID\":\"${this.workerIndex}_${randomId1}__${randomId2}\", \"Timestamp\":\"value2\", \"OutPut\": {\"model_svm_attack_1\": false, \"model_svm_attack_2\": true}}`],
             readOnly: false
         };
         await this.sutAdapter.sendRequests(myArgs);
