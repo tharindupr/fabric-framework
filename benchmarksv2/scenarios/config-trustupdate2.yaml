@@ -1,0 +1,69 @@
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+  workers:
+    type: local
+    number: 5      #number of clients you need to spawn
+  rounds:
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 80
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 80
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 90
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 90
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+
+         
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 100
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 100
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+      
+      - label: createAsset
+        description: Read asset benchmark
+        txNumber: 110
+        rateControl: 
+          type: fixed-rate
+          opts:
+            tps: 110
+        workload:
+          module: scenarios/trustUpdate.js
+          arguments:
+            contractId: modelcontract
+
+
+
+monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - http://localhost:7050
+    - http://localhost:8050
+    - http://localhost:9050
+    - http://localhost:10050
+    - http://localhost:11050
+      
